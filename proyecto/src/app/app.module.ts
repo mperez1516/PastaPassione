@@ -12,6 +12,8 @@ import { VideoInicioComponent } from './componentsLanding/video-inicio/video-ini
 import { ProductoTableComponent } from './producto/producto-table/producto-table.component';
 import { AdicionalComponent } from './adicional/adicional.component';
 import { AdicionalTableComponent } from './adicional/adicional-table/adicional-table.component';
+import { ClienteTableComponent } from './cliente/cliente-table/cliente-table.component';
+import { AdministradorTableComponent } from './administrador/administrador-table/administrador-table.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AdicionalTableComponent } from './adicional/adicional-table/adicional-t
     VideoInicioComponent,
     ProductoTableComponent,
     AdicionalComponent,
-    AdicionalTableComponent
+    AdicionalTableComponent,
+    ClienteTableComponent,
+    AdministradorTableComponent
   ],
   imports: [
     BrowserModule,
