@@ -10,8 +10,6 @@ import { CarruselComponent } from './componentsLanding/carrusel/carrusel.compone
 import { ReservasComponent } from './componentsLanding/reservas/reservas.component';
 import { VideoInicioComponent } from './componentsLanding/video-inicio/video-inicio.component';
 import { ProductoTableComponent } from './producto/producto-table/producto-table.component';
-import { AdicionalComponent } from './adicional/adicional.component';
-import { AdicionalTableComponent } from './adicional/adicional-table/adicional-table.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { AdicionalTableComponent } from './adicional/adicional-table/adicional-t
     CarruselComponent,
     ReservasComponent,
     VideoInicioComponent,
-    ProductoTableComponent,
-    AdicionalComponent,
-    AdicionalTableComponent
+    ProductoTableComponent
   ],
   imports: [
     BrowserModule,
