@@ -9,6 +9,7 @@ import { NosotrosComponent } from './componentsLanding/nosotros/nosotros.compone
 import { CarruselComponent } from './componentsLanding/carrusel/carrusel.component';
 import { ReservasComponent } from './componentsLanding/reservas/reservas.component';
 import { VideoInicioComponent } from './componentsLanding/video-inicio/video-inicio.component';
+import { ProductoTableComponent } from './producto/producto-table/producto-table.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { VideoInicioComponent } from './componentsLanding/video-inicio/video-ini
     NosotrosComponent,
     CarruselComponent,
     ReservasComponent,
-    VideoInicioComponent
+    VideoInicioComponent,
+    ProductoTableComponent
   ],
   imports: [
     BrowserModule,
