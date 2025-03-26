@@ -9,6 +9,12 @@ import { NosotrosComponent } from './componentsLanding/nosotros/nosotros.compone
 import { CarruselComponent } from './componentsLanding/carrusel/carrusel.component';
 import { ReservasComponent } from './componentsLanding/reservas/reservas.component';
 import { VideoInicioComponent } from './componentsLanding/video-inicio/video-inicio.component';
+import { AdicionalComponent } from './entidades/adicional/adicional.component';
+import { AdministradorComponent } from './entidades/administrador/administrador.component';
+import { ClienteComponent } from './entidades/cliente/cliente.component';
+import { DomiciliarioComponent } from './entidades/domiciliario/domiciliario.component';
+import { OperadorComponent } from './entidades/operador/operador.component';
+import { ProductoComponent } from './entidades/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,13 @@ import { VideoInicioComponent } from './componentsLanding/video-inicio/video-ini
     NosotrosComponent,
     CarruselComponent,
     ReservasComponent,
-    VideoInicioComponent
+    VideoInicioComponent,
+    AdicionalComponent,
+    AdministradorComponent,
+    ClienteComponent,
+    DomiciliarioComponent,
+    OperadorComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
