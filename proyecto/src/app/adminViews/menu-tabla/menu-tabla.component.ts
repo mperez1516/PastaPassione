@@ -160,6 +160,9 @@ export class MenuTablaComponent {
     this.detalleProducto = producto;
   }
 
+  eliminarProducto(producto:Producto){
+    this.productosList.splice(this.productosList.indexOf(producto), 1);
+  }
   agregarProducto(producto: Producto) {
     this.productosList.push(producto);
   }
