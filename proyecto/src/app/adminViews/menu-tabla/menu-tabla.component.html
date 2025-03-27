@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <h1>MENU TABLA</h1>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Buscar...">
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped shadow rounded">
+            <thead>
+                <tr>
+                    <th scope="col">Plato</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productosList">
+                    <td> {{producto.nombre}} </td>
+                    <td> {{producto.descripcion}} </td>
+                    <td> {{producto.precio}} </td>
+                    <td> {{producto.tipo}} </td>
+
+                    <td>
+                        <button class="btn btn-primary btn-sm" (click)= "editarProducto(producto)">
+                            Editar    
+                        </button>
+
+                    </td>
+                </tr>    
+            </tbody>
+        </table>
+    </div>
+    
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <button id="prevButton" class="page-link">Anterior</button>
+            </li>
+            <li class="page-item">
+                <button id="nextButton" class="page-link">Siguiente</button>
+            </li>
+        </ul>
+    </nav>
+    <div class="text-center mt-3">
+        <button class="btn btn-success">Agregar Producto</button>
+    </div>
+</div>
+
+<app-detalle-producto> </app-detalle-producto>
+<app-agregar-producto (addProductoEvent)="agregarProducto($event)"> </app-agregar-producto> 

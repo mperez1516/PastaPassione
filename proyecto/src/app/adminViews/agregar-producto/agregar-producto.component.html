@@ -1,0 +1,29 @@
+<div class="container mt-4 container-agregar-producto">
+    <h2>Agregar Producto</h2>
+    <form>
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="Nombre" required [(ngModel)]="formProducto.nombre">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input type="text" class="form-control" name="Descripcion" required [(ngModel)]="formProducto.descripcion">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Precio</label>
+            <input type="number" class="form-control" name="Precio" required [(ngModel)]="formProducto.precio">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tipo</label>
+            <input type="text" class="form-control" name="Tipo" required [(ngModel)]="formProducto.tipo">
+        </div>
+        <button type="submit" class="btn btn-success" (click)="addProductoForm()"> Agregar </button>
+        
+    </form>
+</div>
+
+{{formProducto.nombre}}
+{{formProducto.descripcion}}
+{{formProducto.precio}}
+{{formProducto.tipo}}
+
