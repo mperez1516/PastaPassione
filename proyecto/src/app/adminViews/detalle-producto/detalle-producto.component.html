@@ -1,7 +1,27 @@
 <div>
-    <ng-container *ngIf= "producto">
-        
-
+    <ng-container *ngIf="producto">
+        <h3>Editar Producto</h3>
+        <form *ngIf="formVisible">
+            <div class="mb-3">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="producto.nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion">
+            </div>
+            <div class="mb-3">
+                <label for="precio">Precio</label>
+                <input type="number" class="form-control" id="precio" [(ngModel)]="producto.precio" name="precio">
+            </div>
+            <div class="mb-3">
+                <label for="tipo">Tipo</label>
+                <input type="text" class="form-control" id="tipo" [(ngModel)]="producto.tipo" name="tipo">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+        </form>
+        <div *ngIf="!formVisible">
+            <p>Producto modificado</p>
+        </div>
     </ng-container>
-
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Producto } from 'src/app/entidades/producto/producto';
 
 @Component({
@@ -8,6 +8,11 @@ import { Producto } from 'src/app/entidades/producto/producto';
 })
 export class DetalleProductoComponent {
 
-  producto!:Producto;
+  @Input() producto!:Producto;
 
+  formVisible: boolean = true;
+
+  guardarCambios() {
+    this.formVisible = false;
+  }
 }
