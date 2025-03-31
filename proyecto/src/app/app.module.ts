@@ -22,6 +22,8 @@ import { CommonModule } from '@angular/common';
 import { DetalleProductoComponent } from './adminViews/detalle-producto/detalle-producto.component';
 import { AgregarProductoComponent } from './adminViews/agregar-producto/agregar-producto.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
