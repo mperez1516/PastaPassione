@@ -4,7 +4,6 @@ import { MenuTablaComponent } from './adminViews/menu-tabla/menu-tabla.component
 
 const routes: Routes = [
   {path: 'admin/menu', component: MenuTablaComponent}
-  
 ];
 
 @NgModule({

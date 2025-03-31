@@ -10,7 +10,7 @@ html {
     font-family: 'Georgia', serif;
     font-size: 14px;
     color: #333;
-    background-color: rgb(255, 230, 214); /* Fondo blanco, igual que la tabla */
+    background-color: #ffffff; /* Fondo blanco, igual que la tabla */
     padding: 20px;
     border: 1px solid #ddd; /* Borde similar al de la tabla */
     border-radius: 5px;
