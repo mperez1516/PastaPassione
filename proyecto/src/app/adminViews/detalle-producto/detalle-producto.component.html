@@ -1,7 +1,7 @@
 <div class="container mt-4 formulario-edicion">
     <ng-container *ngIf="producto">
         <h3>Editar Producto</h3>
-        <form *ngIf="formVisible">
+        <form *ngIf="formVisible" (ngSubmit)="guardarCambios()" #form="ngForm">
             <div class="mb-3">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" [(ngModel)]="producto.nombre" name="nombre">
@@ -16,9 +16,9 @@
             </div>
             <div class="mb-3">
                 <label for="tipo">Tipo</label>
-                <input type="text" class="form-control" id="tipo" [(ngModel)]="producto.tipo" name="tipo">
+                <input type="text" class="form-control" id="tipo" [(ngModel)]="producto.categoria" name="tipo">
             </div>
-            <button type="submit" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
         <div *ngIf="!formVisible">
             <p>Producto modificado</p>

@@ -15,11 +15,11 @@ export class AgregarProductoComponent {
 
   //Modelo de producto
   formProducto: Producto= {
-    id: 0,
+    producto_id: 0,
     nombre: "",
     precio: 0,
     descripcion: "",
-    tipo: ""
+    categoria: ""
   }
 
   //Agregar producto

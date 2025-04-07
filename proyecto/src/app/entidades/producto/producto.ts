@@ -1,10 +1,10 @@
 import { Adicional } from "../adicional/adicional";
 
 export interface Producto {
-    id: number;
+    producto_id: number;
     nombre: string;
     precio: number;
     descripcion: string;
-    tipo: string;
+    categoria: string;
     adicionales?: Adicional[];
   }
