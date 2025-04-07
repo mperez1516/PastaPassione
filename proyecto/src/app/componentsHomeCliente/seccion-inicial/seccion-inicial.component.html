@@ -1,0 +1,28 @@
+<section class="seccionInicial">
+    <!-- Elemento de video -->
+    <video id="videoPlayer" autoplay muted loop playsinline class="background-video">
+        <source id="videoSource" src="assets/videos/videoBienvenida.mp4" type="video/mp4">
+        Tu navegador no soporta el tag de video.
+    </video>
+
+    <div class="descripcion">
+        <h2 id="bienvenida">
+            Bienvenid@ <span th:if="${cliente != null}" th:text="${cliente.nombre}">Nombre</span> 
+            <span th:if="${cliente != null}" th:text="${cliente.apellido}">Apellido</span>
+        </h2>
+        <h1>REALIZA TU PEDIDO AQUÍ</h1> 
+        <p>Sabores hechos con amor y auténtica pasión en cada bocado !!!</p> 
+        <button id="ordenar" th:onclick="|window.location.href='@{/menu}'|">Ver menú</button> 
+    </div>
+</section>
+
+<!-- Franja desplazable -->
+<div class="franja">
+    <div class="contenido">
+        <p>🍕 ¡Pizzas 2x1 todos los días! 🍕</p>
+        <p>🍝 ¡Pastas 2x1 para compartir! 🍝</p>
+        <p>🔥 10% de descuento en platos nuevos de la carta 🔥</p>
+        <p>🍷 ¡Cena romántica con vino de cortesía! 🍷</p>
+    </div>   
+</div>
+

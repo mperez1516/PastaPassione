@@ -23,6 +23,11 @@ import { DetalleProductoComponent } from './adminViews/detalle-producto/detalle-
 import { AgregarProductoComponent } from './adminViews/agregar-producto/agregar-producto.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LandingPageComponent } from './frontPages/landing-page/landing-page.component';
+import { HomeClientePageComponent } from './frontPages/home-cliente-page/home-cliente-page.component';
+import { HeaderClienteComponent } from './componentsHomeCliente/header-cliente/header-cliente.component';
+import { SeccionInicialComponent } from './componentsHomeCliente/seccion-inicial/seccion-inicial.component';
+import { PromocionesComponent } from './componentsHomeCliente/promociones/promociones.component';
 
 
 @NgModule({
@@ -44,7 +49,12 @@ import { HttpClientModule } from '@angular/common/http';
     AdicionalesTablaComponent,
     ClientesTablaComponent,
     DetalleProductoComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    LandingPageComponent,
+    HomeClientePageComponent,
+    HeaderClienteComponent,
+    SeccionInicialComponent,
+    PromocionesComponent
   ],
   imports: [
     BrowserModule,

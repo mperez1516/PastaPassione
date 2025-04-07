@@ -1,0 +1,14 @@
+<h2 id="promTitle">¡Promociones del mes!</h2>
+
+<div class="promocionesCards">
+    <div class="card" th:each="promo, iter : ${promociones}">
+        <div class="face front">
+            <img th:src="@{'assets/Imagenes/promociones/promocion' + ${iter.index + 1} + '.jpg'}" th:alt="${promo.titulo}">
+        </div>
+        <div class="face back">
+            <h3 th:text="${promo.titulo}">Título de la Promoción</h3>
+            <p th:text="${promo.descripcion}">Descripción de la Promoción</p>
+            <button>Comprar</button>
+        </div>
+    </div>
+</div>
