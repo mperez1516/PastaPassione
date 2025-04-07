@@ -24,18 +24,22 @@ export class AdicionalesService {
   }
 
   // Crear nuevo adicional
-  addAdicional(adicional: Adicional){
-    this.http.post<Adicional>(this.baseUrl, adicional).subscribe();
+  addAdicional(adicional: Omit<Adicional, 'adicional_id'>): Observable<Adicional> {
+    return this.http.post<Adicional>(this.baseUrl, adicional);
   }
+  
+  
 
   // Actualizar adicional
-  updateAdicional(id: number, adicional: Adicional) {
-    this.http.put<Adicional>(`${this.baseUrl}/${id}`, adicional);
+  updateAdicional(id: number, adicional: Adicional): Observable<Adicional> {
+    return this.http.put<Adicional>(`${this.baseUrl}/${id}`, adicional);
   }
+  
 
   // Eliminar adicional
-  deleteAdicional(id: number) {
-     this.http.delete<void>(`${this.baseUrl}/${id}`).subscribe();
+  deleteAdicional(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+  
 
 }

@@ -28,6 +28,8 @@ import { HomeClientePageComponent } from './frontPages/home-cliente-page/home-cl
 import { HeaderClienteComponent } from './componentsHomeCliente/header-cliente/header-cliente.component';
 import { SeccionInicialComponent } from './componentsHomeCliente/seccion-inicial/seccion-inicial.component';
 import { PromocionesComponent } from './componentsHomeCliente/promociones/promociones.component';
+import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detalle-adicional.component';
+import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { PromocionesComponent } from './componentsHomeCliente/promociones/promoc
     HomeClientePageComponent,
     HeaderClienteComponent,
     SeccionInicialComponent,
-    PromocionesComponent
+    PromocionesComponent,
+    DetalleAdicionalComponent,
+    AgregarAdicionalComponent
   ],
   imports: [
     BrowserModule,

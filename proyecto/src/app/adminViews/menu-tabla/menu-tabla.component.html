@@ -22,9 +22,8 @@
                     <td> {{producto.categoria}} </td>
 
                     <td>
-                        <button class="btn btn-primary btn-sm" (click)= "editarProducto(producto)">
-                            Editar    
-                        </button>
+                        <a class="btn btn-primary btn-sm" [routerLink]="['/detalleProducto', producto.producto_id]">
+                            Editar</a>
                         <button class="btn btn-primary btn-sm" (click)= "eliminarProducto(producto)">
                             Eliminar    
                         </button>
@@ -47,5 +46,4 @@
    
 </div>
 
-<app-detalle-producto [producto]="detalleProducto"></app-detalle-producto>
-<app-agregar-producto (addProductoEvent)="agregarProducto($event)"> </app-agregar-producto> 
+<a class="btn btn-success btn-sm" [routerLink]="['/agregarProducto']">Agregar producto</a>

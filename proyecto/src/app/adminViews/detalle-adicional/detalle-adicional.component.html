@@ -1,0 +1,20 @@
+<div class="container mt-4 container-editar-adicional" *ngIf="adicional">
+    <h2>Editar Adicional</h2>
+  
+    <form (ngSubmit)="guardarCambios()" #form="ngForm">
+      
+        <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="nombre" [(ngModel)]="adicional.nombre" required>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Precio</label>
+        <input type="number" class="form-control" name="precio" [(ngModel)]="adicional.precio" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    </form>
+  </div>
+  

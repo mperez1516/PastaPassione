@@ -1,0 +1,48 @@
+<div class="container mt-4 container-agregar-adicional">
+    <h2>Agregar Adicional</h2>
+  
+    <form (ngSubmit)="guardar()" #form="ngForm">
+      <!-- Nombre -->
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          name="nombre"
+          [(ngModel)]="adicional.nombre"
+          required
+        />
+      </div>
+  
+      <!-- Precio -->
+      <div class="mb-3">
+        <label class="form-label">Precio</label>
+        <input
+          type="number"
+          class="form-control"
+          name="precio"
+          [(ngModel)]="adicional.precio"
+          min="0"
+          required
+        />
+      </div>
+  
+      <!-- Cantidad -->
+      <div class="mb-3">
+        <label class="form-label">Cantidad</label>
+        <input
+          type="number"
+          class="form-control"
+          name="cantidad"
+          [(ngModel)]="adicional.cantidad"
+          min="0"
+          required
+        />
+      </div>
+  
+      <!-- Botones -->
+      <button type="submit" class="btn btn-success me-2">Guardar</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    </form>
+  </div>
+  
