@@ -23,18 +23,18 @@ export class ProductoService {
   }
 
   // Crear producto
-  addProducto(producto: Producto) {
-    this.http.post<Producto>(this.baseUrl, producto);
+  addProducto(producto: Producto):Observable<Producto> {
+    return this.http.post<Producto>(this.baseUrl, producto);
   }
 
   // Actualizar producto
-  updateProducto(id: number, producto: Producto) {
-    this.http.put<Producto>(`${this.baseUrl}/${id}`, producto);
+  updateProducto(id: number, producto: Producto):Observable<Producto> {
+    return this.http.put<Producto>(`${this.baseUrl}/${id}`, producto);
   }
 
   // Eliminar producto
-  deleteProducto(id: number) {
-    this.http.delete<void>(`${this.baseUrl}/${id}`);
+  deleteProducto(id: number):Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
 }
