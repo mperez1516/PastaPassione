@@ -1,0 +1,26 @@
+<div class="container-agregar-adicional">
+    <h2>Agregar Cliente</h2>
+    <form (ngSubmit)="guardarCliente()" #clienteForm="ngForm">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" required>
+  
+      <label for="apellido" class="form-label">Apellido:</label>
+      <input type="text" id="apellido" class="form-control" [(ngModel)]="cliente.apellido" name="apellido" required>
+  
+      <label for="correo" class="form-label">Correo:</label>
+      <input type="email" id="correo" class="form-control" [(ngModel)]="cliente.correo" name="correo" required>
+  
+      <label for="direccion" class="form-label">Dirección:</label>
+      <input type="text" id="direccion" class="form-control" [(ngModel)]="cliente.direccion" name="direccion" required>
+  
+      <label for="telefono" class="form-label">Teléfono:</label>
+      <input type="text" id="telefono" class="form-control" [(ngModel)]="cliente.telefono" name="telefono" required>
+  
+      <label for="contrasena" class="form-label">Contraseña:</label>
+      <input type="password" id="contrasena" class="form-control" [(ngModel)]="cliente.contrasena" name="contrasena" required>
+  
+      <button type="submit" class="btn btn-success">Guardar Cliente</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,61 @@
+<header class="header">
+    <div class="principal">
+      <nav class="menu">
+        <img id="logo" src="assets/imagenes/logoRecortado.jpg" alt="Logo">
+        <h1 id="titulo"> PASTA E <br> PASSIONE </h1>
+        <div class="menu-perfil">
+          <a class="seccion" routerLink="/homeAdmin">Inicio</a>
+          <a class="seccion" routerLink="/menuClientes">Clientes</a>
+          <a class="seccion" routerLink="/admin/menu">Productos</a>
+          <a class="seccion" routerLink="/admin/adicionales">Adicionales</a>
+        </div>
+        <img id="logo2" src="assets/imagenes/logoRecortado.jpg" alt="Logo">
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container mt-4">
+    <h1>MENU TABLA CLIENTES</h1>
+  
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        placeholder="Buscar..."
+      />
+    </div>
+  
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped shadow rounded">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientesFiltrados">
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellido }}</td>
+            <td>{{ cliente.correo }}</td>
+            <td>{{ cliente.direccion }}</td>
+            <td>{{ cliente.telefono }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editarCliente(cliente.id)">Editar</button>
+              <button class="btn btn-danger btn-sm" (click)="eliminarCliente(cliente.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="text-center mt-3">
+      <button class="btn btn-success" (click)="agregarCliente()">Agregar Cliente</button>
+    </div>
+  </div>
+  

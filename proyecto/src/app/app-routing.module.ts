@@ -11,10 +11,16 @@ import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agrega
 import { AdicionalesTablaComponent } from './adminViews/adicionales-tabla/adicionales-tabla.component';
 import { RegistroClienteComponent } from './frontPages/registro-cliente/registro-cliente.component';
 import { HomeAdminPageComponent } from './frontPages/home-admin-page/home-admin-page.component';
+import { MenuClientesComponent } from './adminViews/menu-clientes/menu-clientes.component';
+import { AgregarClienteComponent } from './adminViews/agregar-cliente/agregar-cliente.component';
+import { EditarClienteComponent } from './adminViews/editar-cliente/editar-cliente.component';
 
 
 const routes: Routes = [
   {path: 'admin/menu', component: MenuTablaComponent},
+  { path: 'admin/clientes/editar/:id', component: EditarClienteComponent },
+  { path: 'admin/clientes/agregar', component: AgregarClienteComponent },
+  { path: 'homeAdmin/usuarios', component: MenuClientesComponent },
   {path: 'landingPage', component: LandingPageComponent},
   {path: 'homeCliente', component: HomeClientePageComponent},
   {path:'homeAdmin', component:HomeAdminPageComponent},

@@ -1,0 +1,39 @@
+<div class="container mt-4 container-editar-cliente">
+    <h1 class="text-center">Editar Cliente</h1>
+    <form (ngSubmit)="actualizarCliente()" #clienteForm="ngForm" class="shadow p-4 rounded">
+      <!-- Campos ocultos para ID y contraseña -->
+      <input type="hidden" [(ngModel)]="cliente.id" name="id">
+      <input type="hidden" [(ngModel)]="cliente.contrasena" name="contrasena">
+      
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" required>
+      </div>
+      
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido:</label>
+        <input type="text" id="apellido" class="form-control" [(ngModel)]="cliente.apellido" name="apellido" required>
+      </div>
+      
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo:</label>
+        <input type="email" id="correo" class="form-control" [(ngModel)]="cliente.correo" name="correo" required>
+      </div>
+      
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección:</label>
+        <input type="text" id="direccion" class="form-control" [(ngModel)]="cliente.direccion" name="direccion" required>
+      </div>
+      
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono:</label>
+        <input type="text" id="telefono" class="form-control" [(ngModel)]="cliente.telefono" name="telefono" required>
+      </div>
+      
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Actualizar Cliente</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  
