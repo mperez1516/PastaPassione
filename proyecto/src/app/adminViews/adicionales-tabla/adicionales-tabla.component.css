@@ -1,0 +1,261 @@
+/* Estilos generales */
+body {
+    font-family: 'Georgia', serif;
+    background-color: rgb(89 32 25); /* Color de fondo suave */
+    color: #3d405b; /* Color de texto principal */
+    padding: 0;
+    margin-top: 80px;
+}
+
+/* ---- HEADER ---- */
+header {
+    background-color: var(--md-sys-color-primary);
+    display: flex;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.principal{
+    display: flex;
+    align-items: center;
+}
+
+/* ---- MENU FIJO ---- */
+.menu {
+    position: fixed; /* Fija el menú en la parte superior */
+    top: 0; /* Se mantiene en la parte superior */
+    right: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 12%;
+    background-color: rgb(89 32 25); /* Color de fondo */
+    border: #c19a6b solid 2px;
+    z-index: 1000; /* Se asegura que esté por encima del contenido */
+    padding: 10px 0; /* Espaciado superior e inferior */
+    margin-left: 60%;
+}
+
+/* Estilos del menú */
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Asegura alineación vertical */
+    gap: 30px; /* Espacio entre los elementos del menú */
+    margin-left: 40%;
+}
+
+/* Estilo de cada ítem del menú */
+.menu ul li {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* o center, dependiendo del diseño */
+    padding: 10px
+}
+
+/* Enlaces del menú */
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+/* Efecto hover en los enlaces */
+nav a:hover {
+    background-color: #c19a6b;
+    color: var(--md-sys-color-primary);
+}
+
+
+/* Logo en la esquina superior izquierda */
+#logo {
+    width: 50px;
+    z-index: 1000;
+    height: 50px;
+    margin-right: 15px;
+    margin-left: 26px;
+    border-radius: 30%;
+}
+
+#logo2{
+    width: 50px;
+    z-index: 1000;
+    height: 50px;
+    margin-left: -150px;
+    margin-right: 26px;
+    border-radius: 30%;
+
+}
+
+.seccion{
+    
+    margin-right: 0px;
+    color: rgb(239, 215, 171);
+    font-weight: bold;
+}
+
+.menu-perfil{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 0px;
+    margin-right: 10px;
+    gap: 20px;
+}
+
+#titulo{
+    font-size: 20px;
+    color: rgb(239, 215, 171);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-shadow: 2px 2px 4px black;
+    margin-left: -150px;
+    margin-right: 400px;
+    left: 0;
+}
+
+
+.container {
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco para el contenido */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px;
+}
+
+h1 {
+    color: #c19a6b; 
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el buscador */
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #c19a6b; 
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table thead {
+    background-color: #e07a5f; /* Fondo terracota para el encabezado */
+    color: white;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8f3e6; /* Fondo claro para filas pares */
+}
+
+.table tbody tr:hover {
+    background-color: #f2cc8f; /* Color de hover cálido */
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para los botones de acciones */
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 2px;
+}
+
+.btn-primary {
+    background-color: rgb(189, 69, 54); 
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: rgb(89 32 25); 
+}
+
+.btn-danger {
+    background-color: #c19a6b; 
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #866337; 
+}
+
+/* Estilos para la paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    padding: 8px 12px;
+    border: 1px solid #e07a5f; /* Borde terracota */
+    border-radius: 5px;
+    color: #e07a5f; /* Color terracota */
+    background-color: white;
+    cursor: pointer;
+}
+
+.page-link:hover {
+    background-color: rgb(89 32 25); /* Fondo terracota */
+    color: white;
+}
+
+.page-item.active .page-link {
+    background-color: rgb(89 32 25); /* Fondo terracota */
+    color: white;
+    border-color: rgb(89 32 25);
+}
+
+.page-item.disabled .page-link {
+    color: #ddd;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Estilos para el botón personalizado */
+.btn-success {
+    background-color:rgb(189, 69, 54); /* Color verde personalizado */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: rgb(89 32 25);/* Color verde más oscuro al hacer hover */
+}

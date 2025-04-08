@@ -1,6 +1,7 @@
 <div class="container mt-4 container-agregar-producto">
     <h2>Agregar Producto</h2>
-    <form>
+    <form (ngSubmit)="addProductoForm()" #form="ngForm">
+
         <div class="mb-3">
             <label class="form-label">Nombre</label>
             <input type="text" class="form-control" name="Nombre" required [(ngModel)]="formProducto.nombre">
@@ -17,7 +18,7 @@
             <label class="form-label">Tipo</label>
             <input type="text" class="form-control" name="Tipo" required [(ngModel)]="formProducto.categoria">
         </div>
-        <button type="submit" class="btn btn-success" (click)="addProductoForm()"> Agregar </button>
+        <button type="submit" class="btn btn-success"> Agregar </button>
         
     </form>
 </div>

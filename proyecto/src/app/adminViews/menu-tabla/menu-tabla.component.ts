@@ -40,11 +40,9 @@ export class MenuTablaComponent implements OnInit {
       this.productoService.deleteProducto(producto.producto_id).subscribe({
         next: () => {
           this.obtenerProductos();
-          alert('Producto eliminado exitosamente');
         },
         error: (err) => {
           console.error('Error al eliminar producto:', err);
-          alert('Error al eliminar producto');
         }
       });
      

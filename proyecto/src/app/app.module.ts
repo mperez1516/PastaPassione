@@ -28,9 +28,10 @@ import { HomeClientePageComponent } from './frontPages/home-cliente-page/home-cl
 import { HeaderClienteComponent } from './componentsHomeCliente/header-cliente/header-cliente.component';
 import { SeccionInicialComponent } from './componentsHomeCliente/seccion-inicial/seccion-inicial.component';
 import { PromocionesComponent } from './componentsHomeCliente/promociones/promociones.component';
-import { HeaderAdminComponent } from './componentsHomeAdmin/header-admin/header-admin.component';
-import { SidebarComponent } from './componentsHomeAdmin/sidebar/sidebar.component';
-import { DashboardComponent } from './componentsHomeAdmin/dashboard/dashboard.component';
+import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detalle-adicional.component';
+import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
+import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.component';
+import { RegistroClienteComponent } from './frontPages/registro-cliente/registro-cliente.component';
 
 
 @NgModule({
@@ -58,9 +59,10 @@ import { DashboardComponent } from './componentsHomeAdmin/dashboard/dashboard.co
     HeaderClienteComponent,
     SeccionInicialComponent,
     PromocionesComponent,
-    HeaderAdminComponent,
-    SidebarComponent,
-    DashboardComponent
+    DetalleAdicionalComponent,
+    AgregarAdicionalComponent,
+    LoginClienteComponent,
+    RegistroClienteComponent
   ],
   imports: [
     BrowserModule,

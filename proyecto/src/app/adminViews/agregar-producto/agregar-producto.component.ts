@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductoService } from 'src/app/services/producto/producto.service';
 import { Producto } from 'src/app/entidades/producto/producto';
 
 @Component({
@@ -8,28 +10,28 @@ import { Producto } from 'src/app/entidades/producto/producto';
 })
 export class AgregarProductoComponent {
 
-  //Evento para agregar producto y lo transmita al componente padre
-  @Output() 
-  addProductoEvent = new EventEmitter<Producto>();
-
-
-  //Modelo de producto
-  formProducto: Producto= {
-    producto_id: 0,
+  formProducto: Omit<Producto, 'producto_id'> = {
     nombre: "",
     precio: 0,
     descripcion: "",
     categoria: ""
+  };
+  
+
+  constructor(
+    private productoService: ProductoService,
+    private router: Router
+  ) {}
+
+  addProductoForm() {
+    this.productoService.addProducto(this.formProducto).subscribe({
+      next: () => {
+        this.router.navigate(['/admin/menu']);
+      },
+      error: (err) => {
+        console.error('Error al agregar producto:', err); // ← te mostrará el mensaje exacto
+      }
+    });
+    
   }
-
-  //Agregar producto
-  addProductoForm(){
-    console.log(this.formProducto);
-    //Copiar valores 
-    //this.sendProducto= Object.assign({},this.formProducto);
-
-    this.addProductoEvent.emit(this.formProducto);
-
-  }
-
 }

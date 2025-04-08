@@ -23,7 +23,7 @@ export class ProductoService {
   }
 
   // Crear producto
-  addProducto(producto: Producto):Observable<Producto> {
+  addProducto(producto: Omit<Producto, 'producto_id'>):Observable<Producto> {
     return this.http.post<Producto>(this.baseUrl, producto);
   }
 
