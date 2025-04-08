@@ -13,4 +13,10 @@ export class ClienteService {
   login(correo: string, contrasena: string): Observable<any> {
     return this.http.post(this.baseUrl, { correo, contrasena });
   }
+
+  registrarCliente(cliente: any): Observable<any> {
+    return this.http.post('http://localhost:8000/registro/registrar', cliente);
+  }
+  
+  
 }

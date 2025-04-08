@@ -31,6 +31,7 @@ import { PromocionesComponent } from './componentsHomeCliente/promociones/promoc
 import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detalle-adicional.component';
 import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
 import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.component';
+import { RegistroClienteComponent } from './frontPages/registro-cliente/registro-cliente.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.
     PromocionesComponent,
     DetalleAdicionalComponent,
     AgregarAdicionalComponent,
-    LoginClienteComponent
+    LoginClienteComponent,
+    RegistroClienteComponent
   ],
   imports: [
     BrowserModule,

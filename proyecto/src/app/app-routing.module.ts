@@ -9,6 +9,8 @@ import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.
 import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detalle-adicional.component';
 import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
 import { AdicionalesTablaComponent } from './adminViews/adicionales-tabla/adicionales-tabla.component';
+import { RegistroClienteComponent } from './frontPages/registro-cliente/registro-cliente.component';
+
 
 const routes: Routes = [
   {path: 'admin/menu', component: MenuTablaComponent},
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/landingPage', pathMatch: 'full'},
   {path: 'admin/adicionales',component: AdicionalesTablaComponent},
   {path: 'detalleAdicional/:id',component: DetalleAdicionalComponent},
+  { path: 'registro', component: RegistroClienteComponent },
   {path: 'agregarAdicional',component: AgregarAdicionalComponent},
 ];
 
