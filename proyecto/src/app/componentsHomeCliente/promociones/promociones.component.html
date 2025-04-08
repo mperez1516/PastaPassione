@@ -1,14 +1,61 @@
 <h2 id="promTitle">¡Promociones del mes!</h2>
 
+
 <div class="promocionesCards">
-    <div class="card" th:each="promo, iter : ${promociones}">
+    <div class ="card">
         <div class="face front">
-            <img th:src="@{'assets/Imagenes/promociones/promocion' + ${iter.index + 1} + '.jpg'}" th:alt="${promo.titulo}">
+            <img src="assets/Imagenes/promociones/promocion1.jpg" alt="promocion1">
+    
         </div>
+    
         <div class="face back">
-            <h3 th:text="${promo.titulo}">Título de la Promoción</h3>
-            <p th:text="${promo.descripcion}">Descripción de la Promoción</p>
+            <h3>¡Pasta marinada 2x1 Todos los viernes !!</h3>
+            <p>Spaguetti en salsa marinera, con camarones y palmitos, con toques de queso parmesano</p>
             <button>Comprar</button>
+            
         </div>
     </div>
+
+    <div class ="card">
+        <div class="face front">
+            <img src="assets/Imagenes/promociones/promocion2.jpg" alt="promocion2">
+
+        </div>
+
+        <div class="face back">
+            <h3>¡Pizza 2x1 Todos los dias !!</h3>
+            <p>Pizza con queso cottage, tomates y finas hierbas, preparada en estufa al horno con un excelente sabor </p>
+            <button>Comprar</button>
+            
+        </div>
+    </div>
+
+    <div class ="card">
+        <div class="face front">
+            <img src="assets/Imagenes/promociones/promocion3.jpg" alt="promocion3">
+
+        </div>
+
+        <div class="face back">
+            <h3>¡Pizza Buratta con el 40% de descuento !!</h3>
+            <p>Pizza de jamon serrano, queso fundido y finas hierbas preparada en estufa al horno con un excelente sabor</p>
+            <button>Comprar</button>
+            
+        </div>
+    </div>
+
+    <div class ="card">
+        <div class="face front">
+            <img src="assets/Imagenes/promociones/promocion4.jpg" alt="promocion4">
+
+        </div>
+
+        <div class="face back">
+            <h3>¡60% de descuento a los cumpleañeros del mes !!</h3>
+            <p>Spagetti a la bologñesa, rellena de queso parmesano</p>
+            <button>Comprar</button>
+            
+        </div>
+    </div>
+    
 </div>
