@@ -14,11 +14,13 @@ import { HomeAdminPageComponent } from './frontPages/home-admin-page/home-admin-
 import { MenuClientesComponent } from './adminViews/menu-clientes/menu-clientes.component';
 import { AgregarClienteComponent } from './adminViews/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './adminViews/editar-cliente/editar-cliente.component';
+import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.component';
 
 
 const routes: Routes = [
   {path: 'admin/menu', component: MenuTablaComponent},
   { path: 'admin/clientes/editar/:id', component: EditarClienteComponent },
+  
   { path: 'admin/clientes/agregar', component: AgregarClienteComponent },
   { path: 'homeAdmin/usuarios', component: MenuClientesComponent },
   {path: 'landingPage', component: LandingPageComponent},

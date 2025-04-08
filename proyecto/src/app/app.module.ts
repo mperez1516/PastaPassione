@@ -44,6 +44,7 @@ import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.com
 
 @NgModule({
   declarations: [
+    HeaderCrudsComponent,
     DashboardComponent,
     SidebarComponent,
     HeaderAdminComponent,
