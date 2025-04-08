@@ -38,6 +38,7 @@ import { HomeAdminPageComponent } from './frontPages/home-admin-page/home-admin-
 import { MenuClientesComponent } from './adminViews/menu-clientes/menu-clientes.component';
 import { AgregarClienteComponent } from './adminViews/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './adminViews/editar-cliente/editar-cliente.component';
+import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.component';
 
 
 
