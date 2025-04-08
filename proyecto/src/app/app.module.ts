@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { DashboardComponent } from './componentsHomeAdmin/dashboard/dashboard.component';
+import { SidebarComponent } from './componentsHomeAdmin/sidebar/sidebar.component';
+import { HeaderAdminComponent } from './componentsHomeAdmin/header-admin/header-admin.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentsLanding/header/header.component';
@@ -32,10 +34,15 @@ import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detall
 import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
 import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.component';
 import { RegistroClienteComponent } from './frontPages/registro-cliente/registro-cliente.component';
+import { HomeAdminPageComponent } from './frontPages/home-admin-page/home-admin-page.component';
+
 
 
 @NgModule({
   declarations: [
+    DashboardComponent,
+    SidebarComponent,
+    HeaderAdminComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -62,7 +69,8 @@ import { RegistroClienteComponent } from './frontPages/registro-cliente/registro
     DetalleAdicionalComponent,
     AgregarAdicionalComponent,
     LoginClienteComponent,
-    RegistroClienteComponent
+    RegistroClienteComponent,
+    HomeAdminPageComponent
   ],
   imports: [
     BrowserModule,

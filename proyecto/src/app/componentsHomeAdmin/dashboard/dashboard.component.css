@@ -1,0 +1,70 @@
+.contenido{
+    flex: 1;
+    padding: 20px;
+    z-index: 1;
+   margin-top: -20px;
+   width: 970px;
+   height: 500px;
+   margin-bottom: 50px;
+   margin-left: 30px;
+}
+
+
+.titulo{
+    font-size: 17px;
+    color: rgb(89 32 25);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: -50px;
+    margin-top: -10px;
+}
+
+.stats {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.card {
+    background: rgb(89 32 25);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    flex: 1;
+    transition: transform 0.3s ease-in-out;
+    color: #fff;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.reports {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.report-card {
+    color: rgb(89 32 25);   
+    flex: 1;
+    background: rgb(226, 189, 140);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.report-card:hover {
+    transform: scale(1.03);
+}
+
+ol {
+    padding-left: 20px;
+    color: rgb(89 32 25);
+}

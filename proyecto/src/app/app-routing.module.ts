@@ -10,12 +10,14 @@ import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detall
 import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
 import { AdicionalesTablaComponent } from './adminViews/adicionales-tabla/adicionales-tabla.component';
 import { RegistroClienteComponent } from './frontPages/registro-cliente/registro-cliente.component';
+import { HomeAdminPageComponent } from './frontPages/home-admin-page/home-admin-page.component';
 
 
 const routes: Routes = [
   {path: 'admin/menu', component: MenuTablaComponent},
   {path: 'landingPage', component: LandingPageComponent},
   {path: 'homeCliente', component: HomeClientePageComponent},
+  {path:'homeAdmin', component:HomeAdminPageComponent},
   {path: 'detalleProducto/:id', component: DetalleProductoComponent},
   { path: 'login', component: LoginClienteComponent },
   {path: 'agregarProducto',component: AgregarProductoComponent},
