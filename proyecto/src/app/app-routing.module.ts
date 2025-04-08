@@ -15,12 +15,13 @@ import { MenuClientesComponent } from './adminViews/menu-clientes/menu-clientes.
 import { AgregarClienteComponent } from './adminViews/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './adminViews/editar-cliente/editar-cliente.component';
 import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.component';
+import { MenuGeneralComponent } from './frontPages/menu-general/menu-general.component';
 
 
 const routes: Routes = [
   {path: 'admin/menu', component: MenuTablaComponent},
   { path: 'admin/clientes/editar/:id', component: EditarClienteComponent },
-  
+  {path: 'menu',component:MenuGeneralComponent},
   { path: 'admin/clientes/agregar', component: AgregarClienteComponent },
   { path: 'homeAdmin/usuarios', component: MenuClientesComponent },
   {path: 'landingPage', component: LandingPageComponent},

@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <header>
+      <nav class="d-flex justify-content-between align-items-center mb-4">
+        <img id="logo" src="assets/Imagenes/logoRecortado.jpg" alt="Logo" width="100">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="#entrada">Entradas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#platoprincipal">Platos Principales</a></li>
+          <li class="nav-item"><a class="nav-link" href="#postre">Postres</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bebida">Bebidas</a></li>
+        </ul>
+        <div id="carrito-container" (mouseenter)="mostrarCarrito = true" (mouseleave)="mostrarCarrito = false">
+          <img id="icono-carrito" src="assets/Imagenes/menu/carritoCompras.png" alt="Carrito" width="40">
+          <span id="contador-carrito">{{ totalCantidad }}</span>
+          <div id="carrito" [class.carrito-oculto]="!mostrarCarrito">
+            <h5>Carrito de Compras</h5>
+            <ul class="list-unstyled">
+              <li *ngFor="let item of carrito">
+                <img [src]="item.imagen" width="40" alt="{{ item.nombre }}">
+                <span>{{ item.nombre }} x{{ item.cantidad }}</span>
+                <button class="btn btn-sm btn-danger" (click)="eliminarDelCarrito(item.id)">X</button>
+              </li>
+            </ul>
+            <button class="btn btn-warning btn-sm mt-2" (click)="vaciarCarrito()">Vaciar Carrito</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+  
+    <div id="menu-contenedor">
+      <div *ngFor="let categoria of categorias | keyvalue" id="{{ categoria.key }}">
+        <h2 class="seccion-titulo">{{ categoria.key }}</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let producto of categoria.value">
+            <div class="card h-100">
+                <img [src]="getRutaImagen(categoria.key, producto.nombre)"
+                    [alt]="producto.nombre"
+                    class="card-img-top producto-imagen"
+                    (click)="verDetalle(producto)">
+              <div class="card-body">
+                <h5 class="card-title">{{ producto.nombre }}</h5>
+                <p class="card-text">{{ producto.descripcion }}</p>
+                <p class="card-text fw-bold">{{ producto.precio | currency:'COP':'symbol' }}</p>
+                <button class="boton-circular" (click)="agregarAlCarrito(producto)">+</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

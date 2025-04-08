@@ -1,0 +1,218 @@
+
+
+  /* Estilo para los títulos de categoría */
+.seccion-titulo {
+    background-color: #ecd09c; /* color vino oscuro */
+    color: #f5d6b4; /* tono claro para contraste */
+    padding: 12px 24px;
+    margin: 40px auto 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    width: fit-content;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+
+:host {
+    display: block;
+    font-family: Arial, sans-serif;
+    background-color: rgb(241, 226, 213);
+    padding: 0;
+    margin: 0;
+  }
+  
+  header nav {
+    background-color: rgb(89, 32, 25);
+    font-family: 'Times New Roman', Times, serif;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    position: relative;
+  }
+  
+  header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  header nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  #logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+  }
+  
+  
+  #logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+  }
+  
+  #icono-carrito {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #contador-carrito {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  #carrito {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 300px;
+    background: rgb(255, 211, 182);
+    border: 3px solid #612e2e;
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 1000;
+  }
+  
+  .carrito-oculto {
+    display: none;
+  }
+  
+  /* Estilo de productos */
+  #menu-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10px;
+  }
+  
+  #menu-contenedor > div {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  #menu-contenedor h2 {
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(89, 32, 25);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .card img:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+  }
+  
+  .card-body {
+    padding: 15px;
+    background-color: rgb(255, 230, 214);
+  }
+  
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #592019;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .btn-success {
+    background-color: #ff6600;
+    border: none;
+  }
+  
+  .btn-success:hover {
+    background-color: #cc5500;
+  }
+  
+  /* Carrito lista */
+  #carrito ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #carrito li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  #carrito li img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .boton-circular {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ff6600;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1;
+  }
+  
+  .boton-circular:hover {
+    background-color: #cc5500;
+    transform: scale(1.1);
+  }
+  .card {
+    position: relative;
+  }
+  
