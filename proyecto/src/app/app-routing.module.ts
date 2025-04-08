@@ -5,7 +5,7 @@ import { LandingPageComponent } from './frontPages/landing-page/landing-page.com
 import { HomeClientePageComponent } from './frontPages/home-cliente-page/home-cliente-page.component';
 import { DetalleProductoComponent } from './adminViews/detalle-producto/detalle-producto.component';
 import { AgregarProductoComponent } from './adminViews/agregar-producto/agregar-producto.component';
-
+import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.component';
 import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detalle-adicional.component';
 import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
 import { AdicionalesTablaComponent } from './adminViews/adicionales-tabla/adicionales-tabla.component';
@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'landingPage', component: LandingPageComponent},
   {path: 'homeCliente', component: HomeClientePageComponent},
   {path: 'detalleProducto/:id', component: DetalleProductoComponent},
+  { path: 'login', component: LoginClienteComponent },
   {path: 'agregarProducto',component: AgregarProductoComponent},
   {path: '', redirectTo: '/landingPage', pathMatch: 'full'},
   {path: 'admin/adicionales',component: AdicionalesTablaComponent},

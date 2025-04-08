@@ -30,6 +30,7 @@ import { SeccionInicialComponent } from './componentsHomeCliente/seccion-inicial
 import { PromocionesComponent } from './componentsHomeCliente/promociones/promociones.component';
 import { DetalleAdicionalComponent } from './adminViews/detalle-adicional/detalle-adicional.component';
 import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agregar-adicional.component';
+import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agrega
     SeccionInicialComponent,
     PromocionesComponent,
     DetalleAdicionalComponent,
-    AgregarAdicionalComponent
+    AgregarAdicionalComponent,
+    LoginClienteComponent
   ],
   imports: [
     BrowserModule,
