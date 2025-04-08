@@ -35,6 +35,7 @@ import { AgregarAdicionalComponent } from './adminViews/agregar-adicional/agrega
 import { LoginClienteComponent } from './frontPages/login-cliente/login-cliente.component';
 import { RegistroClienteComponent } from './frontPages/registro-cliente/registro-cliente.component';
 import { HomeAdminPageComponent } from './frontPages/home-admin-page/home-admin-page.component';
+import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.component';
 
 
 
@@ -70,7 +71,8 @@ import { HomeAdminPageComponent } from './frontPages/home-admin-page/home-admin-
     AgregarAdicionalComponent,
     LoginClienteComponent,
     RegistroClienteComponent,
-    HomeAdminPageComponent
+    HomeAdminPageComponent,
+    HeaderCrudsComponent
   ],
   imports: [
     BrowserModule,
