@@ -1,0 +1,68 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: rgb(89, 32, 25); /* Color de fondo suave */
+    color: #ecd1ad; /* Color de texto principal */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para la pantalla de edición de cliente */
+.container-editar-cliente {
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto; /* Centrado con margen superior e inferior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los campos de entrada */
+.container-editar-cliente .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Estilos para los botones */
+.container-editar-cliente .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.container-editar-cliente .btn-primary {
+    background-color: rgb(189, 69, 54); 
+    color: white;
+}
+
+.container-editar-cliente .btn-primary:hover {
+    background-color: rgb(89, 32, 25); 
+}
+
+.container-editar-cliente .btn-secondary {
+    background-color: #c19a6b; 
+    color: white;
+}
+
+.container-editar-cliente .btn-secondary:hover {
+    background-color: #866337; 
+}
+
+/* Estilos para el título */
+.container-editar-cliente h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+}
