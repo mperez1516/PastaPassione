@@ -39,6 +39,7 @@ import { MenuClientesComponent } from './adminViews/menu-clientes/menu-clientes.
 import { AgregarClienteComponent } from './adminViews/agregar-cliente/agregar-cliente.component';
 import { EditarClienteComponent } from './adminViews/editar-cliente/editar-cliente.component';
 import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.component';
+import { MenuGeneralComponent } from './frontPages/menu-general/menu-general.component';
 
 
 
@@ -78,7 +79,8 @@ import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.com
     HomeAdminPageComponent,
     MenuClientesComponent,
     AgregarClienteComponent,
-    EditarClienteComponent
+    EditarClienteComponent,
+    MenuGeneralComponent
   ],
   imports: [
     BrowserModule,
