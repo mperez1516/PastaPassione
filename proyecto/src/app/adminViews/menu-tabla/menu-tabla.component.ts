@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Adicional } from 'src/app/entidades/adicional/adicional';
 import { Producto } from 'src/app/entidades/producto/producto';
+import { AdicionalesService } from 'src/app/services/adicionales/adicionales.service';
 import { ProductoService } from 'src/app/services/producto/producto.service';
 
 @Component({
@@ -15,12 +17,27 @@ export class MenuTablaComponent implements OnInit {
   //Base de datos de productos
   productosList: Producto[] = [];
 
+  adicionalesList: Adicional[] = [];
+
   //Metodos
 
-  constructor(private productoService: ProductoService) {}
+  constructor(
+    private productoService: ProductoService,
+    private adicionalService: AdicionalesService
+  ) {}
 
   ngOnInit(): void {
     this.obtenerProductos();
+    console.log("AYUDAAAA")
+    //Obtener adicionaes
+    this.adicionalService.getAdicionales().subscribe({
+      next: (adicionales) => {
+        this.adicionalesList = adicionales;
+      },
+      error: (err) => {
+        console.error('Error al obtener adicionales:', err);
+      }
+    });
   }
 
   obtenerProductos() {
