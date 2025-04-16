@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HomeAdminPageComponent } from '../../frontPages/home-admin-page/home-admin-page.component';
+
+import { AdminViewsRoutingModule } from './admin-views-routing.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 import { AdicionalesTablaComponent } from '../adicionales-tabla/adicionales-tabla.component';
 import { AgregarAdicionalComponent } from '../agregar-adicional/agregar-adicional.component';
 import { AgregarClienteComponent } from '../agregar-cliente/agregar-cliente.component';
@@ -13,11 +15,10 @@ import { EditarClienteComponent } from '../editar-cliente/editar-cliente.compone
 import { HeaderCrudsComponent } from '../header-cruds/header-cruds.component';
 import { MenuClientesComponent } from '../menu-clientes/menu-clientes.component';
 import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
-import { AdminViewsRoutingModule } from './admin-views-routing.module';
-
 
 @NgModule({
   declarations: [
+    // Solo componentes específicos de admin-views
     MenuTablaComponent,
     DetalleProductoComponent,
     AgregarProductoComponent,
@@ -27,16 +28,26 @@ import { AdminViewsRoutingModule } from './admin-views-routing.module';
     MenuClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
-    HeaderCrudsComponent,
-    HomeAdminPageComponent
+    HeaderCrudsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
+    ComponentsModule, 
     AdminViewsRoutingModule
   ],
   exports: [
+    MenuTablaComponent,
+    DetalleProductoComponent,
+    AgregarProductoComponent,
+    AdicionalesTablaComponent,
+    DetalleAdicionalComponent,
+    AgregarAdicionalComponent,
+    MenuClientesComponent,
+    AgregarClienteComponent,
+    EditarClienteComponent,
     HeaderCrudsComponent
   ]
 })
