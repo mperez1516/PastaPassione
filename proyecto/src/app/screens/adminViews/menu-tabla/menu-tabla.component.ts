@@ -26,6 +26,9 @@ export class MenuTablaComponent implements OnInit {
     private adicionalService: AdicionalesService
   ) {}
 
+//1. mostrarlos en checkbox
+// y cada vez que se de click en el checkbox agregarlo a la lista de seleccionados DEL PRODUCTO
+
   ngOnInit(): void {
     this.obtenerProductos();
     console.log("AYUDAAAA")

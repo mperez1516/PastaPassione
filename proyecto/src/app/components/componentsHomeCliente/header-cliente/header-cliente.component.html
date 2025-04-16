@@ -4,10 +4,10 @@
             <img id="logo" src="assets/Imagenes/logoRecortado.jpg" alt="Logo">
             <h1 id="titulo"> PASTA E <br> PASSIONE </h1>
                 <div class="menu-perfil">
-                    <a class="seccion" th:href="@{'/homeCliente?correo=' + ${cliente.correo}}">Home</a>
-                    <a class ="seccion" th:href="@{'/editarPerfil?correo=' + ${cliente.correo}}">Editar Perfil</a>
-                    <a class="seccion" th:href="@{'/pedidos?correo=' + ${cliente.correo}}"> Mis pedidos</a> 
-                    <a class="seccion" th:href="@{'/historialPedidos?correo=' + ${cliente.correo}}">Historial de pedidos</a>
+                    <a class="seccion" routerLink="/homeCliente">Home</a>
+                    <a class="seccion" routerLink="editarPerfil">Editar perfil</a>
+                    <a class="seccion"> Mis pedidos</a> 
+                    <a class="seccion">Historial de pedidos</a>
                     
                 </div>
             <img id="logo2" src="assets/Imagenes/logoRecortado.jpg" alt="Logo">
