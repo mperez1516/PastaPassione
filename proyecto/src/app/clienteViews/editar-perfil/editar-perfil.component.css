@@ -1,0 +1,160 @@
+html{
+    background-color: rgb(226, 189, 140);  
+    width: 101%;
+}
+
+/* ---- CONTENIDO ---- */
+body {
+    font-family: 'Georgia', serif;
+    background-color: rgb(226, 189, 140);
+    color: rgb(89 32 25);
+    padding: 0;
+    width: 101%;
+    margin-bottom: -10px;
+    margin-left: -5px;
+}
+
+.formulario-edicion {
+    font-family: 'Georgia', serif;;
+    font-size: 14px;
+    color:rgb(226, 189, 140);
+    background-color: rgb(89 32 25);
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 30px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.formulario-edicion .form-control {
+    margin-left: 50px;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    font-size: 14px;
+}
+
+.formulario-edicion label {
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+.formulario-edicion .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.formulario-edicion .btn-primary {
+    margin-top: 15px;
+    background-color: #ebbd85; 
+    color: rgb(89 32 25);
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+.formulario-edicion .btn-tertiary {
+    background-color: rgb(189, 69, 54); 
+    color: white;
+    margin-top: 30px;
+    margin-left: 350px;
+    font-weight: bold;
+}
+
+.formulario-edicion .btn-tertiary:hover {
+    background-color: rgb(175, 34, 15); 
+}
+
+
+.formulario-edicion .btn-primary:hover {
+    background-color: #866337; 
+}
+
+.formulario-edicion .btn-secondary {
+    margin-top: 15px;
+    background-color: #ebbd85; 
+    color: rgb(89 32 25);
+    font-weight: bold;
+}
+
+.formulario-edicion .btn-secondary:hover {
+    background-color: #866337; 
+}
+
+
+.formulario-edicion h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+/* ---- FOOTER ---- */
+footer {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: rgb(89 32 25);
+    color: #f0d28c;
+    text-shadow: 2px 2px 4px rgb(51, 10, 10);
+    padding: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+footer div {
+    margin: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+#Col1 img {
+    width: 160px;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+
+#Col4 img {
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
+    margin-right: 10px;
+}
+
+#Col4 h2{
+    margin-left: 30px;
+}

@@ -16,6 +16,7 @@ import { AgregarClienteComponent } from './adminViews/agregar-cliente/agregar-cl
 import { EditarClienteComponent } from './adminViews/editar-cliente/editar-cliente.component';
 import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.component';
 import { MenuGeneralComponent } from './frontPages/menu-general/menu-general.component';
+import { EditarPerfilComponent } from './clienteViews/editar-perfil/editar-perfil.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path: 'detalleAdicional/:id',component: DetalleAdicionalComponent},
   { path: 'registro', component: RegistroClienteComponent },
   {path: 'agregarAdicional',component: AgregarAdicionalComponent},
+  {path: 'homeCliente/editarPerfil', component: EditarPerfilComponent},
 ];
 
 @NgModule({

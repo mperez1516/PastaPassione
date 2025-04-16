@@ -40,6 +40,9 @@ import { AgregarClienteComponent } from './adminViews/agregar-cliente/agregar-cl
 import { EditarClienteComponent } from './adminViews/editar-cliente/editar-cliente.component';
 import { HeaderCrudsComponent } from './adminViews/header-cruds/header-cruds.component';
 import { MenuGeneralComponent } from './frontPages/menu-general/menu-general.component';
+import { EditarPerfilComponent } from './clienteViews/editar-perfil/editar-perfil.component';
+import { PedidosActivosComponent } from './clienteViews/pedidos-activos/pedidos-activos.component';
+import { HistorialPedidosComponent } from './clienteViews/historial-pedidos/historial-pedidos.component';
 
 
 
@@ -80,7 +83,10 @@ import { MenuGeneralComponent } from './frontPages/menu-general/menu-general.com
     MenuClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
-    MenuGeneralComponent
+    MenuGeneralComponent,
+    EditarPerfilComponent,
+    PedidosActivosComponent,
+    HistorialPedidosComponent
   ],
   imports: [
     BrowserModule,
