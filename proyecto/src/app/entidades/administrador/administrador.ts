@@ -2,8 +2,6 @@ export interface Administrador {
     id: number;
     nombre: string;
     apellido: string;
-    correo: string;
+    usuario: string;
     contrasena: string;
-    telefono: number;
-    direccion: number;
   }

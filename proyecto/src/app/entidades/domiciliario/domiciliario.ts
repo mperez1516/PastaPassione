@@ -1,6 +1,6 @@
 export interface Domiciliario {
     id: number;
     nombre: string;
-    telefono: number;
+    celular: number;
     disponibilidad: boolean;
   }

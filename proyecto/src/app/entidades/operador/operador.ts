@@ -1,5 +1,5 @@
 export interface Operador {
-    id: number;
+    idOperador: number;
     nombre: string;
     usuario: string;
     contrasena: string;
