@@ -5,6 +5,7 @@ import { ComponentsModule } from './components/components.module'; // Importa el
 import { AppComponent } from './app.component';
 import { AdminViewsModule } from './screens/adminViews/admin-views/admin-views.module';
 import { FrontPagesModule } from './screens/frontPages/front-pages/front-pages.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,8 @@ import { FrontPagesModule } from './screens/frontPages/front-pages/front-pages.m
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminViewsModule,
-    FrontPagesModule,
-    ComponentsModule // Agrega el módulo de componentes
+    ComponentsModule, // Agrega el módulo de componentes
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

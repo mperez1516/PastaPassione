@@ -15,9 +15,12 @@ import { EditarClienteComponent } from '../editar-cliente/editar-cliente.compone
 import { HeaderCrudsComponent } from '../header-cruds/header-cruds.component';
 import { MenuClientesComponent } from '../menu-clientes/menu-clientes.component';
 import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
+import { AdminViewsComponent } from './admin-views.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
+    AdminViewsComponent,
     // Solo componentes específicos de admin-views
     MenuTablaComponent,
     DetalleProductoComponent,
@@ -36,7 +39,8 @@ import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
     ReactiveFormsModule,
     RouterModule,
     ComponentsModule, 
-    AdminViewsRoutingModule
+    AdminViewsRoutingModule,
+    HttpClientModule  
   ],
   exports: [
     MenuTablaComponent,
@@ -48,7 +52,8 @@ import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
     MenuClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
-    HeaderCrudsComponent
+    HeaderCrudsComponent,
+    
   ]
 })
 export class AdminViewsModule { }

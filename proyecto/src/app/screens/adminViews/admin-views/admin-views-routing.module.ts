@@ -10,19 +10,27 @@ import { DetalleProductoComponent } from '../detalle-producto/detalle-producto.c
 import { EditarClienteComponent } from '../editar-cliente/editar-cliente.component';
 import { MenuClientesComponent } from '../menu-clientes/menu-clientes.component';
 import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminViewsComponent } from './admin-views.component';
 
 const routes: Routes = [
-  { path: 'menu', component: MenuTablaComponent },
-  { path: 'clientes/editar/:id', component: EditarClienteComponent },
-  { path: 'clientes/agregar', component: AgregarClienteComponent },
-  { path: 'usuarios', component: MenuClientesComponent },
-  { path: 'detalleProducto/:id', component: DetalleProductoComponent },
-  { path: 'agregarProducto', component: AgregarProductoComponent },
-  { path: 'adicionales', component: AdicionalesTablaComponent },
-  { path: 'detalleAdicional/:id', component: DetalleAdicionalComponent },
-  { path: 'agregarAdicional', component: AgregarAdicionalComponent },
-  { path: 'home', component: HomeAdminPageComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  {path:'',
+    component: AdminViewsComponent,
+
+    children:[
+      { path: 'menu', component: MenuTablaComponent },
+      { path: 'clientes/editar/:id', component: EditarClienteComponent },
+      { path: 'clientes/agregar', component: AgregarClienteComponent },
+      { path: 'usuarios', component: MenuClientesComponent },
+      { path: 'detalleProducto/:id', component: DetalleProductoComponent },
+      { path: 'agregarProducto', component: AgregarProductoComponent },
+      { path: 'adicionales', component: AdicionalesTablaComponent },
+      { path: 'detalleAdicional/:id', component: DetalleAdicionalComponent },
+      { path: 'agregarAdicional', component: AgregarAdicionalComponent },
+      { path: 'home', component: HomeAdminPageComponent },
+      { path: '', redirectTo: 'menu', pathMatch: 'full' }
+    ]  
+}
 ];
 
 @NgModule({
