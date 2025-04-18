@@ -11,6 +11,10 @@ import { LoginClienteComponent } from '../login-cliente/login-cliente.component'
 import { MenuGeneralComponent } from '../menu-general/menu-general.component';
 import { RegistroClienteComponent } from '../registro-cliente/registro-cliente.component';
 import { HomeAdminPageComponent } from '../home-admin-page/home-admin-page.component';
+import { EditarClienteComponent } from '../../adminViews/editar-cliente/editar-cliente.component';
+import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
+import { HistorialPedidosComponent } from '../historial-pedidos/historial-pedidos.component';
+import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { HomeAdminPageComponent } from '../home-admin-page/home-admin-page.compo
     LoginClienteComponent,
     RegistroClienteComponent,
     MenuGeneralComponent,
-    HomeAdminPageComponent
+    HomeAdminPageComponent,
+    EditarPerfilComponent,
+    HistorialPedidosComponent,
+    PedidosActivosComponent
+
   ],
   imports: [
     CommonModule,

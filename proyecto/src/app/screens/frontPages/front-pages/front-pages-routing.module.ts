@@ -5,6 +5,9 @@ import { LandingPageComponent } from '../landing-page/landing-page.component';
 import { LoginClienteComponent } from '../login-cliente/login-cliente.component';
 import { MenuGeneralComponent } from '../menu-general/menu-general.component';
 import { RegistroClienteComponent } from '../registro-cliente/registro-cliente.component';
+import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
+import { HistorialPedidosComponent } from '../historial-pedidos/historial-pedidos.component';
+import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.component';
 
 const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
@@ -12,6 +15,9 @@ const routes: Routes = [
   { path: 'login', component: LoginClienteComponent },
   { path: 'registro', component: RegistroClienteComponent },
   { path: 'menu', component: MenuGeneralComponent },
+  { path: 'editarPerfil' , component: EditarPerfilComponent},
+  { path: 'historialPedidos', component: HistorialPedidosComponent},
+  { path: 'pedidosActivos', component: PedidosActivosComponent},
   { path: 'landingPage', redirectTo: 'landingPage', pathMatch: 'full' }
 ];
 

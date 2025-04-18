@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteService {
+  getClienteById(clienteId: number) {
+    throw new Error('Method not implemented.');
+  }
   // URL base de tu backend
   private baseUrl: string = 'http://localhost:8000';
   // Endpoint para la gestión de clientes

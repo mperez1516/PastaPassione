@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-header-cliente',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderClienteComponent {
 
+
 }
+
