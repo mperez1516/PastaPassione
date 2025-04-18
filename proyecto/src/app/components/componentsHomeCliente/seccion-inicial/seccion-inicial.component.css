@@ -46,6 +46,7 @@
     text-shadow: 2px 2px 4px black;
     text-align: center;
     margin-bottom: 8px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .descripcion p {
@@ -53,12 +54,13 @@
     font-size: 18px;
     text-shadow: 2px 2px 4px black;
     text-align: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #ordenar{
     font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    padding: 16px;
+    font-size: 18px;
+    padding: 14px;
     background-color: rgb(89 32 25);
     color: white;
     border: none;
@@ -66,7 +68,7 @@
     display: inline-block;
     margin-left: 44%;
     margin-top: 60px;
-    width: 15%;
+    width: 10%;
     font-weight: bold;
     border: #c19a6b solid 1.5px;
     border-radius: 30px;
@@ -102,15 +104,16 @@ body {
     background: rgb(89 32 25);
     white-space: nowrap;
     position: relative;
-    padding: 10px 0;
+    padding: 5px 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* Contenedor del contenido deslizante */
 .contenido {
-    margin-top: -15px;
+    margin-top: 5px;
     margin-bottom: 25px;
     color: #f0ebe3;
-    height: 20px;
+    height: 10px;
     display: flex;
     gap: 30px; /* Espacio entre copias */
     font-size: 18px;

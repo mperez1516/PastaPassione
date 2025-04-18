@@ -73,6 +73,7 @@
 
 /* Estilo del contenido trasero de la tarjeta */
 .card .back{
+    font-family: 'Times New Roman', Times, serif;
     transform: perspective(600px) rotateY(180deg);
     background: rgb(89 32 25);
     padding: 15px;
@@ -86,7 +87,8 @@
 /* Estilo del título de la tarjeta */
 .card .back h3{
     margin-top: 60px;
-    font-size: 30px;
+    font-size: 26px;
+    font-weight: bold;
     color: rgb(239, 215, 171);
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgb(89 32 25);
@@ -94,7 +96,7 @@
 
 /* Estilo del parrafo de la tarjeta */
 .card .back p{
-    font-size: 20px;
+    font-size: 17px;
     color: #fff;
     margin-bottom: 10px;
 }
@@ -110,11 +112,11 @@
     text-decoration: none;
     font-weight: bold;
     margin-top: 30px;
-    width: 40%;
+    width: 50%;
     border: #c19a6b solid 1.5px;
     cursor: pointer;
     font-size: 15px;
-    margin-left: 30%;
+    margin-left: 24%;
 }
 
 /* Estilo del botón de la tarjeta al pasar el ratón */

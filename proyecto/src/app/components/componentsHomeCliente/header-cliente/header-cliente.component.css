@@ -8,6 +8,7 @@ header {
     justify-content: flex-start;
     margin-left: 20px;
     margin-right: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .principal{
@@ -106,7 +107,8 @@ nav a:hover {
 }
 
 #titulo{
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
     color: rgb(239, 215, 171);
     margin-top: 0px;
     margin-bottom: 0px;

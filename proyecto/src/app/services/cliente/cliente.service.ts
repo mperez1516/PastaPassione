@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Cliente } from 'src/app/entidades/cliente/cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -58,4 +59,15 @@ export class ClienteService {
   eliminarCliente(id: number): Observable<any> {
     return this.http.delete(`${this.clienteTablaEndpoint}/${id}`);
   }
+
+  /**
+   * Metodo para obtener el cliente autenticado
+   */
+
+  obtenerClienteAutenticado(): Cliente | null {
+    const clienteGuardado = localStorage.getItem('cliente');
+    return clienteGuardado ? JSON.parse(clienteGuardado) : null;
+
+}
+
 }

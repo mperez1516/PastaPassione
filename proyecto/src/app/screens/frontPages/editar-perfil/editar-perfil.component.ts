@@ -17,46 +17,34 @@ export class EditarPerfilComponent implements OnInit {
   //Constructor
   constructor(
     private router: Router,
-    private clienteService: ClienteService,
-    private route : ActivatedRoute
-    
+    private clienteService: ClienteService, 
   ) {}
 
   ngOnInit(): void {
-    this.isLoading = true;
-    //Obtenemos el id de la ruta
-    const idRoute = this.route.snapshot.paramMap.get('id');
-    //Verificamos si el id es un número
-    if(idRoute !== null){
-      const id = Number(idRoute);
 
-      if(isNaN(id)){
-        this.errorMessage = 'El ID proporcionado no es válido.';
-        this.isLoading = false;
-        return;
-      }
-
-      this.clienteService.obtenerCliente(id).subscribe({
-        next:(cliente: Cliente) => {
-          this.perfil = cliente;
+    const cliente = this.clienteService.obtenerClienteAutenticado();
+    if (cliente) {
+      this.clienteService.obtenerCliente(cliente.id!).subscribe({
+        next: (data) => {
+          this.perfil = data;
           this.isLoading = false;
-        }
-        ,error: (error) => {
-          this.errorMessage = 'Error al obtener el cliente';
-          console.error(error);
+        },
+        error: () => {
+          this.errorMessage = 'No se pudo cargar el perfil';
           this.isLoading = false;
         }
       });
     } else {
-      this.errorMessage = 'ID de cliente no proporcionado en la ruta.';
+      this.errorMessage = 'No hay cliente autenticado.';
       this.isLoading = false;
+      this.router.navigate(['/loginCliente']);
     }
+    
   }
 
   actualizarPerfil() {
-    if (!this.perfil || this.perfil.id === undefined || this.perfil.id === null) {
+    if (!this.perfil?.id) {
       this.errorMessage = "No se puede actualizar el perfil: falta información del perfil o el ID.";
-      console.error("Falta el ID del cliente o el perfil para la actualización.");
       return;
     }
 
@@ -64,14 +52,12 @@ export class EditarPerfilComponent implements OnInit {
     this.errorMessage = null;
 
     this.clienteService.actualizarCliente(this.perfil).subscribe({
-      next: (data) => {
-        console.log('Perfil actualizado:', data);
+      next: () => {
         this.isLoading = false;
         alert('Perfil actualizado con éxito');
         this.router.navigate(['/homeCliente']);
       },
-      error: (err) => {
-        console.error('Error al actualizar el perfil', err);
+      error: () => {
         this.isLoading = false;
         this.errorMessage = "Error al actualizar tu perfil.";
       }
@@ -80,8 +66,7 @@ export class EditarPerfilComponent implements OnInit {
   }
 
   eliminarMiCuenta(): void {
-    if (!this.perfil || this.perfil.id === undefined || this.perfil.id === null) {
-      console.error('No se puede eliminar la cuenta: ID del cliente no disponible.');
+    if (!this.perfil?.id) {
       this.errorMessage = "No se puede eliminar la cuenta en este momento.";
       return;
     }
@@ -92,13 +77,11 @@ export class EditarPerfilComponent implements OnInit {
   
       this.clienteService.eliminarCliente(this.perfil.id).subscribe({
         next: () => {
-          console.log('Cuenta eliminada');
           this.isLoading = false;
           alert('Tu cuenta ha sido eliminada.');
           this.router.navigate(['/login']);
         },
-        error: (err) => {
-          console.error('Error al eliminar la cuenta', err);
+        error: () => {
           this.isLoading = false;
           this.errorMessage = "Error al intentar eliminar tu cuenta.";
         }

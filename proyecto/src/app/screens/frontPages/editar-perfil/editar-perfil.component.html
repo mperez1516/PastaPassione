@@ -11,6 +11,8 @@
 <body>
 
     <app-header-cliente> </app-header-cliente>
+    <div class="margen"> </div>
+    
     <!-- FORMULARIO -->
     <div class="container mt-4 formulario-edicion">
         <h2 class ="text-center">Editar Perfil</h2>
@@ -21,7 +23,7 @@
             </div>
         </div>
 
-        <div *ngIf="errorMessage && !isLoading" class="alert alert-danger">
+        <div *ngIf="errorMessage" class="alert alert-danger">
             {{ errorMessage }}
         </div>
 
@@ -52,13 +54,13 @@
             <!-- Campo para la dirección -->
             <div class="mb-3">
                 <label class="form-label">Dirección:</label>
-                <input type="text" class="form-control" [(ngModel)]="perfil.Direccion" name="direccion" required>
+                <input type="text" class="form-control" [(ngModel)]="perfil.direccion" name="direccion" required>
             </div>
 
             <!-- Campo para el teléfono -->
             <div class="mb-3">
                 <label class="form-label">Teléfono:</label>
-                <input type="text" class="form-control" [(ngModel)]="perfil.Telefono" name="telefono" required>
+                <input type="text" class="form-control" [(ngModel)]="perfil.telefono" name="telefono" required>
             </div>
 
             <!-- Botones de acción -->

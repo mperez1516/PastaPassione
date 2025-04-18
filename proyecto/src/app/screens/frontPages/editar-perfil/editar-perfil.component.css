@@ -6,7 +6,7 @@ html{
 /* ---- CONTENIDO ---- */
 body {
     font-family: 'Georgia', serif;
-    background-color: rgb(226, 189, 140);
+    background-color: rgb(248, 223, 191);
     color: rgb(89 32 25);
     padding: 0;
     width: 101%;
@@ -26,7 +26,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     border-radius: 30px;
-    margin-top: 10%;
+    margin-top: 100px;
     margin-bottom: 5%;
 }
 
@@ -63,14 +63,14 @@ body {
     background-color: #ebbd85; 
     color: rgb(89 32 25);
     font-weight: bold;
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 .formulario-edicion .btn-tertiary {
+    margin-top: 15px;
     background-color: rgb(189, 69, 54); 
     color: white;
-    margin-top: 30px;
-    margin-left: 350px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -88,6 +88,7 @@ body {
     background-color: #ebbd85; 
     color: rgb(89 32 25);
     font-weight: bold;
+    margin-right: 20px;
 }
 
 .formulario-edicion .btn-secondary:hover {
@@ -96,65 +97,14 @@ body {
 
 
 .formulario-edicion h2 {
-    font-size: 18px;
+    font-size: 27px;
     margin-bottom: 20px;
-    color: #fff;
+    color: #ebbd85 ;
     margin-top: 40px;
-    margin-left: 40px;
-}
-
-/* ---- FOOTER ---- */
-footer {
-    margin-top: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: rgb(89 32 25);
-    color: #f0d28c;
-    text-shadow: 2px 2px 4px rgb(51, 10, 10);
-    padding: 20px;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-footer div {
-    margin: 10px;
-}
-
-h2 {
-    font-size: 18px;
     font-weight: bold;
-
-    text-transform: uppercase;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.margen{
+    height: 50px;
 }
 
-ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-ul li a:hover {
-    text-decoration: underline;
-}
-
-#Col1 img {
-    width: 160px;
-    margin-left: 20px;
-    border-radius: 20px;
-}
-
-#Col4 img {
-    width: 40px;
-    height: 40px;
-    margin-left: 3px;
-    margin-right: 10px;
-}
-
-#Col4 h2{
-    margin-left: 30px;
-}
