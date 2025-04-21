@@ -19,9 +19,10 @@ export class LoginClienteComponent {
       next: (response) => {
         if (response.success) {
           console.log('Cliente autenticado:', response.cliente);
-          // Puedes guardar el cliente en localStorage si deseas mantener sesión:
           localStorage.setItem('cliente', JSON.stringify(response.cliente));
-          this.router.navigate(['/homeCliente']);
+          const redirectUrl = localStorage.getItem('redirectAfterLogin') || '/homeCliente';
+          localStorage.removeItem('redirectAfterLogin');
+          this.router.navigate([redirectUrl]);
         } else {
           this.error = response.message || 'Error al iniciar sesión';
         }

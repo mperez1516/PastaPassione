@@ -1,0 +1,83 @@
+/* Contenedor centrado y espaciado */
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+  
+  /* Título */
+  h2 {
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    color: #592019;
+    margin-bottom: 25px;
+  }
+  
+  /* Alerta de éxito */
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  
+  /* Tarjeta principal */
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  /* Body de la tarjeta */
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Encabezados dentro de la tarjeta */
+  .card-body h5 {
+    margin-bottom: 16px;
+    font-weight: bold;
+    color: #592019;
+  }
+  
+  /* Lista de ítems */
+  .list-unstyled li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  
+  /* Imágenes de ítems */
+  .list-unstyled li img {
+    border-radius: 6px;
+  }
+  
+  /* Campo de dirección */
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+  }
+  
+  /* Botón confirmar */
+  .btn-success {
+    background-color: #ff6600;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-success:hover:not(:disabled) {
+    background-color: #cc5500;
+  }
+  
+  .btn-success:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

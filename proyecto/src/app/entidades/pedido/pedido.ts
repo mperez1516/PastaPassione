@@ -1,7 +1,15 @@
+import { Cliente } from "../cliente/cliente";
+import { Domiciliario } from "../domiciliario/domiciliario";
+import { ItemPedido } from "../itemPedido/item-pedido";
+import { Operador } from "../operador/operador";
+
 export interface Pedido {
-    operador_ID: number;
-    domiciliario_ID: number;
-    estado:boolean;
-    fecha: string;
-    pedido_id: number;
+    pedidoID: number;
+    cliente:Cliente;
+    operador:Operador;
+    domiciliario:Domiciliario;
+    estado:String;
+    direccionEnvio:String;
+    fecha:Date;
+    items?:ItemPedido[]
 }

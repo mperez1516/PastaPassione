@@ -8,6 +8,7 @@ import { RegistroClienteComponent } from '../registro-cliente/registro-cliente.c
 import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
 import { HistorialPedidosComponent } from '../historial-pedidos/historial-pedidos.component';
 import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.component';
+import { PagarComponent } from '../pagar/pagar/pagar.component';
 
 const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'editarPerfil' , component: EditarPerfilComponent},
   { path: 'historialPedidos', component: HistorialPedidosComponent},
   { path: 'pedidosActivos', component: PedidosActivosComponent},
+  {path: 'pagar',component: PagarComponent},
   { path: 'landingPage', redirectTo: 'landingPage', pathMatch: 'full' }
 ];
 

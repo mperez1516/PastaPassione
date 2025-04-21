@@ -15,6 +15,7 @@ import { EditarClienteComponent } from '../../adminViews/editar-cliente/editar-c
 import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component';
 import { HistorialPedidosComponent } from '../historial-pedidos/historial-pedidos.component';
 import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.component';
+import { PagarComponent } from '../pagar/pagar/pagar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.comp
     HomeAdminPageComponent,
     EditarPerfilComponent,
     HistorialPedidosComponent,
-    PedidosActivosComponent
+    PedidosActivosComponent,
+    PagarComponent
 
   ],
   imports: [
@@ -35,7 +37,8 @@ import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.comp
     ReactiveFormsModule,
     RouterModule,
     ComponentsModule, 
-    FrontPagesRoutingModule
+    FrontPagesRoutingModule,
+    
   ]
 })
 export class FrontPagesModule { }

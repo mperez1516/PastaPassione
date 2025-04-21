@@ -175,6 +175,21 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 200px;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+  #carrito ul::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #carrito ul::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  #carrito ul::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
   }
   
   #carrito li {

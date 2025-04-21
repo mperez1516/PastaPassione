@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h2>Confirmar Pago</h2>
+    <div *ngIf="mensajeExito" class="alert alert-success">
+      {{ mensajeExito }}
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5>Resumen del Pedido</h5>
+        <ul class="list-unstyled">
+          <li *ngFor="let item of carrito.items" class="d-flex align-items-center mb-3">
+            <img [src]="getRutaImagen(item.producto.categoria, item.producto.nombre)" width="40" alt="{{ item.producto.nombre }}" class="me-3">
+            <span>{{ item.producto.nombre }} x{{ item.cantidad }} - {{ item.producto.precio * item.cantidad | currency:'COP':'symbol' }}</span>
+          </li>
+        </ul>
+        <h5>Total: {{ total | currency:'COP':'symbol' }}</h5>
+        <div class="mb-3">
+          <label for="direccionEnvio" class="form-label">Dirección de Envío</label>
+          <input type="text" class="form-control" id="direccionEnvio" [(ngModel)]="direccionEnvio" required>
+        </div>
+        <button class="btn btn-success w-100" (click)="confirmarPago()" [disabled]="!direccionEnvio || mensajeExito">Confirmar Pago</button>
+      </div>
+    </div>
+  </div>

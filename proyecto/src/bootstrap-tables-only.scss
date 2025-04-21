@@ -1,0 +1,11 @@
+// Importar variables y mixins necesarios de Bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Importar solo el módulo de tablas
+@import "~bootstrap/scss/tables";
+
+// Opcional: Si usas otras utilidades relacionadas con tablas (como colores o bordes)
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/utilities/api";

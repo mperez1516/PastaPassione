@@ -60,3 +60,226 @@ body {
     margin-bottom: 20px;
     color: #555;
 }
+/* Fondo y espaciado general */
+.container {
+  max-width: 900px; /* Limita el ancho del contenedor para mejor legibilidad */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #f8f9fa; /* Fondo claro para el contenedor */
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* Título principal */
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Estilo para la tarjeta principal */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* Estilo para etiquetas y campos del formulario */
+.form-label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+textarea.form-control {
+  resize: vertical; /* Permite redimensionar solo verticalmente */
+  min-height: 100px;
+}
+
+/* Sección de adicionales */
+h5.border-bottom {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+}
+
+.alert-info {
+  border-radius: 6px;
+  background-color: #e7f3fe;
+  border-color: #d6e9fc;
+  color: #31708f;
+}
+
+/* Tarjetas de adicionales */
+.card.h-100 {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card.h-100:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.form-check-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.form-check-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #28a745; /* Verde para el interruptor cuando está activado */
+  border-color: #28a745;
+}
+
+.text-muted {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Botones */
+.btn {
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-outline-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #e9ecef;
+  color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Iconos de Bootstrap */
+.bi {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Mensaje de éxito */
+.alert-success {
+  background-color: #e6f4ea;
+  border-color: #c3e6cb;
+  color: #155724;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.alert-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.alert-success .bi-check-circle-fill {
+  color: #28a745;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 767.98px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .form-check-label {
+    font-size: 0.9rem;
+  }
+}

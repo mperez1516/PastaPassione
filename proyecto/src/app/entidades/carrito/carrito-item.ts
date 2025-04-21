@@ -1,7 +1,8 @@
+import { Carro } from "../carro/carro";
+import { Producto } from "../producto/producto";
+
 export interface CarritoItem {
     id: number;
-    nombre: string;
-    precio: number;
-    imagen: string;
+    producto: Producto;
     cantidad: number;
 }

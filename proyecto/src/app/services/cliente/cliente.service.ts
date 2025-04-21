@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Cliente } from 'src/app/entidades/cliente/cliente';
 
 @Injectable({
@@ -68,6 +68,21 @@ export class ClienteService {
     const clienteGuardado = localStorage.getItem('cliente');
     return clienteGuardado ? JSON.parse(clienteGuardado) : null;
 
-}
+  }
+
+  /**
+   * Metodo para verificar si el usuario está autenticado
+   */
+  isLoggedIn(): Observable<boolean> {
+    const cliente = this.obtenerClienteAutenticado();
+    return of(!!cliente); // Devuelve true si hay un cliente autenticado, false si no
+  }
+
+  /**
+   * Metodo para cerrar sesión (opcional, pero útil para el futuro)
+   */
+  logout(): void {
+    localStorage.removeItem('cliente');
+  }
 
 }
