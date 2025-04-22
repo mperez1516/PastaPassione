@@ -44,28 +44,35 @@ export class PagarComponent implements OnInit {
   }
 
   confirmarPago(): void {
-    // Solo proceder si hay un cliente logueado y una dirección
     if (this.cliente && this.direccionEnvio) {
-      // Llama al servicio para crear el pedido de una vez
-      this.pedidoService.crearPedido(this.carrito.id, this.direccionEnvio)
-        .subscribe({
-          next: (pedido) => {
-            // pedido es la respuesta de tu backend: un objeto Pedido con su id
-            this.mensajeExito = `Pedido #${pedido.pedidoID} generado exitosamente.`;
-            // Limpia el carrito en storage y en la UI
-            localStorage.removeItem('carrito');
-            this.carrito.items = [];
-            this.total = 0;
-            // Tras 3s regresa al home del cliente
-            setTimeout(() => this.router.navigate(['/homeCliente']), 3000);
-          },
-          error: (err) => {
-            console.error('Error al generar el pedido:', err);
-            this.mensajeExito = 'Error al generar el pedido. Por favor, intenta de nuevo.';
-          }
-        });
+      // 1. Guarda el carrito en el backend
+      this.pedidoService.guardarCarrito(this.carrito).subscribe({
+        next: (res) => {
+          const carritoId = res.carritoId;
+  
+          // 2. Luego crear el pedido desde ese carrito
+          this.pedidoService.crearPedido(carritoId, this.direccionEnvio).subscribe({
+            next: (pedido) => {
+              this.mensajeExito = `Pedido #${pedido.pedidoID} generado exitosamente.`;
+              localStorage.removeItem('carrito');
+              this.carrito.items = [];
+              this.total = 0;
+              setTimeout(() => this.router.navigate(['/homeCliente']), 3000);
+            },
+            error: (err) => {
+              console.error('Error al crear el pedido:', err);
+              this.mensajeExito = 'Error al generar el pedido. Intenta de nuevo.';
+            }
+          });
+        },
+        error: (err) => {
+          console.error('Error al guardar carrito:', err);
+          alert('Error al guardar el carrito.');
+        }
+      });
     }
   }
+  
   
 
   getRutaImagen(categoria: string, nombre: string): string {
