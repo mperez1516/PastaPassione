@@ -44,8 +44,12 @@ export class PagarComponent implements OnInit {
   }
 
   confirmarPago(): void {
-    if (this.cliente && this.direccionEnvio) {
+
+    console.log(this.carrito);
+    if (this.cliente!=null && this.direccionEnvio) {
       // 1. Guarda el carrito en el backend
+      console.log(localStorage.getItem('cliente')); // Esto debería mostrar la cadena JSON almacenada
+
       this.pedidoService.guardarCarrito(this.carrito).subscribe({
         next: (res) => {
           const carritoId = res.carritoId;
