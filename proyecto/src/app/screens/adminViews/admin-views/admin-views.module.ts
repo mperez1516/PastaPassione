@@ -17,6 +17,8 @@ import { MenuClientesComponent } from '../menu-clientes/menu-clientes.component'
 import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
 import { AdminViewsComponent } from './admin-views.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginAdminComponent } from '../login-admin/login-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuClientesComponent,
     AgregarClienteComponent,
     EditarClienteComponent,
-    HeaderCrudsComponent
+    HeaderCrudsComponent,
+    LoginAdminComponent
   ],
   imports: [
     CommonModule,

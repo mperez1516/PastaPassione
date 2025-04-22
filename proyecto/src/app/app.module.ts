@@ -8,9 +8,10 @@ import { FrontPagesModule } from './screens/frontPages/front-pages/front-pages.m
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
     
   ],
   imports: [

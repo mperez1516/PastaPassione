@@ -12,6 +12,7 @@ import { MenuClientesComponent } from '../menu-clientes/menu-clientes.component'
 import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminViewsComponent } from './admin-views.component';
+import { LoginAdminComponent } from '../login-admin/login-admin.component';
 
 const routes: Routes = [
   {path:'',
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'detalleAdicional/:id', component: DetalleAdicionalComponent },
       { path: 'agregarAdicional', component: AgregarAdicionalComponent },
       { path: 'home', component: HomeAdminPageComponent },
+      { path: 'loginAdmin', component: LoginAdminComponent },
       { path: '', redirectTo: 'menu', pathMatch: 'full' }
     ]  
 }

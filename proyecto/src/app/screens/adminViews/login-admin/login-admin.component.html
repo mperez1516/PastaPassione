@@ -3,7 +3,7 @@
       <nav class="menu">
         <img id="logo" src="assets/Imagenes/logoRecortado.jpg" alt="Logo" />
         <h1 id="titulo">PASTA E <br />PASSIONE</h1>
-        <a id="loginAdmin" routerLink="/admin/loginAdmin">Acceso Admin</a>
+        <a id="loginAdmin" routerLink="/login">Acceso Cliente</a>
         <img id="logo2" src="assets/Imagenes/logoRecortado.jpg" alt="Logo" />
       </nav>
     </div>
@@ -16,13 +16,13 @@
       </div>
   
       <div class="form-container">
-        <h2 class="title">Pasta e Passione</h2>
-        <p class="subtitle">¡¿Qué esperas para ser parte de la familia?!</p>
+        <h2 class="title">Login Administrador</h2>
+        <p class="subtitle">Bienvenido, por favor ingresa tus credenciales.</p>
   
-        <form (ngSubmit)="login()" #loginForm="ngForm">
+        <form (ngSubmit)="login()">
           <div class="input-group">
-            <label>Correo</label>
-            <input type="email" name="correo" [(ngModel)]="correo" required />
+            <label>Usuario</label>
+            <input type="text" name="usuario" [(ngModel)]="usuario" required />
           </div>
   
           <div class="input-group">
@@ -33,10 +33,6 @@
           <p style="color: red;" *ngIf="error">{{ error }}</p>
           <button type="submit" class="btn">Iniciar Sesión</button>
         </form>
-  
-        <p class="register-text">
-          ¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a>
-        </p>
       </div>
   
       <div class="image-container right">
