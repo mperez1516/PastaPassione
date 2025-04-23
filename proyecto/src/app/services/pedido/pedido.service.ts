@@ -47,4 +47,31 @@ export class PedidoService {
       { params }
     );
   }
+
+  obtenerPedidos(opciones?: {
+    clienteId?: number,
+    operadorId?: number,
+    domiciliarioId?: number,
+    pendientes?: boolean
+  }): Observable<Pedido[]> {
+    if (opciones?.clienteId) {
+      return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos/cliente/${opciones.clienteId}`);
+    }
+  
+    if (opciones?.operadorId) {
+      return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos/operador/${opciones.operadorId}`);
+    }
+  
+    if (opciones?.domiciliarioId) {
+      return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos/domiciliario/${opciones.domiciliarioId}`);
+    }
+  
+    if (opciones?.pendientes) {
+      return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos/pendientes`);
+    }
+  
+    // Por defecto trae todos los pedidos
+    return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos`);
+  }
+
 }
