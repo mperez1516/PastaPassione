@@ -25,7 +25,6 @@ export class PagarComponent implements OnInit {
 
   ngOnInit(): void {
     this.cliente = this.clienteService.obtenerClienteAutenticado();
-    console.log(this.cliente);
     if (!this.cliente) {
       localStorage.setItem('redirectAfterLogin', '/pagar');
       this.router.navigate(['/login']);
@@ -45,15 +44,13 @@ export class PagarComponent implements OnInit {
 
   confirmarPago(): void {
 
-    console.log(this.carrito);
     if (this.cliente!=null && this.direccionEnvio) {
       // 1. Guarda el carrito en el backend
-      console.log(localStorage.getItem('cliente')); // Esto debería mostrar la cadena JSON almacenada
-
+      this.carrito.cliente =this.cliente;
       this.pedidoService.guardarCarrito(this.carrito).subscribe({
+
         next: (res) => {
           const carritoId = res.carritoId;
-  
           // 2. Luego crear el pedido desde ese carrito
           this.pedidoService.crearPedido(carritoId, this.direccionEnvio).subscribe({
             next: (pedido) => {
