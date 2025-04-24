@@ -1,4 +1,3 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,13 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
+  private url = 'http://localhost:8000/Admin/loginAdmin';
 
-  private baseUrl = 'http://localhost:8000/admin';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  loginAdmin(usuario: string, contrasena: string): Observable<any> {
-    const credentials = { usuario, contrasena };
-    return this.http.post(`${this.baseUrl}/login`, credentials);
+  loginAdmin(datos: { usuario: string; contrasena: string }): Observable<any> {
+    return this.http.post(this.url, datos);
   }
 }
