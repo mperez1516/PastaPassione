@@ -18,7 +18,10 @@ export class ProductoService {
   getProductos(): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.baseUrl);
   }
-
+// Obtener todos los adicionales de un producto
+  getAdicionalesByProductoId(id: number): Observable<Adicional[]> {
+    return this.http.get<Adicional[]>(`${this.baseUrl}/${id}/adicionales`);
+  }
   // Obtener producto por ID
   getProductoById(id: number): Observable<Producto> {
     return this.http.get<Producto>(`${this.baseUrl}/${id}`);
