@@ -55,7 +55,7 @@ export class ProductoService {
     
 
 
-  return this.http.put<Producto>(`${this.baseUrl}/producto/${id}`, productoParaBackend, { headers });
+  return this.http.put<Producto>(`${this.baseUrl}/${id}`, productoParaBackend, { headers });
   }
 
   // Eliminar producto
