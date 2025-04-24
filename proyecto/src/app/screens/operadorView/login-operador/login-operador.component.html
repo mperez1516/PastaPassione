@@ -1,0 +1,44 @@
+<header class="header">
+    <div class="principal">
+      <nav class="menu">
+        <img id="logo" src="assets/Imagenes/logoRecortado.jpg" alt="Logo" />
+        <h1 id="titulo">PASTA E <br />PASSIONE</h1>
+        <a id="loginCliente" routerLink="/login">Acceso Cliente</a>
+        <a id="loginAdmin" routerLink="/loginAdmin">Acceso Admin</a>
+        <img id="logo2" src="assets/Imagenes/logoRecortado.jpg" alt="Logo" />
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="login-box">
+      <div class="image-container left">
+        <img src="assets/Imagenes/menu/platoprincipal/Pizza-Prosciutto.jpg" alt="Pizza" />
+      </div>
+  
+      <div class="form-container">
+        <h2 class="title">Pasta e Passione</h2>
+        <p class="subtitle">¡Bienvenido operador!</p>
+  
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+          <div class="input-group">
+            <label>Usuario</label>
+            <input type="text" name="usuario" [(ngModel)]="usuario" required />
+          </div>
+  
+          <div class="input-group">
+            <label>Contraseña</label>
+            <input type="password" name="contrasena" [(ngModel)]="contrasena" required />
+          </div>
+  
+          <p style="color: red;" *ngIf="error">{{ error }}</p>
+          <button type="submit" class="btn">Iniciar Sesión</button>
+        </form>
+      </div>
+  
+      <div class="image-container right">
+        <img src="assets/Imagenes/menu/platoprincipal/Pizza-Margherita.jpg" alt="Pizza" />
+      </div>
+    </div>
+  </div>
+  
