@@ -1,36 +1,183 @@
+/* Estilos generales */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Contenedor principal con fondo */
 .background-container {
-    position: relative;
-    width: 100%;
-    background-image: url("src/assets/Imagenes/menuPerfil/fondoPedidos.jpg"); 
-    min-height: 95vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Efecto parallax opcional */
-    
-    /* Efecto de oscurecimiento/transparencia */
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* Ajusta el último valor (0.5) para más/menos transparencia */
-      z-index: 0;
-    }
-  }
-  
+  position: relative;
+  width: 100%;
+  background-image: url("src/assets/Imagenes/menuPerfil/fondoPedidos.jpg");
+  min-height: 70vh; /* Reducido de 95vh para que el footer sea visible con pocos pedidos */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenido sobre el fondo */
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  color: #333;
+  padding: 2rem;
+  flex: 1;
+  max-width: 1200px;
+  margin: 4rem auto 2rem; /* Aumentar margen superior para bajar el contenedor */
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos del título */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #8b5c4d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Estilos para la tabla */
+.table-pedidos {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 2rem;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-pedidos th, .table-pedidos td {
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.table-pedidos th {
+  background-color: #8b5c4d;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-pedidos td {
+  color: #555;
+}
+
+.table-pedidos tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table-pedidos tr:hover {
+  background-color: #f0e6e3;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para mensajes de carga o error */
+.loading-message, .error-message, .no-orders-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos del footer */
+footer {
+  background-color: #8b5c4d;
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  width: 100%;
+  font-size: 0.9rem;
+  margin-top: auto; /* Asegura que el footer se mantenga al final del contenido */
+}
+
+footer a {
+  color: #f5d3c8;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Asegurar que el footer sea visible incluso con poco contenido */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
   .content-overlay {
-    position: relative;
-    z-index: 1; /* Asegura que el contenido esté sobre el fondo */
-    color: white; /* Color de texto que contraste con el fondo */
-    padding: 2rem;
+    padding: 1.5rem;
+    margin: 2rem auto 1rem; /* Ajustar margen en pantallas más pequeñas */
   }
 
-  .content-overlay h1 {
-    margin-top: 5%;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
+  h1 {
+    font-size: 2rem;
   }
+
+  .table-pedidos th, .table-pedidos td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .table-pedidos {
+    font-size: 0.85rem;
+  }
+
+  footer {
+    padding: 15px 0;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .table-pedidos th, .table-pedidos td {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+  }
+
+  .table-pedidos thead {
+    display: none;
+  }
+
+  .table-pedidos tr {
+    margin-bottom: 1rem;
+    display: block;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .table-pedidos td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #8b5c4d;
+  }
+}

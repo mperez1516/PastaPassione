@@ -20,6 +20,7 @@ export class VerPedidosComponent implements OnInit {
         next: (data) => {
           this.pedidos = data;
           this.cargando = false;
+          console.log(this.pedidos);
         },
         error: (err) => {
           this.error = 'Error al cargar pedidos';

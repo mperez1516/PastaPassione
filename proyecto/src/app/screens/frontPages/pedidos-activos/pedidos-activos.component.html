@@ -1,13 +1,38 @@
+<app-header-cliente></app-header-cliente>
 
+<div class="background-container">
+  <div class="content-overlay">
+    <h1>Mis pedidos activos</h1>
 
-    <app-header-cliente></app-header-cliente>
+    <!-- Mostrar error si no se han cargado pedidos -->
+    <div *ngIf="cargando" class="loading-message">Cargando tus pedidos...</div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
 
-    <div class="background-container">
-        <div class="content-overlay">
-          <!-- Tu contenido aquí -->
-          <h1>Mis pedidos activos</h1>
-          
-        </div>
-      </div>
+    <!-- Si no hay pedidos -->
+    <div *ngIf="!cargando && pedidos.length === 0" class="no-orders-message">
+      No tienes pedidos activos.
+    </div>
 
-    <app-footer></app-footer>
+    <!-- Tabla de pedidos -->
+    <table *ngIf="!cargando && pedidos.length > 0" class="table-pedidos">
+      <thead>
+        <tr>
+          <th>ID Cliente</th>
+          <th>Estado</th>
+          <th>Dirección</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pedido of pedidos">
+          <td data-label="ID Cliente">{{ pedido.cliente?.nombre || 'Sin cliente' }}</td>
+          <td data-label="Estado">{{ pedido.estado }}</td>
+          <td data-label="Dirección">{{ pedido.direccionEnvio }}</td>
+          <td data-label="Fecha">{{ pedido.fecha | date:'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-footer></app-footer>

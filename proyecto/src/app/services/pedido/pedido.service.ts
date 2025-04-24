@@ -47,7 +47,11 @@ export class PedidoService {
       { params }
     );
   }
-
+  obtenerPedidosPorCliente(): Observable<Pedido[]> {
+    const clienteId = JSON.parse(localStorage.getItem('cliente') || '{}').id; // Obtén el ID del cliente
+    return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos/cliente/${clienteId}`);
+  }
+  
   obtenerPedidos(opciones?: {
     clienteId?: number,
     operadorId?: number,
