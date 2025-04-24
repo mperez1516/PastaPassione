@@ -12,14 +12,15 @@
 .carusel {
     display: flex;
     align-items: center;
+    margin-left: -15px;
     justify-content: center;
     background-color: rgb(223, 179, 151);
     padding: 20px;
     position: relative;
     overflow: hidden;
-    width: 100%;
+    width: 102%;
     box-sizing: border-box;
-    margin-bottom: -12px;
+    margin-bottom: -39px;
 }
 
 .carusel-container {
@@ -133,11 +134,10 @@
 }
 
 #lineaSeparadora2 {
-    width: 150%;
+    width: 103%;
     height: 40px;
-    margin-top: -20px;
+    margin-top: 20px;
     margin-left: -30px;
-    margin-right: -20px;
     background-color:  rgb(89 32 25) ;
     z-index: 1;
     border: #180e03 solid 1.5px;

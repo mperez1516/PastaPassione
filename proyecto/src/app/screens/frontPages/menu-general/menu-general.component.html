@@ -27,6 +27,13 @@
     </nav>
   </header>
 
+  <div class="seccion-inicial">
+    <div class="content-overlay">
+      <h1>Nuestro Menu</h1>
+      <p>Descubre nuestra variedad de platos inspirados en la cocina italiana.</p>
+    </div>
+  </div>
+
   <div id="menu-contenedor">
     <div *ngFor="let categoria of categorias | keyvalue" id="{{ categoria.key }}">
       <h2 class="seccion-titulo">{{ categoria.key }}</h2>
@@ -40,7 +47,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ producto.nombre }}</h5>
               <p class="card-text">{{ producto.descripcion }}</p>
-              <p class="card-text fw-bold">{{ producto.precio | currency:'COP':'symbol' }}</p>
+              <p class="card-text fw-bold" id="precio">{{ producto.precio | currency:'COP':'symbol' }}</p>
               <button class="boton-circular" (click)="agregarAlCarrito(producto)">+</button>
             </div>
           </div>

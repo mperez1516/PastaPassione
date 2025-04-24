@@ -18,7 +18,7 @@
   <tbody>
     <tr *ngFor="let pedido of pedidos">
       <td>{{ pedido.pedidoID }}</td>
-      <td>{{ pedido.cliente?.nombre || 'Sin cliente' }}</td>
+      <td>{{ pedido.cliente.nombre || 'Sin cliente' }}</td>
       <td>{{ pedido.estado }}</td>
       <td>{{ pedido.fecha | date:'short' }}</td>
       <td>{{ pedido.direccionEnvio }}</td>
