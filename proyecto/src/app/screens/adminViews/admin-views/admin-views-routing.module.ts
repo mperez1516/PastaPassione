@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeAdminPageComponent } from '../../frontPages/home-admin-page/home-admin-page.component';
 import { AdicionalesTablaComponent } from '../adicionales-tabla/adicionales-tabla.component';
 import { AgregarAdicionalComponent } from '../agregar-adicional/agregar-adicional.component';
 import { AgregarClienteComponent } from '../agregar-cliente/agregar-cliente.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
       { path: 'adicionales', component: AdicionalesTablaComponent },
       { path: 'detalleAdicional/:id', component: DetalleAdicionalComponent },
       { path: 'agregarAdicional', component: AgregarAdicionalComponent },
-      { path: 'home', component: HomeAdminPageComponent },
       { path: 'loginAdmin', component: LoginAdminComponent },
       { path: '', redirectTo: 'menu', pathMatch: 'full' }
     ]  

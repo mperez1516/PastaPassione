@@ -15,19 +15,15 @@ export class LoginOperadorComponent {
   constructor(private operadorService: OperadorService, private router: Router) {}
 
   login(): void {
-   this.operadorService.loginOperador({
-  usuario: this.usuario,
-  contrasena: this.contrasena
-}).subscribe({
-  next: (res) => {
-    console.log('Login exitoso', res);
-    this.router.navigate(['/homeOperador']);
-  },
-  error: (err) => {
-    console.error('Error en login:', err);
-    this.error = err.error?.error || 'Error desconocido';
-  }
-});
-
+    this.operadorService.loginOperador(this.usuario, this.contrasena).subscribe({
+      next: (res) => {
+        console.log('Login exitoso', res);
+        this.router.navigate(['/operador/ver-pedidos']);
+      },
+      error: (err) => {
+        console.error('Error en login:', err);
+        this.error = err.error.error || 'Error desconocido';
+      }
+    });
   }
 }

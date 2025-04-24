@@ -6,11 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OperadorService {
-  private baseUrl = 'http://localhost:8000/Operador'; 
+  private baseUrl = 'http://localhost:8000/Operador'; // Asegúrate que coincida con tu backend
 
   constructor(private http: HttpClient) {}
 
-  loginOperador(credenciales: { usuario: string, contrasena: string }): Observable<any> {
-    return this.http.post('http://localhost:8000/Operador/loginOperador', credenciales);
+  loginOperador(usuario: string, contrasena: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/loginOperador`, {
+      usuario,
+      contrasena
+    });
   }
-}  
+}
