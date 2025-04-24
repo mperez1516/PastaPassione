@@ -5,4 +5,5 @@ export interface CarritoItem {
     id: number;
     producto: Producto;
     cantidad: number;
+    adicionales?: { id: number }[];
 }

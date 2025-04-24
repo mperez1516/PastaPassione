@@ -10,7 +10,10 @@ const routes: Routes = [
     path: '', 
     loadChildren: () => import('./screens/frontPages/front-pages/front-pages.module').then(m => m.FrontPagesModule) 
   },
-  { path: '**', redirectTo: '' } // Ruta comodín para 404
+  {
+    path: 'operador',
+    loadChildren: () => import('./screens/operadorView/operador/operador.module').then(m => m.OperadorModule)
+  }
 ];
 
 @NgModule({

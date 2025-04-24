@@ -1,0 +1,70 @@
+/* Estilo general */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para la tabla */
+  .tabla-pedidos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .tabla-pedidos th, .tabla-pedidos td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .tabla-pedidos th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .tabla-pedidos tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .tabla-pedidos tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Estilo de los mensajes */
+  div {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  div.cargando {
+    color: #888;
+  }
+  
+  div.error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Botón de acción (si lo añades más tarde) */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  
