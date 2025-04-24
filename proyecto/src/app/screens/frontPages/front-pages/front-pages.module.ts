@@ -27,6 +27,7 @@ import { PagarComponent } from '../pagar/pagar/pagar.component';
     HomeAdminPageComponent,
     EditarPerfilComponent,
     HistorialPedidosComponent,
+    HomeAdminPageComponent,
     PedidosActivosComponent,
     PagarComponent
 

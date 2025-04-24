@@ -3,8 +3,8 @@
       <nav class="menu">
         <img id="logo" src="assets/Imagenes/logoRecortado.jpg" alt="Logo" />
         <h1 id="titulo">PASTA E <br />PASSIONE</h1>
-        <a id="loginAdmin" routerLink="/login">Acceso Cliente</a>
-        <a id="loginOperador" routerLink="/operador/loginOperador">Acceso Operador</a>
+        <a id="loginCliente" routerLink="/login">Acceso Cliente</a>
+        <a id="loginAdmin" routerLink="/loginAdmin">Acceso Admin</a>
         <img id="logo2" src="assets/Imagenes/logoRecortado.jpg" alt="Logo" />
       </nav>
     </div>
@@ -17,10 +17,10 @@
       </div>
   
       <div class="form-container">
-        <h2 class="title">Login Administrador</h2>
-        <p class="subtitle">Bienvenido, por favor ingresa tus credenciales.</p>
+        <h2 class="title">Pasta e Passione</h2>
+        <p class="subtitle">¡Bienvenido operador!</p>
   
-        <form (ngSubmit)="login()">
+        <form (ngSubmit)="login()" #loginForm="ngForm">
           <div class="input-group">
             <label>Usuario</label>
             <input type="text" name="usuario" [(ngModel)]="usuario" required />

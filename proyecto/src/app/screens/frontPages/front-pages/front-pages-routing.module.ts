@@ -9,10 +9,12 @@ import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component'
 import { HistorialPedidosComponent } from '../historial-pedidos/historial-pedidos.component';
 import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.component';
 import { PagarComponent } from '../pagar/pagar/pagar.component';
+import { HomeAdminPageComponent } from '../home-admin-page/home-admin-page.component';
 
 const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
   { path: 'homeCliente', component: HomeClientePageComponent },
+  {path: 'homeAdmin', component: HomeAdminPageComponent},
   { path: 'login', component: LoginClienteComponent },
   { path: 'registro', component: RegistroClienteComponent },
   { path: 'menu', component: MenuGeneralComponent },
