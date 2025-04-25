@@ -32,7 +32,7 @@ export class AdicionalesTablaComponent implements OnInit {
   }
 
   editarAdicional(adicional: Adicional): void {
-    this.router.navigate(['detalleAdicional', adicional.adicional_id]);
+    this.router.navigate(['admin/detalleAdicional', adicional.adicional_id]);
   }
 
   eliminarAdicional(adicional: Adicional): void {
@@ -48,6 +48,6 @@ export class AdicionalesTablaComponent implements OnInit {
   }
 
   irAAgregar(): void {
-    this.router.navigate(['agregarAdicional']);
+    this.router.navigate(['admin/agregarAdicional']);
   }
 }

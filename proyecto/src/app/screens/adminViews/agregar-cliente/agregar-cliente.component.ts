@@ -26,7 +26,7 @@ export class AgregarClienteComponent {
       next: (respuesta) => {
         console.log('Cliente guardado:', respuesta);
         // Navega de vuelta a la lista de clientes o a otra vista de administración
-        this.router.navigate(['/homeAdmin/usuarios']);
+        this.router.navigate(['/admin/usuarios']);
       },
       error: (err) => {
         console.error('Error al guardar el cliente:', err);
@@ -36,6 +36,6 @@ export class AgregarClienteComponent {
 
   cancelar() {
     // Navega a la vista de clientes sin guardar
-    this.router.navigate(['/homeAdmin/usuarios']);
+    this.router.navigate(['/admin/usuarios']);
   }
 }

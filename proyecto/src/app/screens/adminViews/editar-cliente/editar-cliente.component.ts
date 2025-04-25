@@ -40,7 +40,7 @@ export class EditarClienteComponent implements OnInit {
       next: (data) => {
         console.log('Cliente actualizado:', data);
         // Redirecciona a la lista de clientes, por ejemplo
-        this.router.navigate(['/homeAdmin/usuarios']);
+        this.router.navigate(['/admin/usuarios']);
       },
       error: (err) => {
         console.error('Error al actualizar el cliente', err);
@@ -49,6 +49,6 @@ export class EditarClienteComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigate(['/homeAdmin/usuarios']);
+    this.router.navigate(['/admin/usuarios']);
   }
 }
