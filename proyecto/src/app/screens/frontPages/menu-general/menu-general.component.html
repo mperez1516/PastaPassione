@@ -39,16 +39,16 @@
       <h2 class="seccion-titulo">{{ categoria.key }}</h2>
       <div class="row">
         <div class="col-md-4 mb-4" *ngFor="let producto of categoria.value">
-          <div class="card h-100">
+          <div class="card h-100" (click)="verDetalle(producto)">
             <img [src]="getRutaImagen(categoria.key, producto.nombre)"
                  [alt]="producto.nombre"
-                 class="card-img-top producto-imagen"
-                 (click)="verDetalle(producto)">
+                 class="card-img-top producto-imagen">
             <div class="card-body">
               <h5 class="card-title">{{ producto.nombre }}</h5>
               <p class="card-text">{{ producto.descripcion }}</p>
               <p class="card-text fw-bold" id="precio">{{ producto.precio | currency:'COP':'symbol' }}</p>
-              <button class="boton-circular" (click)="agregarAlCarrito(producto)">+</button>
+              <button class="boton-circular" 
+                (click)="agregarAlCarrito(producto) ; $event.stopPropagation()">+</button>
             </div>
           </div>
         </div>
