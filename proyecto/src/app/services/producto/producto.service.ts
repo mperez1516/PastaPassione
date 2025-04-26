@@ -24,6 +24,10 @@ export class ProductoService {
     return this.http.get<Producto>(`${this.baseUrl}/${id}`);
   }
 
+  getProductoWithAdicionales(id: number): Observable<Producto> {
+    return this.http.get<Producto>(`${this.baseUrl}/${id}`);
+  }
+
   // Obtener todos los adicionales
   getAdicionales(): Observable<Adicional[]> {
     return this.http.get<Adicional[]>(this.adicionalesUrl);

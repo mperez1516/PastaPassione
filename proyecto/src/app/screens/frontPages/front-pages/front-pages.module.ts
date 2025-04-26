@@ -16,6 +16,7 @@ import { EditarPerfilComponent } from '../editar-perfil/editar-perfil.component'
 import { HistorialPedidosComponent } from '../historial-pedidos/historial-pedidos.component';
 import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.component';
 import { PagarComponent } from '../pagar/pagar/pagar.component';
+import { DetalleComponent } from '../detalle/detalle.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PagarComponent } from '../pagar/pagar/pagar.component';
     HistorialPedidosComponent,
     HomeAdminPageComponent,
     PedidosActivosComponent,
-    PagarComponent
+    PagarComponent,
+    DetalleComponent,
 
   ],
   imports: [

@@ -93,7 +93,7 @@ export class MenuGeneralComponent implements OnInit {
   }
 
   verDetalle(producto: Producto): void {
-    this.router.navigate(['/producto', producto.producto_id]);
+    this.router.navigate(['/detalle', producto.producto_id]);
   }
 
   getRutaImagen(categoria: string, nombre: string): string {

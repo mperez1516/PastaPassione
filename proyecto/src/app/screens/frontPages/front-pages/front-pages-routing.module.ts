@@ -10,6 +10,7 @@ import { HistorialPedidosComponent } from '../historial-pedidos/historial-pedido
 import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.component';
 import { PagarComponent } from '../pagar/pagar/pagar.component';
 import { HomeAdminPageComponent } from '../home-admin-page/home-admin-page.component';
+import { DetalleComponent } from '../detalle/detalle.component';
 
 const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'historialPedidos', component: HistorialPedidosComponent},
   { path: 'pedidosActivos', component: PedidosActivosComponent},
   {path: 'pagar',component: PagarComponent},
+  {path: 'detalle/:id', component: DetalleComponent},
   { path: 'landingPage', redirectTo: 'landingPage', pathMatch: 'full' }
 ];
 
