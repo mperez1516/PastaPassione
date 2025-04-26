@@ -1,9 +1,14 @@
+<!-- Mensaje de éxito -->
+<p *ngIf="mensajeDomiciliarioAsignado" class="text-success">
+  {{ mensajeDomiciliarioAsignado }}
+</p>
+
+
 <table *ngIf="!cargando && pedidos.length > 0" class="tabla-pedidos">
   <thead>
     <tr>
       <th>ID</th>
       <th>Cliente</th>
-      <th>Operador</th>
       <th>Domiciliario</th>
       <th>Estado</th>
       <th>Dirección</th>
@@ -12,10 +17,29 @@
   </thead>
   <tbody>
     <tr *ngFor="let pedido of pedidos">
-      <td>{{ pedido.pedidoID }}</td>
+      <td>{{ pedido.pedidoId }}</td>
       <td>{{ pedido.cliente?.nombre || 'Sin cliente' }}</td>
-      <td>{{ pedido.operador?.nombre || 'Sin operador' }}</td>
-      <td>{{ pedido.domiciliario?.nombre || 'Sin domiciliario' }}</td>
+      <td>
+        <div *ngIf="!pedido.domiciliario; else asignado">
+          <select 
+            [disabled]="domiciliarios.length === 0" 
+            (change)="onDomiciliarioSeleccionado($event, pedido.pedidoId)"
+            class="domiciliario-select"
+          >
+            <option value="" disabled selected>Selecciona un domiciliario</option>
+            <option *ngFor="let domiciliario of domiciliarios" [value]="domiciliario.id">
+              {{ domiciliario.nombre }}
+            </option>
+          </select>
+          <div *ngIf="domiciliarios.length === 0" class="no-domiciliarios">
+            No hay domiciliarios disponibles
+          </div>
+        </div>
+        <ng-template #asignado>
+          {{ pedido.domiciliario?.nombre }}
+        </ng-template>
+      </td>
+      
       <td>{{ pedido.estado }}</td>
       <td>{{ pedido.direccionEnvio }}</td>
       <td>{{ pedido.fecha | date:'short' }}</td>

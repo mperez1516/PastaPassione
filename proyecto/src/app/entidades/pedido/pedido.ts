@@ -4,7 +4,7 @@ import { ItemPedido } from "../itemPedido/item-pedido";
 import { Operador } from "../operador/operador";
 
 export interface Pedido {
-    pedidoID: number;
+    pedidoId: number;
     cliente:Cliente;
     operador:Operador;
     domiciliario:Domiciliario;
