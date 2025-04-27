@@ -78,4 +78,28 @@ export class VerPedidosComponent implements OnInit {
     }
   }
   
+
+  finalizarPedido(pedidoId: number, domiciliarioId: number): void {
+    if (!pedidoId || !domiciliarioId) return;
+
+    this.pedidoService.finalizarPedido(pedidoId, domiciliarioId).subscribe({
+      next: () => {
+        // Mostrar mensaje de éxito
+        this.mensajeDomiciliarioAsignado = 'Pedido finalizado correctamente';
+        this.cargarPedidos(); // Recargar los pedidos para ver el cambio de estado
+        this.cargarDomiciliarios(); // Recargar los domiciliarios para actualizar su disponibilidad
+
+        // Limpiar el mensaje después de 3 segundos
+        setTimeout(() => {
+          this.mensajeDomiciliarioAsignado = null;
+        }, 3000);
+      },
+      error: (err) => {
+        this.mensajeDomiciliarioAsignado = 'Error al finalizar el pedido';
+        setTimeout(() => {
+          this.mensajeDomiciliarioAsignado = null;
+        }, 3000);
+      }
+    });
+  }
 }

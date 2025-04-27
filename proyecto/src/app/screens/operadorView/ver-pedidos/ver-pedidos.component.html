@@ -13,6 +13,7 @@
       <th>Estado</th>
       <th>Dirección</th>
       <th>Fecha</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +44,12 @@
       <td>{{ pedido.estado }}</td>
       <td>{{ pedido.direccionEnvio }}</td>
       <td>{{ pedido.fecha | date:'short' }}</td>
+      <td>
+        <!-- Si el estado del pedido es "EN CAMINO", mostrar el botón de finalizar -->
+        <button *ngIf="pedido.estado === 'EN CAMINO'" (click)="finalizarPedido(pedido.pedidoId, pedido.domiciliario.id)" class="btn btn-success">
+          Finalizar Pedido
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
