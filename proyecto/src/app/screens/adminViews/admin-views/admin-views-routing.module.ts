@@ -12,6 +12,9 @@ import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminViewsComponent } from './admin-views.component';
 import { LoginAdminComponent } from '../login-admin/login-admin.component';
+import { OperadoresTablaComponent } from '../operadores-tabla/operadores-tabla.component';
+import { DetalleOperadoresComponent } from '../detalle-operadores/detalle-operadores.component';
+import { AgregarOperadorComponent } from '../agregar-operador/agregar-operador.component';
 
 const routes: Routes = [
   {path:'',
@@ -28,6 +31,9 @@ const routes: Routes = [
       { path: 'detalleAdicional/:id', component: DetalleAdicionalComponent },
       { path: 'agregarAdicional', component: AgregarAdicionalComponent },
       { path: 'loginAdmin', component: LoginAdminComponent },
+      { path: 'operadores', component: OperadoresTablaComponent },
+      { path: 'detalleOperadores/:id', component: DetalleOperadoresComponent },
+      { path: 'agregarOperador', component: AgregarOperadorComponent },
       { path: '', redirectTo: 'menu', pathMatch: 'full' }
     ]  
 }

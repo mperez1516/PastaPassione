@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Operador</title>
+</head>
+<body>
+
+  <app-header-cruds> </app-header-cruds>
+
+  <div class="container-agregar-adicional">
+    <h2>Agregar Operador</h2>
+    <form (ngSubmit)="guardarOperador()" #operadorForm="ngForm">
+      
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="operador.nombre" name="nombre" required>
+      
+      <label for="usuario" class="form-label">Usuario:</label>
+      <input type="text" id="usuario" class="form-control" [(ngModel)]="operador.usuario" name="usuario" required>
+      
+      <label for="contrasena" class="form-label">Contraseña:</label>
+      <input [type]="mostrarContrasena ? 'text' : 'password'" id="contrasena" class="form-control" [(ngModel)]="operador.contrasena" name="contrasena" required>
+
+      <button type="button" class="btn btn-link" (click)="mostrarContrasena = !mostrarContrasena">
+        {{ mostrarContrasena ? 'Ocultar Contraseña' : 'Mostrar Contraseña' }}
+      </button>
+
+      <label for="disponible" class="form-label">Disponible:</label>
+      <select id="disponible" class="form-control" [(ngModel)]="operador.disponible" name="disponible" required>
+        <option [value]="true">Sí</option>
+        <option [value]="false">No</option>
+      </select>
+
+      <button type="submit" class="btn btn-success">Guardar Operador</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    </form>
+  </div>
+
+</body>
+</html>

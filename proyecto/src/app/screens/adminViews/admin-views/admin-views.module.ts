@@ -18,6 +18,9 @@ import { MenuTablaComponent } from '../menu-tabla/menu-tabla.component';
 import { AdminViewsComponent } from './admin-views.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginAdminComponent } from '../login-admin/login-admin.component';
+import { OperadoresTablaComponent } from '../operadores-tabla/operadores-tabla.component';
+import { DetalleOperadoresComponent } from '../detalle-operadores/detalle-operadores.component';
+import { AgregarOperadorComponent } from '../agregar-operador/agregar-operador.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { LoginAdminComponent } from '../login-admin/login-admin.component';
     AgregarClienteComponent,
     EditarClienteComponent,
     HeaderCrudsComponent,
+    OperadoresTablaComponent,
+    DetalleOperadoresComponent,
+    AgregarOperadorComponent,
     LoginAdminComponent
   ],
   imports: [
