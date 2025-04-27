@@ -10,29 +10,25 @@ import { ProductoService } from 'src/app/services/producto/producto.service';
   styleUrls: ['./menu-tabla.component.css']
 })
 export class MenuTablaComponent implements OnInit {
-
-  //Atributos
+  // Atributos
   detalleProducto!: Producto;
-
-  //Base de datos de productos
   productosList: Producto[] = [];
-
   adicionalesList: Adicional[] = [];
-
-  //Metodos
+  
+  // Pagination and Search attributes
+  filteredProductos: Producto[] = [];
+  currentPage: number = 1;
+  pageSize: number = 10;
+  totalPages: number = 1;
+  searchTerm: string = '';
 
   constructor(
     private productoService: ProductoService,
     private adicionalService: AdicionalesService
   ) {}
 
-//1. mostrarlos en checkbox
-// y cada vez que se de click en el checkbox agregarlo a la lista de seleccionados DEL PRODUCTO
-
   ngOnInit(): void {
     this.obtenerProductos();
-    console.log("AYUDAAAA")
-    //Obtener adicionaes
     this.adicionalService.getAdicionales().subscribe({
       next: (adicionales) => {
         this.adicionalesList = adicionales;
@@ -45,21 +41,63 @@ export class MenuTablaComponent implements OnInit {
 
   obtenerProductos() {
     this.productoService.getProductos().subscribe({
-      next: (productos) => this.productosList = productos,
+      next: (productos) => {
+        this.productosList = productos;
+        this.applyFilterAndPagination();
+      },
       error: (err) => console.error('Error al obtener productos:', err)
     });
   }
+
+  // Search filter method
+  onSearch(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.searchTerm = input.value.toLowerCase();
+    this.currentPage = 1; // Reset to first page on search
+    this.applyFilterAndPagination();
+  }
+
+  // Apply filter and pagination
+  applyFilterAndPagination() {
+    // Filter products based on search term
+    let filtered = this.productosList;
+    if (this.searchTerm) {
+      filtered = this.productosList.filter(producto =>
+        producto.nombre?.toLowerCase().includes(this.searchTerm) ||
+        producto.descripcion?.toLowerCase().includes(this.searchTerm)
+      );
+    }
+
+    // Calculate pagination
+    this.totalPages = Math.ceil(filtered.length / this.pageSize);
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.filteredProductos = filtered.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  // Pagination methods
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.applyFilterAndPagination();
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.applyFilterAndPagination();
+    }
+  }
+
   editarProducto(producto: Producto) {
     this.detalleProducto = producto;
   }
 
   eliminarProducto(producto: Producto) {
-    console.log(producto);
-    console.log(producto.producto_id);
     if (producto.producto_id != null) {
       this.productoService.desactivarProducto(producto.producto_id).subscribe({
         next: () => {
-          this.obtenerProductos(); // Recarga la lista para ver el cambio
+          this.obtenerProductos();
         },
         error: (err) => {
           console.error('Error al desactivar producto:', err);
@@ -67,7 +105,6 @@ export class MenuTablaComponent implements OnInit {
       });
     }
   }
-  
 
   agregarProducto(producto: Producto) {
     this.productoService.addProducto(producto).subscribe({
@@ -75,7 +112,4 @@ export class MenuTablaComponent implements OnInit {
       error: (err) => console.error('Error al agregar producto:', err)
     });
   }
-
-
-
 }

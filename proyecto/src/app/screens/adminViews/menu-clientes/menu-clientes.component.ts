@@ -9,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class MenuClientesComponent implements OnInit {
   clientes: any[] = [];
+  filteredClientes: any[] = [];
   searchTerm: string = '';
+  currentPage: number = 1;
+  pageSize: number = 10;
+  totalPages: number = 1;
 
   constructor(private clienteService: ClienteService, private router: Router) {}
 
@@ -20,18 +24,49 @@ export class MenuClientesComponent implements OnInit {
   obtenerClientes() {
     this.clienteService.obtenerClientes().subscribe((data: any[]) => {
       this.clientes = data;
+      this.applyFilterAndPagination();
     });
   }
 
-  get clientesFiltrados(): any[] {
-    if (!this.searchTerm.trim()) return this.clientes;
+  // Search filter method
+  onSearch(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.searchTerm = input.value.toLowerCase();
+    this.currentPage = 1; // Reset to first page on search
+    this.applyFilterAndPagination();
+  }
 
-    const lowerTerm = this.searchTerm.toLowerCase();
-    return this.clientes.filter(cliente =>
-      Object.values(cliente).some(valor =>
-        valor?.toString().toLowerCase().includes(lowerTerm)
-      )
-    );
+  // Apply filter and pagination
+  applyFilterAndPagination() {
+    // Filter clients based on search term
+    let filtered = this.clientes;
+    if (this.searchTerm) {
+      filtered = this.clientes.filter(cliente =>
+        Object.values(cliente).some(valor =>
+          valor?.toString().toLowerCase().includes(this.searchTerm)
+        )
+      );
+    }
+
+    // Calculate pagination
+    this.totalPages = Math.ceil(filtered.length / this.pageSize);
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.filteredClientes = filtered.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  // Pagination methods
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.applyFilterAndPagination();
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.applyFilterAndPagination();
+    }
   }
 
   editarCliente(id: number) {

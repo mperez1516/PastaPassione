@@ -29,8 +29,9 @@
       <input
         type="text"
         class="form-control"
-        [(ngModel)]="searchTerm"
+        id="searchInput"
         placeholder="Buscar..."
+        (input)="onSearch($event)"
       />
     </div>
   
@@ -47,7 +48,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cliente of clientesFiltrados">
+          <tr *ngFor="let cliente of filteredClientes">
             <td>{{ cliente.nombre }}</td>
             <td>{{ cliente.apellido }}</td>
             <td>{{ cliente.correo }}</td>
@@ -62,11 +63,20 @@
       </table>
     </div>
   
+    <nav aria-label="Page navigation example" class="pagination-container">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <button id="prevButton" class="page-link" (click)="previousPage()">Anterior</button>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <button id="nextButton" class="page-link" (click)="nextPage()">Siguiente</button>
+        </li>
+      </ul>
+    </nav>
+
     <div class="text-center mt-3">
       <button class="btn btn-success" (click)="agregarCliente()">Agregar Cliente</button>
     </div>
   </div>
-  
 </body>
 </html>
-

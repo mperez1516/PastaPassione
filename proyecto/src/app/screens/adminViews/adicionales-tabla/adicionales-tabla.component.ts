@@ -10,7 +10,11 @@ import { AdicionalesService } from 'src/app/services/adicionales/adicionales.ser
 })
 export class AdicionalesTablaComponent implements OnInit {
   adicionales: Adicional[] = [];
-  busqueda: string = '';
+  filteredAdicionales: Adicional[] = [];
+  searchTerm: string = '';
+  currentPage: number = 1;
+  pageSize: number = 10;
+  totalPages: number = 1;
 
   constructor(private adicionalService: AdicionalesService, private router: Router) {}
 
@@ -20,16 +24,53 @@ export class AdicionalesTablaComponent implements OnInit {
 
   obtenerAdicionales(): void {
     this.adicionalService.getAdicionales().subscribe({
-      next: (data) => this.adicionales = data,
+      next: (data) => {
+        this.adicionales = data;
+        this.applyFilterAndPagination();
+      },
       error: (err) => console.error('Error al cargar adicionales', err)
     });
   }
 
-  adicionalesFiltrados(): Adicional[] {
-    return this.adicionales.filter(a =>
-      (a.nombre || '').toLowerCase().includes((this.busqueda || '').toLowerCase())
-    );
-}
+  // Search filter method
+  onSearch(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.searchTerm = input.value.toLowerCase();
+    this.currentPage = 1; // Reset to first page on search
+    this.applyFilterAndPagination();
+  }
+
+  // Apply filter and pagination
+  applyFilterAndPagination() {
+    // Filter adicionales based on search term
+    let filtered = this.adicionales;
+    if (this.searchTerm) {
+      filtered = this.adicionales.filter(adicional =>
+        (adicional.nombre?.toLowerCase().includes(this.searchTerm) ||
+         adicional.precio?.toString().includes(this.searchTerm))
+      );
+    }
+
+    // Calculate pagination
+    this.totalPages = Math.ceil(filtered.length / this.pageSize);
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.filteredAdicionales = filtered.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  // Pagination methods
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.applyFilterAndPagination();
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.applyFilterAndPagination();
+    }
+  }
 
   editarAdicional(adicional: Adicional): void {
     this.router.navigate(['admin/detalleAdicional', adicional.adicional_id]);

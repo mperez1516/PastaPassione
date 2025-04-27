@@ -1,15 +1,16 @@
-
-
 .container {
     padding: 20px;
-    background-color: #ffffff; /* Fondo blanco para el contenido */
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
-    color: #c19a6b; 
+    color: #c19a6b;
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -19,7 +20,7 @@ h1 {
 #searchInput {
     width: 100%;
     padding: 10px;
-    border: 2px solid #c19a6b; 
+    border: 2px solid #c19a6b;
     border-radius: 5px;
     font-size: 1rem;
     margin-bottom: 20px;
@@ -39,16 +40,16 @@ h1 {
 }
 
 .table thead {
-    background-color: #e07a5f; /* Fondo terracota para el encabezado */
+    background-color: #e07a5f;
     color: white;
 }
 
 .table tbody tr:nth-child(even) {
-    background-color: #f8f3e6; /* Fondo claro para filas pares */
+    background-color: #f8f3e6;
 }
 
 .table tbody tr:hover {
-    background-color: #f2cc8f; /* Color de hover cálido */
+    background-color: #f2cc8f;
     transition: background-color 0.3s ease;
 }
 
@@ -63,28 +64,37 @@ h1 {
 }
 
 .btn-primary {
-    background-color: rgb(189, 69, 54); 
+    background-color: rgb(189, 69, 54);
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: rgb(89 32 25); 
+    background-color: rgb(89 32 25);
 }
 
 .btn-danger {
-    background-color: #c19a6b; 
+    background-color: #c19a6b;
     color: white;
 }
 
 .btn-danger:hover {
-    background-color: #866337; 
+    background-color: #866337;
 }
 
 /* Estilos para la paginación */
-.pagination {
+.pagination-container {
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .page-item {
@@ -93,20 +103,20 @@ h1 {
 
 .page-link {
     padding: 8px 12px;
-    border: 1px solid #e07a5f; /* Borde terracota */
+    border: 1px solid #e07a5f;
     border-radius: 5px;
-    color: #e07a5f; /* Color terracota */
+    color: #e07a5f;
     background-color: white;
     cursor: pointer;
 }
 
 .page-link:hover {
-    background-color: rgb(89 32 25); /* Fondo terracota */
+    background-color: rgb(89 32 25);
     color: white;
 }
 
 .page-item.active .page-link {
-    background-color: rgb(89 32 25); /* Fondo terracota */
+    background-color: rgb(89 32 25);
     color: white;
     border-color: rgb(89 32 25);
 }
@@ -119,7 +129,7 @@ h1 {
 
 /* Estilos para el botón personalizado */
 .btn-success {
-    background-color:rgb(189, 69, 54); /* Color verde personalizado */
+    background-color: rgb(189, 69, 54);
     color: white;
     border: none;
     border-radius: 5px;
@@ -130,5 +140,13 @@ h1 {
 }
 
 .btn-success:hover {
-    background-color: rgb(89 32 25);/* Color verde más oscuro al hacer hover */
+    background-color: rgb(89 32 25);
+}
+
+/* Ensure the container for the button is centered */
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
