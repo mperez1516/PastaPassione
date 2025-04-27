@@ -1,9 +1,14 @@
-<app-header-cruds> </app-header-cruds>
+<app-header-cruds></app-header-cruds>
 
 <div class="container mt-4">
     <h1>MENU TABLA</h1>
     <div class="mb-3">
-        <input type="text" class="form-control" id="searchInput" placeholder="Buscar...">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="searchInput" 
+            placeholder="Buscar..." 
+            (input)="onSearch($event)">
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped shadow rounded">
@@ -17,36 +22,38 @@
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngFor="let producto of productosList">
+                <ng-container *ngFor="let producto of filteredProductos">
                     <tr *ngIf="producto.temporada && producto.nombre && producto.descripcion && producto.precio > 0 && producto.categoria">
-                      <td>{{producto.nombre}}</td>
-                      <td>{{producto.descripcion}}</td>
-                      <td>{{producto.precio}}</td>
-                      <td>{{producto.categoria}}</td>
-                      <td>
-                        <a class="btn btn-primary btn-sm" [routerLink]="['/admin/detalleProducto', producto.producto_id]">
-                          Editar
-                        </a>
-                        <button class="btn btn-danger btn-sm" (click)="eliminarProducto(producto)">
-                          Eliminar
-                        </button>
-                      </td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.descripcion}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.categoria}}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" [routerLink]="['/admin/detalleProducto', producto.producto_id]">
+                                Editar
+                            </a>
+                            <button class="btn btn-danger btn-sm" (click)="eliminarProducto(producto)">
+                                Eliminar
+                            </button>
+                        </td>
                     </tr>
-                  </ng-container>
+                </ng-container>
             </tbody>
         </table>
     </div>
     
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example" class="pagination-container">
         <ul class="pagination justify-content-center">
-            <li class="page-item">
-                <button id="prevButton" class="page-link">Anterior</button>
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <button id="prevButton" class="page-link" (click)="previousPage()">Anterior</button>
             </li>
-            <li class="page-item">
-                <button id="nextButton" class="page-link">Siguiente</button>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <button id="nextButton" class="page-link" (click)="nextPage()">Siguiente</button>
             </li>
         </ul>
     </nav>
 
-    <a class="btn btn-success btn-sm" [routerLink]="['/admin/agregarProducto']">Agregar producto</a>    
+    <div class="text-center mt-3">
+        <a class="btn btn-success btn-sm" [routerLink]="['/admin/agregarProducto']">Agregar producto</a>
+    </div>    
 </div>

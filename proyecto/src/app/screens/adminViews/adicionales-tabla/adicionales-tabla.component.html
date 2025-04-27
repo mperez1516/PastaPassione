@@ -13,12 +13,17 @@
     <h1 class="text-center">TABLA DE ADICIONALES</h1>
   
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="busqueda">
+      <input 
+        type="text" 
+        class="form-control" 
+        id="searchInput" 
+        placeholder="Buscar..." 
+        (input)="onSearch($event)">
     </div>
   
     <div class="table-responsive">
       <table class="table table-bordered table-hover table-striped shadow rounded">
-        <thead class="table-dark text-center">
+        <thead>
           <tr>
             <th>Nombre</th>
             <th>Precio</th>
@@ -26,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let adicional of adicionalesFiltrados()">
+          <ng-container *ngFor="let adicional of filteredAdicionales">
             <tr *ngIf="adicional.nombre && adicional.precio > 0">
               <td>{{ adicional.nombre }}</td>
               <td>{{ adicional.precio | currency:'COP':'symbol' }}</td>
@@ -40,7 +45,18 @@
       </table>
     </div>
   
-    <div class="text-center mt-4">
+    <nav aria-label="Page navigation example" class="pagination-container">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <button id="prevButton" class="page-link" (click)="previousPage()">Anterior</button>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <button id="nextButton" class="page-link" (click)="nextPage()">Siguiente</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="text-center mt-3">
       <button class="btn btn-success" (click)="irAAgregar()">Agregar Adicional</button>
     </div>
   </div>
