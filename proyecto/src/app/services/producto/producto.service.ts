@@ -59,14 +59,20 @@ export class ProductoService {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     });
-    
+      
 
 
   return this.http.put<Producto>(`${this.baseUrl}/${id}`, productoParaBackend, { headers });
   }
 
   // Eliminar producto
-  deleteProducto(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  //deleteProducto(id: number): Observable<void> {
+    //return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  //}
+
+  // Desactivar producto (marcar enTemporada = false)
+  desactivarProducto(id: number): Observable<Producto> {
+  return this.http.put<Producto>(`${this.baseUrl}/${id}`, {});
   }
+
 }

@@ -6,4 +6,5 @@ export interface Adicional {
   precio: number;
   cantidad: number;
   productos?:Producto[];
+  temporada?: boolean;
 }

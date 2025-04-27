@@ -6,5 +6,6 @@ export interface Producto {
     precio: number;
     descripcion: string;
     categoria: string;
+    temporada?: boolean;
     adicionales?: Adicional[];
   }

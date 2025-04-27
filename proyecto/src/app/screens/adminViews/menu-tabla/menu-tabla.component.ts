@@ -57,17 +57,17 @@ export class MenuTablaComponent implements OnInit {
     console.log(producto);
     console.log(producto.producto_id);
     if (producto.producto_id != null) {
-      this.productoService.deleteProducto(producto.producto_id).subscribe({
+      this.productoService.desactivarProducto(producto.producto_id).subscribe({
         next: () => {
-          this.obtenerProductos();
+          this.obtenerProductos(); // Recarga la lista para ver el cambio
         },
         error: (err) => {
-          console.error('Error al eliminar producto:', err);
+          console.error('Error al desactivar producto:', err);
         }
       });
-     
     }
   }
+  
 
   agregarProducto(producto: Producto) {
     this.productoService.addProducto(producto).subscribe({

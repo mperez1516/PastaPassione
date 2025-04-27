@@ -37,9 +37,12 @@ export class AdicionalesService {
   
 
   // Eliminar adicional
-  deleteAdicional(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
-  }
+  // AdicionalesService
+
+deleteAdicional(id: number): Observable<Adicional> {
+  return this.http.put<Adicional>(`${this.baseUrl}/${id}`, {}); // Usamos PUT para actualizar la disponibilidad
+}
+
   
 
 }

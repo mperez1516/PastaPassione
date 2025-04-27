@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabla adicionales </title>
+  <title>Tabla adicionales</title>
 </head>
 <body>
 
-  <app-header-cruds> </app-header-cruds>
+  <app-header-cruds></app-header-cruds>
 
   <div class="container mt-4">
     <h1 class="text-center">TABLA DE ADICIONALES</h1>
@@ -26,14 +26,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let adicional of adicionalesFiltrados()">
-            <td>{{ adicional.nombre }}</td>
-            <td>{{ adicional.precio | currency:'COP':'symbol' }}</td>
-            <td class="text-center">
-              <button class="btn btn-primary btn-sm me-2" (click)="editarAdicional(adicional)">Editar</button>
-              <button class="btn btn-danger btn-sm" (click)="eliminarAdicional(adicional)">Eliminar</button>
-            </td>
-          </tr>
+          <ng-container *ngFor="let adicional of adicionalesFiltrados()">
+            <tr *ngIf="adicional.nombre && adicional.precio > 0">
+              <td>{{ adicional.nombre }}</td>
+              <td>{{ adicional.precio | currency:'COP':'symbol' }}</td>
+              <td class="text-center">
+                <button class="btn btn-primary btn-sm me-2" (click)="editarAdicional(adicional)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="eliminarAdicional(adicional)">Eliminar</button>
+              </td>
+            </tr>
+          </ng-container>
         </tbody>
       </table>
     </div>
@@ -45,4 +47,3 @@
   
 </body>
 </html>
-

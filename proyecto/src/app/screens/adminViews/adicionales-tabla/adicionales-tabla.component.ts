@@ -27,24 +27,23 @@ export class AdicionalesTablaComponent implements OnInit {
 
   adicionalesFiltrados(): Adicional[] {
     return this.adicionales.filter(a =>
-      a.nombre.toLowerCase().includes(this.busqueda.toLowerCase())
+      (a.nombre || '').toLowerCase().includes((this.busqueda || '').toLowerCase())
     );
-  }
+}
 
   editarAdicional(adicional: Adicional): void {
     this.router.navigate(['admin/detalleAdicional', adicional.adicional_id]);
   }
 
   eliminarAdicional(adicional: Adicional): void {
-      this.adicionalService.deleteAdicional(adicional.adicional_id).subscribe({
-        next: () => {
-          this.obtenerAdicionales();
-        },
-        error: (err) => {
-          console.error('Error al eliminar adicional', err);
-        }
-      });
-    
+    this.adicionalService.deleteAdicional(adicional.adicional_id).subscribe({
+      next: () => {
+        this.obtenerAdicionales(); // Refresca la lista de adicionales
+      },
+      error: (err) => {
+        console.error('Error al eliminar adicional', err);
+      }
+    });
   }
 
   irAAgregar(): void {
