@@ -11,16 +11,16 @@ export class PedidoService {
   private baseUrl: string = 'http://localhost:8000';
   constructor(private http: HttpClient) { }
 
-  guardarCarrito(carro: Carro): Observable<{ pedidoId: number, carritoId: number }> {
+  guardarCarrito(carro: Carro, direccionEnvio: string): Observable<{ pedidoId: number, carritoId: number }> {
     const clienteId = carro.cliente?.id;
     const productoId = carro.items[0].producto.producto_id;
     const cantidad = carro.items[0].cantidad;
     const adicionalesIds = carro.items[0].adicionales?.map(adicional => adicional.id) || [];
-  
     if (!clienteId) {
       console.error('El cliente no está asignado.');
       return of({ pedidoId: 0, carritoId: 0 });    }
-  
+
+      
     const params = new HttpParams()
       .set('clienteId', clienteId.toString())
       .set('productoId', productoId.toString())
@@ -29,9 +29,10 @@ export class PedidoService {
     return this.http.post<{ pedidoId: number, carritoId: number }>(
       `${this.baseUrl}/carritos`,
       adicionalesIds, // Esto va como body
-      { params }
+      { params: params.set('direccionEnvio', direccionEnvio) } // Enviar la dirección como parámetro
     );
   }
+  
   
   
   
@@ -47,6 +48,10 @@ export class PedidoService {
       { params }
     );
   }
+  asignarDomiciliario(pedidoId: number, domiciliarioId: number): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/pedidos/${pedidoId}/asignar-domiciliario/${domiciliarioId}`, {});
+  }
+  
   obtenerPedidosPorCliente(): Observable<Pedido[]> {
     const clienteId = JSON.parse(localStorage.getItem('cliente') || '{}').id; // Obtén el ID del cliente
     return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos/cliente/${clienteId}`);

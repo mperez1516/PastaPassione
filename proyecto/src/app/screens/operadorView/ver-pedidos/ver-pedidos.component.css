@@ -67,4 +67,45 @@
     background-color: #45a049;
   }
   
+  .domiciliario-select {
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 180px;
+  }
   
+  .no-domiciliarios {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  /* Estilo general para los mensajes */
+.text-success {
+  background-color: #d4edda; /* Fondo verde claro */
+  color: #155724; /* Texto verde oscuro */
+  border: 1px solid #c3e6cb; /* Borde verde claro */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: opacity 0.5s ease-out; /* Transición suave para desvanecer */
+}
+
+/* Estilo para el mensaje de error */
+.text-danger {
+  background-color: #f8d7da; /* Fondo rojo claro */
+  color: #721c24; /* Texto rojo oscuro */
+  border: 1px solid #f5c6cb; /* Borde rojo claro */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: opacity 0.5s ease-out; /* Transición suave para desvanecer */
+}
+
+/* Opcional: ocultar el mensaje después de 3 segundos */
+.message-fade-out {
+  opacity: 0;
+  visibility: hidden;
+}

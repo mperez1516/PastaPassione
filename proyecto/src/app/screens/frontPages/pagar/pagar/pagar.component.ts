@@ -43,28 +43,21 @@ export class PagarComponent implements OnInit {
   }
 
   confirmarPago(): void {
-
-    if (this.cliente!=null && this.direccionEnvio) {
-      // 1. Guarda el carrito en el backend
-      this.carrito.cliente =this.cliente;
-      this.pedidoService.guardarCarrito(this.carrito).subscribe({
-
+    if (this.cliente != null && this.direccionEnvio) {
+      this.carrito.cliente = this.cliente;
+  
+      // Enviar carrito con la dirección de envío
+      this.pedidoService.guardarCarrito(this.carrito, this.direccionEnvio).subscribe({
         next: (res) => {
           const carritoId = res.carritoId;
-          // 2. Luego crear el pedido desde ese carrito
-          this.pedidoService.crearPedido(carritoId, this.direccionEnvio).subscribe({
-            next: (pedido) => {
-              this.mensajeExito = `Pedido #${pedido.pedidoID} generado exitosamente.`;
-              localStorage.removeItem('carrito');
-              this.carrito.items = [];
-              this.total = 0;
-              setTimeout(() => this.router.navigate(['/homeCliente']), 3000);
-            },
-            error: (err) => {
-              console.error('Error al crear el pedido:', err);
-              this.mensajeExito = 'Error al generar el pedido. Intenta de nuevo.';
-            }
-          });
+          const pedidoId = res.pedidoId;  // El pedido ya ha sido creado con la dirección
+  
+          // Mensaje de éxito
+          this.mensajeExito = `Pedido #${pedidoId} generado exitosamente.`;
+          localStorage.removeItem('carrito');
+          this.carrito.items = [];
+          this.total = 0;
+          setTimeout(() => this.router.navigate(['/homeCliente']), 3000);
         },
         error: (err) => {
           console.error('Error al guardar carrito:', err);
@@ -73,6 +66,9 @@ export class PagarComponent implements OnInit {
       });
     }
   }
+  
+  
+  
   
   
 
