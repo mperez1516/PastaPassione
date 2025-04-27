@@ -82,5 +82,8 @@ export class PedidoService {
     // Por defecto trae todos los pedidos
     return this.http.get<Pedido[]>(`${this.baseUrl}/pedidos`);
   }
-
+  finalizarPedido(pedidoId: number, domiciliarioId: number): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/pedidos/${pedidoId}/finalizar`, { domiciliarioId });
+  }
+  
 }
