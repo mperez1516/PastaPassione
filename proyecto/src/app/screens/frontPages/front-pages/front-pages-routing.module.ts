@@ -11,6 +11,7 @@ import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.comp
 import { PagarComponent } from '../pagar/pagar/pagar.component';
 import { HomeAdminPageComponent } from '../home-admin-page/home-admin-page.component';
 import { DetalleComponent } from '../detalle/detalle.component';
+import { DetallesPedidoComponent } from '../detalles-pedido/detalles-pedido.component';
 
 const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'pedidosActivos', component: PedidosActivosComponent},
   {path: 'pagar',component: PagarComponent},
   {path: 'detalle/:id', component: DetalleComponent},
-  { path: 'landingPage', redirectTo: 'landingPage', pathMatch: 'full' }
+  {path: 'PedidoDetalle/:id', component: DetallesPedidoComponent},
+  { path: '', redirectTo: 'landingPage', pathMatch: 'full' }
 ];
 
 @NgModule({

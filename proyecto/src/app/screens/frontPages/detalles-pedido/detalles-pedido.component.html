@@ -1,0 +1,44 @@
+<app-header-cliente></app-header-cliente>
+
+<div class="background-container">
+  <div class="content-overlay">
+    <h1>Detalles del Pedido</h1>
+
+    <div *ngIf="cargando" class="loading-message">Cargando detalles del pedido...</div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+<!-- Botón Volver -->
+    <button (click)="volver()" class="btn btn-secondary mb-3">
+        Volver
+    </button>
+    <!-- Mostrar detalles del pedido -->
+    <div *ngIf="!cargando && pedido">
+      <h4>ID Pedido: {{ pedido.pedidoId }}</h4>
+      <h5>Estado: {{ pedido.estado }}</h5>
+      <h5>Dirección de Envío: {{ pedido.direccionEnvio }}</h5>
+      <h5>Fecha: {{ pedido.fecha | date:'short' }}</h5>
+
+      <h3>Productos:</h3>
+      <ul>
+        <li *ngFor="let item of pedido.items">
+          {{ item.producto.nombre }} - {{ item.cantidad }} x {{ item.precioUnitario | currency:'COP' }}
+
+          <!-- Mostrar los adicionales si existen -->
+          <div *ngIf="item.producto.adicionales && item.producto.adicionales.length > 0; else noAdicionales">
+            <ul>
+              <li *ngFor="let adicional of item.producto.adicionales">
+                {{ adicional.nombre }} - {{ adicional.precio | currency:'COP' }}
+              </li>
+            </ul>
+          </div>
+          <ng-template #noAdicionales>
+            <p>Sin adicionales</p>
+          </ng-template>
+        </li>
+      </ul>
+
+      <h4>Total: {{ total | currency:'COP' }}</h4>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

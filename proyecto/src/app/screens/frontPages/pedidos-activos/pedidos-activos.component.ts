@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pedido } from 'src/app/entidades/pedido/pedido';
 import { PedidoService } from 'src/app/services/pedido/pedido.service';
 
@@ -13,7 +14,7 @@ export class PedidosActivosComponent implements OnInit {
   cargando: boolean = true;  // Indicador de carga
   error: string | null = null;  // Mensaje de error, si ocurre alguno
 
-  constructor(private pedidoService: PedidoService) {}
+  constructor(private pedidoService: PedidoService, private router: Router) {}
 
   ngOnInit(): void {
     // Llamar al servicio para obtener los pedidos del cliente autenticado
@@ -27,5 +28,8 @@ export class PedidosActivosComponent implements OnInit {
         this.cargando = false;
       }
     });
+  }
+  verDetalles(pedidoId: number): void {
+    this.router.navigate([`/PedidoDetalle/${pedidoId}`]);  // Redirigir al componente de detalles con el ID del pedido
   }
 }

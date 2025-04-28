@@ -32,6 +32,9 @@ export class PedidoService {
       { params: params.set('direccionEnvio', direccionEnvio) } // Enviar la dirección como parámetro
     );
   }
+  obtenerDetallesPedido(pedidoId: number): Observable<Pedido> {
+    return this.http.get<Pedido>(`${this.baseUrl}/pedidos/${pedidoId}`);
+  }
   
   
   

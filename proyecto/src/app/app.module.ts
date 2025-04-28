@@ -5,6 +5,7 @@ import { ComponentsModule } from './components/components.module'; // Importa el
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DetallesPedidoComponent } from './screens/frontPages/detalles-pedido/detalles-pedido.component';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
