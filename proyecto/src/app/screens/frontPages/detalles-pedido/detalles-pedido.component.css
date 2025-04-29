@@ -1,127 +1,116 @@
-/* Estilo general de la página */
+/* Estilos para el contenedor principal del fondo con margen superior */
 .background-container {
-    padding: 30px;
-    background-color: #f8f9fa;
-  }
-  
-  .content-overlay {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  /* Estilo del encabezado */
-  h1 {
-    font-size: 2.5rem;
-    color: #5a2a2a;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  h3, h4, h5 {
-    color: #343a40;
-    margin-top: 10px;
-  }
-  
-  /* Estilo de la lista de productos */
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    background-color: #f1f1f1;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  li:nth-child(even) {
-    background-color: #e9ecef;
-  }
-  
-  /* Detalles del producto */
-  h5 {
-    font-size: 1.2rem;
-    color: #495057;
-  }
-  
-  p {
-    font-size: 1rem;
-    color: #6c757d;
-  }
-  
-  strong {
-    color: #007bff;
-  }
-  
-  /* Estilo para los adicionales */
-  ul li {
-    background-color: #dfe6e9;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-  }
-  
-  .noAdicionales {
-    color: #6c757d;
-    font-style: italic;
-  }
-  
-  /* Estilo para el total */
-  h4 {
-    font-size: 1.5rem;
-    color: #28a745;
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: right;
-    padding: 10px;
-    background-color: #f0fdf4;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Mensajes de error o cargando */
-  .loading-message, .error-message {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #007bff;
-  }
-  
-  .error-message {
-    color: #dc3545;
-  }
-  /* Estilos del botón Volver */
-.btn-volver {
-    background-color: #007bff; /* Color de fondo azul */
-    color: white; /* Color del texto blanco */
-    border: 1px solid #007bff; /* Borde azul */
-    padding: 10px 20px; /* Espaciado del botón */
-    font-size: 1rem; /* Tamaño de la fuente */
-    font-weight: bold; /* Peso de la fuente */
-    border-radius: 25px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transition: background-color 0.3s, transform 0.3s ease-in-out; /* Transiciones suaves */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-  }
-  
-  .btn-volver:hover {
-    background-color: #0056b3; /* Color de fondo más oscuro cuando pasa el ratón */
-    transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
-  }
-  
-  .btn-volver:focus {
-    outline: none; /* Quitar el contorno cuando el botón está enfocado */
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); /* Sombra azul al hacer clic */
-  }
-  
-  .mb-3 {
-    margin-bottom: 20px; /* Margen inferior */
-  }
-  
+  background-image: url("src/assets/Imagenes/menu/seccionMenu.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 30px;
+  margin-top: 80px; /* Añade un margen superior igual a la altura de tu header (ajusta si es necesario) */
+}
+
+/* Capa de superposición para el contenido sofisticado */
+.content-overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 50px;
+  max-width: 900px;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0c2a3;
+}
+
+h1 {
+  color: #581212; /* Tono de gris oscuro para el título */
+  font-family: 'Times New Roman', serif;
+  font-size: 2.8em;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 700; /* Más énfasis en el título */
+  letter-spacing: 0.5px;
+}
+
+h4 {
+  color: #531907;
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+h5 {
+  color: #592019;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+h3 {
+  color: #333; /* Tono de gris oscuro para el subtítulo de productos */
+  font-size: 1.8em;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d4a373;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+li {
+  color: #444; /* Tono de gris más suave para los ítems */
+  font-size: 1.1em;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1e3d3; /* Separador más delicado */
+}
+
+li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+li ul {
+  margin-top: 8px;
+  margin-left: 25px;
+}
+
+li ul li {
+  font-size: 1em;
+  color: #777; /* Tono de gris más claro para los adicionales */
+}
+
+.loading-message, .error-message {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 18px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-secondary {
+  background-color: #d4a373;
+  color: #fff; /* Texto blanco para más contraste */
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil en el botón */
+}
+
+.btn-secondary:hover {
+  background-color: #c08a5a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el ratón */
+}

@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Adicional } from 'src/app/entidades/adicional/adicional';
+import { CarritoItem } from 'src/app/entidades/carrito/carrito-item';
+import { Cliente } from 'src/app/entidades/cliente/cliente';
 import { Producto } from 'src/app/entidades/producto/producto';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { CarritoService } from 'src/app/services/carrito/carrito.service';
 import { ProductoService } from 'src/app/services/producto/producto.service';
 
@@ -19,11 +22,12 @@ export class DetalleComponent implements OnInit {
   loading = true;
   errorMessage = '';
   productoForm: FormGroup;
-  authService: any;
   cantidad: number = 1;
+  cliente: Cliente | null = null; 
 
   constructor(
     private route: ActivatedRoute,
+    private authService: AuthService,
     private router: Router,
     private productoService: ProductoService,
     private carritoService: CarritoService,
@@ -35,6 +39,12 @@ export class DetalleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.authService.getUsuarioLogueado()
+    .subscribe(usuario => {
+      this.cliente = usuario;
+    });
+
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.loadProductoWithAdicionales(+id);
@@ -108,29 +118,24 @@ export class DetalleComponent implements OnInit {
   }
 
   agregarAlCarrito(): void {
-    if (!this.producto) return;
-
-    // Verificar autenticación primero
-    const cliente = this.authService.getClienteActual();
-    if (!cliente || !cliente.id) {
+    if (!this.producto || !this.cliente) {
       this.router.navigate(['/login']);
       return;
     }
-
-    // Obtener IDs de adicionales seleccionados
+  
     const adicionalesIds = this.adicionalesSeleccionados.value
       .filter((a: any) => a.selected && a.cantidad > 0)
       .map((a: any) => a.adicional_id);
-
-    // Llamar al servicio de carrito
+  
     this.carritoService.agregarProductoAlCarrito(
-      cliente.id,
+      this.cliente.id!,
       this.producto.producto_id,
       this.cantidad,
       adicionalesIds
     ).subscribe({
-      next: (response) => {
-        console.log('Producto agregado al carrito:', response);
+      next: (carritoActualizado) => {
+        console.log('Producto agregado al carrito (backend):', carritoActualizado);
+        // Opcional: guardar localStorage o refrescar vista
         this.router.navigate(['/menu']);
       },
       error: (err) => {
@@ -139,7 +144,7 @@ export class DetalleComponent implements OnInit {
       }
     });
   }
-
+  
   calcularTotal(): number {
     if (!this.producto) return 0;
 

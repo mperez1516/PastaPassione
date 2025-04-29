@@ -1,67 +1,72 @@
-<header>
-    <nav>
-        <a routerLink="/menu" class="volver-menu">← Volver al Menú</a>
-    </nav>
-</header>
-
-<div id="detalle-producto" class="detalle-container">
-    <div *ngIf="!loading; else loadingTemplate">
-        <div *ngIf="producto; else noProductoTemplate" class="detalle-card">
-            <div class="detalle-imagen-container">
-                <h1>{{ producto.nombre }}</h1>
-                <img [src]="getRutaImagen(producto.categoria, producto.nombre)" 
-                     [alt]="producto.nombre" class="detalle-imagen">
-            </div>
-
-            <div class="detalle-info">
-                <p class="descripcion">{{ producto.descripcion }}</p>
-                <span class="precio">{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</span>
-
-                <!-- Sección de adicionales -->
-                <div *ngIf="adicionalesSeleccionados.length > 0" class="adicionales-section">
-                    <h4>Personaliza tu pedido:</h4>
-                    <form [formGroup]="productoForm">
-                        <div formArrayName="adicionalesSeleccionados">
-                            <div *ngFor="let adicional of adicionalesSeleccionados.controls; let i = index" 
-                                 [formGroupName]="i" class="adicional-item">
-                                <div class="adicional-checkbox">
-                                    <input type="checkbox" id="adicional-{{i}}" 
-                                           formControlName="selected"
-                                           (change)="onCheckboxChange(i)">
-                                    <label for="adicional-{{i}}">
-                                        {{ adicional.get('nombre')?.value }} 
-                                        <span class="precio-adicional">
-                                            (+{{ adicional.get('precio')?.value | currency:'COP':'symbol':'1.0-0' }})
-                                        </span>
-                                    </label>
-                                </div>
-                                
-                                <div class="adicional-cantidad" *ngIf="adicional.get('selected')?.value">
-                                    <label>Cantidad:</label>
-                                    <input type="number" formControlName="cantidad" min="1" value="1"
-                                           (change)="onCantidadChange(i, $event)">
+<div class ="background">
+    <header>
+        <nav>
+            <a routerLink="/menu" class="volver-menu">← Volver al Menú</a>
+        </nav>
+    </header>
+    
+    <div id="detalle-producto" class="detalle-container">
+        <div *ngIf="!loading; else loadingTemplate">
+            <div *ngIf="producto; else noProductoTemplate" class="detalle-card">
+                <div class="detalle-imagen-container">
+                    <h1>{{ producto.nombre }}</h1>
+                    <img [src]="getRutaImagen(producto.categoria, producto.nombre)" 
+                         [alt]="producto.nombre" class="detalle-imagen">
+                </div>
+    
+                <div class="detalle-info">
+                    <p class="descripcion">{{ producto.descripcion }}</p>
+                    <span class="precio">{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</span>
+    
+                    <!-- Sección de adicionales -->
+                    <div *ngIf="adicionalesSeleccionados.length > 0" class="adicionales-section">
+                        <h4>Personaliza tu pedido:</h4>
+                        <form [formGroup]="productoForm">
+                            <div formArrayName="adicionalesSeleccionados">
+                                <div *ngFor="let adicional of adicionalesSeleccionados.controls; let i = index" 
+                                     [formGroupName]="i" class="adicional-item">
+                                    <div class="adicional-checkbox">
+                                        <input type="checkbox" id="adicional-{{i}}" 
+                                               formControlName="selected"
+                                               (change)="onCheckboxChange(i)">
+                                        <label for="adicional-{{i}}">
+                                            {{ adicional.get('nombre')?.value }} 
+                                            <span class="precio-adicional">
+                                                (+{{ adicional.get('precio')?.value | currency:'COP':'symbol':'1.0-0' }})
+                                            </span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="adicional-cantidad" *ngIf="adicional.get('selected')?.value">
+                                        <label>Cantidad:</label>
+                                        <input type="number" formControlName="cantidad" min="1" value="1"
+                                               (change)="onCantidadChange(i, $event)">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+    
+                    <button class="btnAgregar" (click)="agregarAlCarrito()">
+                        Agregar al Carrito - {{ calcularTotal() | currency:'COP':'symbol':'1.0-0' }}
+                    </button>
                 </div>
-
-                <button class="btnAgregar" (click)="agregarAlCarrito()">
-                    Agregar al Carrito - {{ calcularTotal() | currency:'COP':'symbol':'1.0-0' }}
-                </button>
             </div>
+    
+            <ng-template #noProductoTemplate>
+                <div class="error-message">
+                    <p>Producto no encontrado</p>
+                </div>
+            </ng-template>
         </div>
-
-        <ng-template #noProductoTemplate>
-            <div class="error-message">
-                <p>Producto no encontrado</p>
+    
+        <ng-template #loadingTemplate>
+            <div class="loading-message">
+                <p>Cargando detalles del producto...</p>
             </div>
         </ng-template>
     </div>
 
-    <ng-template #loadingTemplate>
-        <div class="loading-message">
-            <p>Cargando detalles del producto...</p>
-        </div>
-    </ng-template>
+    <app-footer></app-footer>
+
 </div>

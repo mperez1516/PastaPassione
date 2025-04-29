@@ -1,10 +1,22 @@
 .detalle-container {
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: #592019;
+    border-radius: 20px;
+    margin-bottom: 60px;
+  }
+
+  .background {
+    background-color: rgb(252, 231, 220);
+    margin-bottom: -20px;
+    width: 101%;
   }
   
   .volver-menu {
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
     display: inline-block;
     margin: 1rem;
     color: #592019;
@@ -16,7 +28,7 @@
   .detalle-card {
     display: flex;
     flex-direction: column;
-    background: white;
+    background: rgb(243, 212, 195);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -42,12 +54,13 @@
   }
   
   .detalle-info {
-    padding: 2rem;
+    padding: 1rem;
+    font-size: 20px;
   }
   
   .descripcion {
     color: #555;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.6;
   }
   
@@ -72,7 +85,7 @@
   .adicional-item {
     margin-bottom: 1rem;
     padding: 1rem;
-    background: #f9f9f9;
+    background: #f9f9f994;
     border-radius: 8px;
   }
   
@@ -112,26 +125,28 @@
   .adicional-cantidad input {
     width: 60px;
     padding: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddddddce;
     border-radius: 4px;
   }
   
   .btnAgregar {
     font-family: 'Times New Roman', Times, serif;
     display: block;
-    width: 60%;
-    margin-left: 20%;
+    width: 40%;
+    margin-left: 30%;
     text-align: center;
-    padding: 1rem;
+    padding: 0.8rem;
     background-color: #592019;
     color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 30px;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 2rem;
+    margin-bottom: 2rem;
+
   }
   
   .btnAgregar:hover {

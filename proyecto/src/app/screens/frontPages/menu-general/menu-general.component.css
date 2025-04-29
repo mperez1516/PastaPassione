@@ -231,41 +231,139 @@
     background-color: #cc5500;
   }
   
-  /* Carrito lista */
+  #carrito-container {
+    position: relative;
+  }
+  
+  #icono-carrito {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  #contador-carrito {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff6600; /* Naranja similar al botón de agregar */
+    color: white;
+    border-radius: 40%;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+  
+  #carrito {
+    position: absolute;
+    top: 55px; /* Ajusta la distancia desde el icono */
+    right: 0;
+    width: 320px; /* Un poco más ancho para mejor visualización */
+    background: #f8f0e3; /* Un tono más claro del fondo general */
+    border: 1px solid #d4a373; /* Borde sutil */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    z-index: 1000;
+  }
+  
+  #carrito h5 {
+    color: #592019; /* Color del texto principal */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #d4a373; /* Línea divisoria */
+    padding-bottom: 8px;
+    font-size: 1.4em;
+  }
+  
   #carrito ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 200px;
-    overflow-y: hidden;
-    overflow-x: auto;
+    max-height: 250px; /* Aumenta la altura máxima si es necesario */
+    overflow-y: auto;
   }
+  
   #carrito ul::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   
   #carrito ul::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
+    background-color: #d4a373;
+    border-radius: 3px;
   }
   
   #carrito ul::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+    background-color: #f1e3d3;
   }
   
   #carrito li {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0c2a3; /* Separador de items */
+  }
+  
+  #carrito li:last-child {
+    border-bottom: none; /* Evita el borde en el último item */
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
   
   #carrito li img {
-    width: 40px;
-    height: 40px;
+    width: 50px; /* Aumenta un poco el tamaño de la imagen */
+    height: 50px;
     object-fit: cover;
     border-radius: 8px;
+    margin-bottom: 8px; /* Espacio entre la imagen y el texto */
   }
+  
+  #carrito li span {
+    flex-grow: 1;
+    font-size: 0.9em;
+    color: #5c1313;
+  }
+  
+  #carrito li button.btn-danger {
+    background-color: #cc5500; /* Un tono más oscuro del naranja */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #carrito li button.btn-danger:hover {
+    background-color: #aa4400;
+  }
+  
+  #carrito button.btn-warning,
+  #carrito button.btn-success {
+    background-color: #d4a373; /* Un tono más claro del marrón */
+    color: #592019;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%; /* Ancho completo para los botones */
+  }
+  
+  #carrito button.btn-warning:hover,
+  #carrito button.btn-success:hover {
+    background-color: #c08a5a;
+  }
+  
+  #carrito button.btn-success:disabled {
+    background-color: #e0c2a3;
+    color: #886f58;
+    cursor: not-allowed;
+  }
+
   .boton-circular {
     position: absolute;
     right: 15px;

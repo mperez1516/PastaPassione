@@ -11,7 +11,7 @@ html, body {
   position: relative;
   width: 100%;
   background-image: url("src/assets/Imagenes/menuPerfil/fondoPedidos.jpg");
-  min-height: 70vh; /* Reducido de 95vh para que el footer sea visible con pocos pedidos */
+  min-height: 70vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@ html, body {
   padding: 2rem;
   flex: 1;
   max-width: 1200px;
-  margin: 4rem auto 2rem; /* Aumentar margen superior para bajar el contenedor */
+  margin: 8rem auto 2rem; /* Aumentamos el margen superior */
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -41,7 +41,7 @@ h1 {
   font-weight: 600;
   text-align: center;
   margin-bottom: 2rem;
-  color: #8b5c4d;
+  color: #531e0c;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -52,7 +52,7 @@ h1 {
   border-collapse: separate;
   border-spacing: 0;
   margin-top: 2rem;
-  background-color: #fff;
+  background-color: #e7c8b6;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
@@ -66,7 +66,7 @@ h1 {
 }
 
 .table-pedidos th {
-  background-color: #8b5c4d;
+  background-color: #5c1e0a;
   color: white;
   font-weight: 500;
   text-transform: uppercase;
@@ -78,7 +78,7 @@ h1 {
 }
 
 .table-pedidos tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color:  #f3ece8;;
 }
 
 .table-pedidos tr:hover {
@@ -178,6 +178,16 @@ body {
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
-    color: #8b5c4d;
+    color: #6e2c16;
   }
+}
+
+.btn-info{
+  margin-top: 15px;
+  background-color: rgb(89 32 25);
+  color: #f5d3c8;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 0.7em;
+  font-weight: bold;
 }
