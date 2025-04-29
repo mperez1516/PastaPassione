@@ -118,32 +118,62 @@ export class DetalleComponent implements OnInit {
   }
 
   agregarAlCarrito(): void {
-    if (!this.producto || !this.cliente) {
-      this.router.navigate(['/login']);
+    if (!this.producto) {
       return;
     }
   
-    const adicionalesIds = this.adicionalesSeleccionados.value
+    const adicionalesSeleccionados = this.adicionalesSeleccionados.value
       .filter((a: any) => a.selected && a.cantidad > 0)
-      .map((a: any) => a.adicional_id);
+      .map((a: any) => ({
+        adicional_id: a.adicional_id,
+        nombre: a.nombre,
+        precio: a.precio,
+        cantidad: a.cantidad
+      }));
   
-    this.carritoService.agregarProductoAlCarrito(
-      this.cliente.id!,
-      this.producto.producto_id,
-      this.cantidad,
-      adicionalesIds
-    ).subscribe({
-      next: (carritoActualizado) => {
-        console.log('Producto agregado al carrito (backend):', carritoActualizado);
-        // Opcional: guardar localStorage o refrescar vista
-        this.router.navigate(['/menu']);
-      },
-      error: (err) => {
-        console.error('Error al agregar al carrito:', err);
-        this.errorMessage = 'Error al agregar el producto al carrito';
+    if (this.cliente) {
+      // Usuario logueado -> Llamada al backend
+      const adicionalesIds = adicionalesSeleccionados.map((a: { adicional_id: number, nombre: string, precio: number, cantidad: number }) => a.adicional_id);
+      this.carritoService.agregarProductoAlCarrito(
+        this.cliente.id!,
+        this.producto.producto_id,
+        this.cantidad,
+        adicionalesIds
+      ).subscribe({
+        next: (carritoActualizado) => {
+          console.log('Producto agregado al carrito (backend):', carritoActualizado);
+          this.router.navigate(['/menu']);
+        },
+        error: (err) => {
+          console.error('Error al agregar al carrito:', err);
+          this.errorMessage = 'Error al agregar el producto al carrito';
+        }
+      });
+    } else {
+      // Usuario NO logueado -> Guardar en localStorage
+      const carritoGuardado = localStorage.getItem("carrito");
+      let carrito = carritoGuardado ? JSON.parse(carritoGuardado) : { id: 0, cliente: null, items: [] };
+  
+      const existente = carrito.items.find((item: CarritoItem) => item.producto.producto_id === this.producto!.producto_id);
+  
+      if (existente) {
+        existente.cantidad += this.cantidad;
+      } else {
+        const nuevoItem: CarritoItem = {
+          id: 0,
+          producto: this.producto,
+          cantidad: this.cantidad,
+          adicionales: adicionalesSeleccionados // puedes guardar los adicionales si quieres
+        };
+        carrito.items.push(nuevoItem);
       }
-    });
+  
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      console.log('Producto agregado localmente al carrito:', carrito);
+      this.router.navigate(['/menu']);
+    }
   }
+  
   
   calcularTotal(): number {
     if (!this.producto) return 0;

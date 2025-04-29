@@ -15,7 +15,7 @@ export class PedidoService {
     const clienteId = carro.cliente?.id;
     const productoId = carro.items[0].producto.producto_id;
     const cantidad = carro.items[0].cantidad;
-    const adicionalesIds = carro.items[0].adicionales?.map(adicional => adicional.id) || [];
+    const adicionalesIds = carro.items[0].adicionales?.map(adicional => adicional.adicional_id) || [];
     if (!clienteId) {
       console.error('El cliente no está asignado.');
       return of({ pedidoId: 0, carritoId: 0 });    }
