@@ -30,6 +30,7 @@ export class DetalleProductoComponent implements OnInit {
 
   formVisible: boolean = true;
 
+
   constructor(
     private route: ActivatedRoute,
     private productoService: ProductoService,

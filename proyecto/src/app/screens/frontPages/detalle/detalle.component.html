@@ -14,12 +14,12 @@
             </div>
 
             <div class="detalle-info">
-                <p>{{ producto.descripcion }}</p>
+                <p class="descripcion">{{ producto.descripcion }}</p>
                 <span class="precio">{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</span>
 
-                <!-- Sección de adicionales con checkboxes -->
+                <!-- Sección de adicionales -->
                 <div *ngIf="adicionalesSeleccionados.length > 0" class="adicionales-section">
-                    <h4>Adicionales</h4>
+                    <h4>Personaliza tu pedido:</h4>
                     <form [formGroup]="productoForm">
                         <div formArrayName="adicionalesSeleccionados">
                             <div *ngFor="let adicional of adicionalesSeleccionados.controls; let i = index" 
@@ -30,7 +30,9 @@
                                            (change)="onCheckboxChange(i)">
                                     <label for="adicional-{{i}}">
                                         {{ adicional.get('nombre')?.value }} 
-                                        ({{ adicional.get('precio')?.value | currency:'COP':'symbol':'1.0-0' }})
+                                        <span class="precio-adicional">
+                                            (+{{ adicional.get('precio')?.value | currency:'COP':'symbol':'1.0-0' }})
+                                        </span>
                                     </label>
                                 </div>
                                 
@@ -44,16 +46,22 @@
                     </form>
                 </div>
 
-                <button class="btnAgregar" (click)="agregarAlCarrito()">Agregar al Carrito</button>
+                <button class="btnAgregar" (click)="agregarAlCarrito()">
+                    Agregar al Carrito - {{ calcularTotal() | currency:'COP':'symbol':'1.0-0' }}
+                </button>
             </div>
         </div>
 
         <ng-template #noProductoTemplate>
-            <p>Producto no encontrado</p>
+            <div class="error-message">
+                <p>Producto no encontrado</p>
+            </div>
         </ng-template>
     </div>
 
     <ng-template #loadingTemplate>
-        <p>Cargando detalles del producto...</p>
+        <div class="loading-message">
+            <p>Cargando detalles del producto...</p>
+        </div>
     </ng-template>
 </div>
