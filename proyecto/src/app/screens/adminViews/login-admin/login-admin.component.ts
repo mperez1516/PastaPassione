@@ -19,10 +19,11 @@ export class LoginAdminComponent {
       usuario: this.usuario,
       contrasena: this.contrasena
     };
-
+  
     this.adminService.loginAdmin(datosLogin).subscribe({
       next: (res) => {
         console.log('Login exitoso', res);
+        localStorage.setItem('admin', JSON.stringify(res.admin)); // ⬅️ Guardar sesión
         this.router.navigate(['/homeAdmin']);
       },
       error: (err) => {
@@ -31,4 +32,5 @@ export class LoginAdminComponent {
       }
     });
   }
+  
 }

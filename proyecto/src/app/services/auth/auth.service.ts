@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Cliente } from 'src/app/entidades/cliente/cliente';
+import { Administrador } from 'src/app/entidades/administrador/administrador';
+
+type UsuarioGeneral = Cliente | Administrador;
+
 
 @Injectable({
   providedIn: 'root'
