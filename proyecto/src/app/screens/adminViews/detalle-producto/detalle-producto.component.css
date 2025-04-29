@@ -1,195 +1,227 @@
+/* Fondo general y tipografía */
 body {
-    font-family: 'Georgia', serif;
-    background-color: rgb(89 32 25); /* Color de fondo suave */
-    color: #3d405b; /* Color de texto principal */
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8e1d9 0%, #fff3e0 100%);
+  color: #4a2c2a;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-.formulario-edicion {
-    font-family: 'Georgia', serif;;
-    font-size: 14px;
-    color: #333;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-.formulario-edicion .form-control {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.formulario-edicion .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.formulario-edicion .btn-primary {
-    background-color: rgb(189, 69, 54); 
-    color: white;
-}
-
-.formulario-edicion .btn-primary:hover {
-    background-color: rgb(89 32 25); 
-}
-
-.formulario-edicion .btn-secondary {
-    background-color: #c19a6b; 
-    color: white;
-}
-
-.formulario-edicion .btn-secondary:hover {
-    background-color: #866337; 
-}
-
-.formulario-edicion h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #555;
-}
-/* Fondo y espaciado general */
+/* Contenedor principal */
 .container {
-  max-width: 900px; /* Limita el ancho del contenedor para mejor legibilidad */
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  background-color: #f8f9fa; /* Fondo claro para el contenedor */
-  padding: 1.5rem;
-  border-radius: 8px;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
 }
 
 /* Título principal */
 h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color:rgb(89 32 25);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjeta del producto */
+.product-card {
+  background: #fffaf0;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Encabezado del producto */
+.product-header {
+  background: rgb(89 32 25);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.product-title {
   font-size: 2rem;
   font-weight: 600;
-  color: #333;
+  margin: 0;
+  text-transform: capitalize;
 }
 
-/* Estilo para la tarjeta principal */
-.card {
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-}
-
-.card-body {
-  padding: 2rem;
-}
-
-/* Estilo para etiquetas y campos del formulario */
-.form-label {
+.product-price {
+  font-size: 1.2rem;
   font-weight: 500;
-  color: #555;
+  display: block;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+/* Cuerpo del producto */
+.product-body {
+  padding: 2.5rem;
+}
+
+/* Detalles del producto */
+.product-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #4a2c2a;
   margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
 .form-control,
 .form-select {
-  border-radius: 6px;
-  border: 1px solid #ced4da;
-  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid #e0c7b5;
+  padding: 0.9rem;
   font-size: 1rem;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control:focus,
 .form-select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: #a62626;
+  box-shadow: 0 0 8px rgba(166, 38, 38, 0.2);
   outline: none;
 }
 
 textarea.form-control {
-  resize: vertical; /* Permite redimensionar solo verticalmente */
-  min-height: 100px;
+  resize: vertical;
+  min-height: 130px;
+  border-radius: 8px;
 }
 
 /* Sección de adicionales */
-h5.border-bottom {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #333;
-  border-bottom: 2px solid #e9ecef;
+.product-addons {
+  background: #fef5e7;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #a62626;
+  border-bottom: 3px solid #e0c7b5;
   padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .alert-info {
-  border-radius: 6px;
-  background-color: #e7f3fe;
-  border-color: #d6e9fc;
-  color: #31708f;
-}
-
-/* Tarjetas de adicionales */
-.card.h-100 {
-  border: 1px solid #e9ecef;
   border-radius: 8px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #fffaf0;
+  border: 1px solid #e0c7b5;
+  color: #4a2c2a;
+  font-style: italic;
+  text-align: center;
 }
 
-.card.h-100:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+/* Cuadrícula de adicionales */
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
-.card-body {
-  padding: 1.25rem;
+.addon-item {
+  display: flex;
+  justify-content: center;
+}
+
+.addon-card {
+  background: #fff;
+  border: 1px solid #e0c7b5;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.addon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .form-check-input {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 0.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.6rem;
   cursor: pointer;
+  border: 2px solid #e0c7b5;
 }
 
 .form-check-label {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a2c2a;
   cursor: pointer;
 }
 
 .form-check-input:checked {
-  background-color: #28a745; /* Verde para el interruptor cuando está activado */
-  border-color: #28a745;
+  background-color: #a62626;
+  border-color: #a62626;
 }
 
-.text-muted {
-  font-size: 0.9rem;
-  color: #6c757d;
+.addon-price {
+  font-size: 0.95rem;
+  color: #7a5a57;
+  display: block;
+  margin-top: 0.5rem;
 }
 
-/* Botones */
+/* Botones de acción */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
 .btn {
-  padding: 0.75rem 1.25rem;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  padding: 0.9rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #a62626;
+  border: none;
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-  transform: translateY(-1px);
+  background-color: #8b1f1f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(166, 38, 38, 0.3);
 }
 
 .btn-primary:active {
@@ -197,14 +229,15 @@ h5.border-bottom {
 }
 
 .btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
+  color: #4a2c2a;
+  border: 2px solid #e0c7b5;
+  background-color: transparent;
 }
 
 .btn-outline-secondary:hover {
-  background-color: #6c757d;
+  background-color: #e0c7b5;
   color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn-outline-secondary:active {
@@ -212,74 +245,76 @@ h5.border-bottom {
 }
 
 .btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
+  color: #a62626;
+  border: 2px solid #a62626;
 }
 
 .btn-outline-primary:hover {
-  background-color: #e9ecef;
-  color: #0056b3;
-  transform: translateY(-1px);
-}
-
-.btn-outline-primary:active {
-  transform: translateY(0);
+  background-color: #a62626;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 /* Iconos de Bootstrap */
 .bi {
-  margin-right: 0.5rem;
+  margin-right: 0.6rem;
   vertical-align: middle;
 }
 
 /* Mensaje de éxito */
-.alert-success {
+.success-message {
   background-color: #e6f4ea;
-  border-color: #c3e6cb;
+  border: 1px solid #c3e6cb;
   color: #155724;
-  border-radius: 8px;
-  padding: 2rem;
+  border-radius: 10px;
+  padding: 2.5rem;
 }
 
 .alert-heading {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #155724;
 }
 
-.alert-success .bi-check-circle-fill {
+.success-message .bi-check-circle-fill {
   color: #28a745;
+  font-size: 2.5rem;
 }
 
 /* Ajustes responsivos */
 @media (max-width: 767.98px) {
   .container {
-    padding: 1rem;
+      padding: 1.5rem;
   }
 
-  .card-body {
-    padding: 1.5rem;
+  .product-body {
+      padding: 2rem;
   }
 
   h1 {
-    font-size: 1.75rem;
+      font-size: 2.2rem;
+  }
+
+  .product-title {
+      font-size: 1.6rem;
   }
 
   .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.95rem;
   }
 
   .form-check-input {
-    width: 1.25rem;
-    height: 1.25rem;
+      width: 1.4rem;
+      height: 1.4rem;
   }
 
   .form-check-label {
-    font-size: 0.9rem;
+      font-size: 1rem;
   }
 }
