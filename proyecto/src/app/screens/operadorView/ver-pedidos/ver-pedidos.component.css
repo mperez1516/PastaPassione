@@ -1,111 +1,171 @@
-/* Estilo general */
-* {
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilos para la tabla */
-  .tabla-pedidos {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .tabla-pedidos th, .tabla-pedidos td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .tabla-pedidos th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .tabla-pedidos tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .tabla-pedidos tr:hover {
-    background-color: #ddd;
-  }
-  
-  /* Estilo de los mensajes */
-  div {
-    font-size: 18px;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  div.cargando {
-    color: #888;
-  }
-  
-  div.error {
-    color: red;
-    font-weight: bold;
-  }
-  
-  /* Botón de acción (si lo añades más tarde) */
-  button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin: 10px 0;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .domiciliario-select {
-    padding: 6px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-width: 180px;
-  }
-  
-  .no-domiciliarios {
-    color: red;
-    font-size: 12px;
-    margin-top: 4px;
-  }
-  /* Estilo general para los mensajes */
+/* Fondo general y tipografía */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8e1d9 0%, #fff3e0 100%);
+  color: #4a2c2a;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+}
+
+/* Estilo general para los mensajes */
 .text-success {
-  background-color: #d4edda; /* Fondo verde claro */
-  color: #155724; /* Texto verde oscuro */
-  border: 1px solid #c3e6cb; /* Borde verde claro */
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  transition: opacity 0.5s ease-out; /* Transición suave para desvanecer */
+  background-color: #e6f4ea;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease-out;
 }
 
-/* Estilo para el mensaje de error */
-.text-danger {
-  background-color: #f8d7da; /* Fondo rojo claro */
-  color: #721c24; /* Texto rojo oscuro */
-  border: 1px solid #f5c6cb; /* Borde rojo claro */
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  transition: opacity 0.5s ease-out; /* Transición suave para desvanecer */
+/* Estilo para la tabla */
+.tabla-pedidos {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fffaf0;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
 }
 
-/* Opcional: ocultar el mensaje después de 3 segundos */
-.message-fade-out {
-  opacity: 0;
-  visibility: hidden;
+.tabla-pedidos th, .tabla-pedidos td {
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid #e0c7b5;
+}
+
+.tabla-pedidos th {
+  background: linear-gradient(90deg, #a62626 0%, #c93a3a 100%);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.tabla-pedidos td {
+  background-color: #fff;
+  font-size: 1rem;
+  color: #4a2c2a;
+}
+
+.tabla-pedidos tr {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tabla-pedidos tr:hover {
+  background-color: #fef5e7;
+  transform: translateY(-2px);
+}
+
+/* Estado del pedido */
+.tabla-pedidos td:nth-child(4) {
+  font-weight: 500;
+}
+
+.tabla-pedidos td:nth-child(4)::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.tabla-pedidos td:nth-child(4):has(:contains('ENTREGADO'))::before {
+  background-color: #28a745;
+}
+
+.tabla-pedidos td:nth-child(4):has(:contains('EN CAMINO'))::before {
+  background-color: #ffc107;
+}
+
+/* Select de domiciliarios */
+.domiciliario-select {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 2px solid #e0c7b5;
+  border-radius: 8px;
+  background-color: #fffaf0;
+  min-width: 200px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.domiciliario-select:focus {
+  border-color: #a62626;
+  box-shadow: 0 0 8px rgba(166, 38, 38, 0.2);
+  outline: none;
+}
+
+.no-domiciliarios {
+  color: #a62626;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Botones */
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-success {
+  background-color: #a62626;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #8b1f1f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(166, 38, 38, 0.3);
+}
+
+.btn-success:active {
+  transform: translateY(0);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 767.98px) {
+  .container {
+      padding: 1.5rem;
+  }
+
+  .tabla-pedidos th, .tabla-pedidos td {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+  }
+
+  .domiciliario-select {
+      min-width: 150px;
+      font-size: 0.9rem;
+  }
+
+  .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+  }
+
+  .text-success {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+  }
 }
