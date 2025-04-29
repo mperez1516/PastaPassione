@@ -33,7 +33,7 @@ export class PagarComponent implements OnInit {
 
     const carritoGuardado = localStorage.getItem('carrito');
     if (carritoGuardado) {
-      this.carrito = JSON.parse(carritoGuardado);
+      this.carrito = JSON.parse(carritoGuardado) as Carro;
       this.calcularTotal();
     }
   }
