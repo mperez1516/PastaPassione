@@ -124,9 +124,10 @@ nav a:hover {
     left: 0;
 }
 
+
 .container {
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #f7eee7;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
@@ -135,17 +136,34 @@ nav a:hover {
     align-items: center;
 }
 
-h1 {
-    color: #c19a6b;
+h1{
+    color: #592019;
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-top: 40px;
 }
+
+.body {
+    font-family: 'Times New Roman', serif; /* Manteniendo tu fuente */
+    background-color: #ebd8a0; /* Fondo beige suave y agradable */
+    margin: 0;
+  }
+  
+  h1.text-center {
+    color: #592019; /* Color vino tinto para el título principal */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-bordered thead th {
+    background-color: #592019; /* Color vino tinto para los encabezados */
+    color: white;
+  }
 
 /* Estilos para el buscador */
 #searchInput {
-    width: 100%;
+    width: 200%;
     padding: 10px;
+    margin-left: -100px;
     border: 2px solid #c19a6b;
     border-radius: 5px;
     font-size: 1rem;

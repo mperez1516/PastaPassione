@@ -39,8 +39,8 @@
 /* Estilo de tarjetas promocionales */
 .card{
     position: relative;
-    height: 380px;
-    width: 280px;
+    height: 360px;
+    width: 260px;
     margin: 20px;
 }
 

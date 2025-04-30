@@ -1,62 +1,73 @@
-body {
-    font-family: 'Georgia', serif;
-    background-color: rgb(89 32 25); /* Color de fondo suave */
-    color: #ecd1ad; /* Color de texto principal */
-    margin: 0;
-    padding: 0;
-}
-
-.formulario-edicion {
-    font-family: 'Georgia', serif;;
-    font-size: 14px;
-    color: #333;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
+.form-container {
+    background-color: #fce3ce;
+    border-radius: 8px;
+    padding: 40px;
     max-width: 600px;
-    margin: 0 auto;
-}
-
-.formulario-edicion .form-control {
+    margin: 50px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #4a1f0f;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    font-size: 16px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.formulario-edicion .btn {
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .btn-save {
+    background-color: #5a2a1d;
+    color: white;
     padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.formulario-edicion .btn-primary {
-    background-color: rgb(189, 69, 54); 
+    font-weight: bold;
+  }
+  
+  .btn-save:hover {
+    background-color: #3e1c12;
+  }
+  
+  .btn-cancel {
+    background-color: #c69a6b;
     color: white;
-}
-
-.formulario-edicion .btn-primary:hover {
-    background-color: rgb(89, 32, 25); 
-}
-
-.formulario-edicion .btn-secondary {
-    background-color: #c19a6b; 
-    color: white;
-}
-
-.formulario-edicion .btn-secondary:hover {
-    background-color: #866337; 
-}
-
-.formulario-edicion h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #555;
-}
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #a77c52;
+  }
+  
