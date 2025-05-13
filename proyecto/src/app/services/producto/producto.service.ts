@@ -37,21 +37,39 @@ export class ProductoService {
   }
 
   // Crear producto
-  addProducto(producto: Omit<Producto, 'producto_id'>): Observable<Producto> {
-    return this.http.post<Producto>(this.baseUrl, producto);
-  }
+  // Crear producto con adicionales
+addProducto(producto: Omit<Producto, 'producto_id'>): Observable<Producto> {
+  const productoParaBackend = {
+    ...producto,
+    adicionales: producto.adicionales?.map(a => ({
+      adicional_id: a.adicional_id,
+      nombre: a.nombre,
+      precio: a.precio,
+      cantidad: a.cantidad || 1
+    }))
+  };
+
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  });
+
+  return this.http.post<Producto>(this.baseUrl, productoParaBackend, { headers });
+}
+
 
   // Actualizar producto
   updateProducto(id: number, producto: Producto): Observable<Producto> {
     // Preparar el objeto como lo espera el backend
     const productoParaBackend = {
       ...producto,
-      producto_id: id,
       adicionales: producto.adicionales?.map(a => ({
         adicional_id: a.adicional_id,
         nombre: a.nombre,
         precio: a.precio,
         cantidad: a.cantidad
+
+
       }))
     };
 
