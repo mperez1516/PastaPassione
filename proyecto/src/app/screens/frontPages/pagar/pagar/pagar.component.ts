@@ -43,29 +43,37 @@ export class PagarComponent implements OnInit {
   }
 
   confirmarPago(): void {
-    if (this.cliente != null && this.direccionEnvio) {
-      this.carrito.cliente = this.cliente;
-  
-      // Enviar carrito con la dirección de envío
-      this.pedidoService.guardarCarrito(this.carrito, this.direccionEnvio).subscribe({
-        next: (res) => {
-          const carritoId = res.carritoId;
-          const pedidoId = res.pedidoId;  // El pedido ya ha sido creado con la dirección
-  
-          // Mensaje de éxito
-          this.mensajeExito = `Pedido #${pedidoId} generado exitosamente.`;
-          localStorage.removeItem('carrito');
-          this.carrito.items = [];
-          this.total = 0;
-          setTimeout(() => this.router.navigate(['/homeCliente']), 3000);
-        },
-        error: (err) => {
-          console.error('Error al guardar carrito:', err);
-          alert('Error al guardar el carrito.');
-        }
-      });
-    }
+  if (this.cliente != null && this.direccionEnvio) {
+    this.carrito.cliente = this.cliente;
+
+    // 1. Guardar el carrito
+    this.pedidoService.guardarCarrito(this.carrito, this.direccionEnvio).subscribe({
+      next: (res) => {
+        const carritoId = res.carritoId;
+
+        // 2. Generar el pedido desde el carrito
+        this.pedidoService.crearPedido(carritoId, this.direccionEnvio).subscribe({
+          next: (pedido) => {
+            this.mensajeExito = `Pedido #${pedido.pedidoId} generado exitosamente.`;
+            localStorage.removeItem('carrito');
+            this.carrito.items = [];
+            this.total = 0;
+            setTimeout(() => this.router.navigate(['/homeCliente']), 3000);
+          },
+          error: (err) => {
+            console.error('Error al crear el pedido:', err);
+            alert('Error al generar el pedido.');
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Error al guardar carrito:', err);
+        alert('Error al guardar el carrito.');
+      }
+    });
   }
+}
+
   
   
   
