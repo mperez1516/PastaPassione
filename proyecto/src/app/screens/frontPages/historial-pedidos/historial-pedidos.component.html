@@ -1,1 +1,45 @@
-<p>historial-pedidos works!</p>
+<app-header-cliente></app-header-cliente>
+
+<div class="background-container">
+  <div class="content-overlay">
+    <h1>Historial de pedidos completados</h1>
+
+    <!-- Mostrar error si no se han cargado pedidos -->
+    <div *ngIf="cargando" class="loading-message">Cargando tu historial...</div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+
+    <!-- Si no hay pedidos -->
+    <div *ngIf="!cargando && pedidos.length === 0" class="no-orders-message">
+      No tienes pedidos completados en tu historial.
+    </div>
+
+    <!-- Tabla de pedidos -->
+    <table *ngIf="!cargando && pedidos.length > 0" class="table-pedidos">
+      <thead>
+        <tr>
+          <th>ID Cliente</th>
+          <th>Estado</th>
+          <th>Dirección</th>
+          <th>Fecha</th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pedido of pedidos">
+          <td data-label="ID Cliente">{{ pedido.cliente?.nombre || 'Sin cliente' }}</td>
+          <td data-label="Estado">{{ pedido.estado }}</td>
+          <td data-label="Dirección">{{ pedido.direccionEnvio }}</td>
+          <td data-label="Fecha">{{ pedido.fecha | date:'short' }}</td>
+          <td>
+            <!-- Botón de detalles -->
+            <button (click)="verDetalles(pedido.pedidoId)" class="btn btn-info">
+              Ver Detalles
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-footer></app-footer>
