@@ -21,7 +21,7 @@
             </li>
           </ul>
           <button class="btn btn-warning btn-sm mt-2" (click)="vaciarCarrito()">Vaciar Carrito</button>
-          <button class="btn btn-success btn-sm mt-2" (click)="irAPagar()" [disabled]="carrito.items.length === 0">Pagar</button>
+          <button class="btn btn-success btn-sm mt-2" id= "btnPagar" (click)="irAPagar()" [disabled]="carrito.items.length === 0">Pagar</button>
         </div>
       </div>
     </nav>

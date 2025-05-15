@@ -47,7 +47,7 @@
                         </form>
                     </div>
     
-                    <button class="btnAgregar" (click)="agregarAlCarrito()">
+                    <button class="btnAgregar" id="btnAgregarCarrito" (click)="agregarAlCarrito()">
                         Agregar al Carrito - {{ calcularTotal() | currency:'COP':'symbol':'1.0-0' }}
                     </button>
                 </div>

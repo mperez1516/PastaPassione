@@ -7,7 +7,7 @@
     <div *ngIf="cargando" class="loading-message">Cargando detalles del pedido...</div>
     <div *ngIf="error" class="error-message">{{ error }}</div>
 <!-- Botón Volver -->
-    <button (click)="volver()" class="btn btn-secondary mb-3">
+    <button (click)="volver()" class="btn btn-secondary mb-3" id="btnVolver">
         Volver
     </button>
     <!-- Mostrar detalles del pedido -->

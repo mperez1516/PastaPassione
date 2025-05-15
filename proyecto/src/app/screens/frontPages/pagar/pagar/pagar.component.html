@@ -34,7 +34,7 @@
           <input type="text" class="form-control" id="direccionEnvio" [(ngModel)]="direccionEnvio" required>
         </div>
 
-        <button class="btn btn-success w-100" (click)="confirmarPago()" [disabled]="!direccionEnvio || mensajeExito">
+        <button class="btn btn-success w-100" id="btnConfirmarPedido" (click)="confirmarPago()" [disabled]="!direccionEnvio || mensajeExito">
           Confirmar Pago
         </button>
       </div>

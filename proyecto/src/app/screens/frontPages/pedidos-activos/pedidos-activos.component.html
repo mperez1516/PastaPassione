@@ -32,7 +32,7 @@
           <td data-label="Fecha">{{ pedido.fecha | date:'short' }}</td>
           <td>
             <!-- Botón de detalles -->
-            <button (click)="verDetalles(pedido.pedidoId)" class="btn btn-info">
+            <button (click)="verDetalles(pedido.pedidoId)" class="btn btn-info" id="btnDetallePedido">
               Ver Detalles
             </button>
           </td>
