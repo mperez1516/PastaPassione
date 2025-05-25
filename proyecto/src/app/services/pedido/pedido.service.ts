@@ -11,37 +11,37 @@ export class PedidoService {
   private baseUrl: string = 'http://localhost:8000';
   constructor(private http: HttpClient) { }
 
-  guardarCarrito(carro: Carro, direccionEnvio: string): Observable<{ pedidoId: number, carritoId: number }> {
-    const clienteId = carro.cliente?.id;
-    const productoId = carro.items[0].producto.producto_id;
-    const cantidad = carro.items[0].cantidad;
-    const adicionalesIds = carro.items[0].adicionales?.map(adicional => adicional.adicional_id) || [];
-    if (!clienteId) {
-      console.error('El cliente no está asignado.');
-      return of({ pedidoId: 0, carritoId: 0 });    }
-
-      
-    const params = new HttpParams()
-      .set('clienteId', clienteId.toString())
-      .set('productoId', productoId.toString())
-      .set('cantidad', cantidad.toString());
-  
-    return this.http.post<{ pedidoId: number, carritoId: number }>(
-      `${this.baseUrl}/carritos`,
-      adicionalesIds, // Esto va como body
-      { params: params.set('direccionEnvio', direccionEnvio) } // Enviar la dirección como parámetro
-    );
+  guardarCarrito(carro: Carro, direccionEnvio: string): Observable<{ carritoId: number }> {
+  const clienteId = carro.clienteId;
+  if (!clienteId) {
+    console.error('El cliente no está asignado.');
+    return of({ carritoId: 0 });
   }
+
+  const body = {
+    ...carro,
+    direccionEnvio: direccionEnvio
+  };
+
+  return this.http.post<{ carritoId: number }>(
+    `${this.baseUrl}/carritos/guardar`,
+    body
+  );
+}
+
+
+
+
   obtenerDetallesPedido(pedidoId: number): Observable<Pedido> {
     return this.http.get<Pedido>(`${this.baseUrl}/pedidos/${pedidoId}`);
   }
   
   
   
-  
+  /*
   generarPedido(carritoId: number, direccionEnvio: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/pedidos/crear-desde-carrito?direccionEnvio=${encodeURIComponent(direccionEnvio)}`, carritoId);
-  }
+  }*/
 
   crearPedido(carritoId: number, direccionEnvio: string): Observable<Pedido> {
     const params = new HttpParams().set('direccionEnvio', direccionEnvio);

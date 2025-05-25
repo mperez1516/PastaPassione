@@ -21,7 +21,7 @@ export class MenuGeneralComponent implements OnInit {
     postre: [],
     bebida: []
   };
-  carrito: Carro = { id: 0, cliente: null, items: [] };
+  carrito: Carro = { id: 0, clienteId: null, items: [] };
   totalCantidad: number = 0;
 
   constructor(private productoService: ProductoService, private router: Router,private clienteService: ClienteService) {}
