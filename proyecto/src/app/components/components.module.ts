@@ -14,6 +14,9 @@ import { NosotrosComponent } from './componentsLanding/nosotros/nosotros.compone
 import { ReservasComponent } from './componentsLanding/reservas/reservas.component';
 import { VideoInicioComponent } from './componentsLanding/video-inicio/video-inicio.component';
 import { RouterModule } from '@angular/router';
+import { ChatComponent } from './chat/chat.component';
+import { FormsModule } from '@angular/forms';
+
 // Importa TODOS tus componentes compartidos
 
 @NgModule({
@@ -29,11 +32,13 @@ import { RouterModule } from '@angular/router';
     VideoInicioComponent,
     NosotrosComponent,
     CarruselComponent,
-    ReservasComponent
+    ReservasComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     // Exporta los componentes que se usarán en otros módulos
@@ -48,7 +53,8 @@ import { RouterModule } from '@angular/router';
     VideoInicioComponent,
     NosotrosComponent,
     CarruselComponent,
-    ReservasComponent
+    ReservasComponent,
+    ChatComponent
   ]
 })
 export class ComponentsModule { }

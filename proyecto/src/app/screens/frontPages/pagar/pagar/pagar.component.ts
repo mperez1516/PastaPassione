@@ -11,7 +11,7 @@ import { Cliente } from 'src/app/entidades/cliente/cliente';
   styleUrls: ['./pagar.component.css']
 })
 export class PagarComponent implements OnInit {
-  carrito: Carro = { id: 0, cliente: null, items: [] };
+  carrito: Carro = { id: 0, clienteId: null, items: [] };
   total: number = 0;
   cliente: Cliente | null = null;
   mensajeExito: string = '';
@@ -42,16 +42,26 @@ export class PagarComponent implements OnInit {
     this.total = this.carrito.items.reduce((acc, item) => acc + item.producto.precio * item.cantidad, 0);
   }
 
-  confirmarPago(): void {
-  if (this.cliente != null && this.direccionEnvio) {
-    this.carrito.cliente = this.cliente;
+ confirmarPago(): void {
+  if (this.cliente?.id != null && this.direccionEnvio.trim()) {
+    const carritoGuardado = localStorage.getItem('carrito');
+    if (!carritoGuardado) {
+      alert('No hay productos en el carrito.');
+      return;
+    }
 
-    // 1. Guardar el carrito
-    this.pedidoService.guardarCarrito(this.carrito, this.direccionEnvio).subscribe({
+    this.carrito = JSON.parse(carritoGuardado);
+    this.carrito.clienteId = this.cliente.id; // ✅ importante
+const { id, ...carritoSinId } = this.carrito;
+    console.log(carritoSinId);
+this.carrito.items.forEach(item => delete item.id);
+
+    // 1. Guardar el carrito primero
+    this.pedidoService.guardarCarrito(carritoSinId as any, this.direccionEnvio).subscribe({
       next: (res) => {
         const carritoId = res.carritoId;
 
-        // 2. Generar el pedido desde el carrito
+        // 2. Crear el pedido desde el carrito guardado
         this.pedidoService.crearPedido(carritoId, this.direccionEnvio).subscribe({
           next: (pedido) => {
             this.mensajeExito = `Pedido #${pedido.pedidoId} generado exitosamente.`;
@@ -73,6 +83,8 @@ export class PagarComponent implements OnInit {
     });
   }
 }
+
+
 
   
   

@@ -1,0 +1,10 @@
+<div class="chat-container">
+  <h2>¿Qué se te antoja hoy?</h2>
+  <textarea [(ngModel)]="mensaje" rows="3" placeholder="Ej: Quiero algo dulce y frío..."></textarea>
+  <button (click)="enviarMensaje()">Recomendar plato</button>
+
+  <div *ngIf="respuesta" class="respuesta">
+    <h4>Recomendación del chef:</h4>
+    <p>{{ respuesta }}</p>
+  </div>
+</div>
