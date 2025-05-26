@@ -1,7 +1,22 @@
-<app-header> </app-header>
+<app-header></app-header>
 
 <div class="map-container">
+
+  <!-- Opciones de transporte -->
+  <div class="transport-options">
+    <button (click)="setTravelMode(google.maps.TravelMode.DRIVING)" [class.selected]="selectedTravelMode === google.maps.TravelMode.DRIVING">🚗 Carro</button>
+    <button (click)="setTravelMode(google.maps.TravelMode.TRANSIT)" [class.selected]="selectedTravelMode === google.maps.TravelMode.TRANSIT">🚌 Bus</button>
+    <button (click)="setTravelMode(google.maps.TravelMode.WALKING)" [class.selected]="selectedTravelMode === google.maps.TravelMode.WALKING">🚶 Caminando</button>
+  </div>
+
+  <!-- Mapa -->
   <div id="map"></div>
+
+  <!-- Cuadro de tiempo estimado -->
+  <div *ngIf="tiempoEstimado" class="info-cuadro">
+    <p>⏱️ Tiempo estimado: <strong>{{ tiempoEstimado }}</strong></p>
+  </div>
+
 </div>
 
- <app-footer> </app-footer>
+<app-footer></app-footer>
