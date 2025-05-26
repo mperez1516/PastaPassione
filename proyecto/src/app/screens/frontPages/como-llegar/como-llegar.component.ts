@@ -1,5 +1,13 @@
+/// <reference types="google.maps" />
 import { Component, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+declare global {
+  interface Window {
+    google: typeof google;
+    initMap: () => void;
+  }
+}
 
 @Component({
   selector: 'app-como-llegar',
@@ -7,21 +15,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./como-llegar.component.css']
 })
 export class ComoLlegarComponent implements AfterViewInit {
-  sedeLatLng = { lat: 0, lng: 0 };
+
+  sedeLatLng = { lat: 4.6482837, lng: -74.2478942 }; // Valor por defecto
 
   constructor(private route: ActivatedRoute) {}
 
   ngAfterViewInit(): void {
-    this.route.params.subscribe(params => {
-      this.sedeLatLng.lat = parseFloat(params['lat']);
-      this.sedeLatLng.lng = parseFloat(params['lng']);
+    // Obtener coordenadas desde la URL
+    const lat = parseFloat(this.route.snapshot.paramMap.get('lat') || '');
+    const lng = parseFloat(this.route.snapshot.paramMap.get('lng') || '');
 
-      if ((window as any).google && google.maps) {
-        this.initMap();
-      } else {
-        (window as any).initMap = () => this.initMap();
-      }
-    });
+    if (!isNaN(lat) && !isNaN(lng)) {
+      this.sedeLatLng = { lat, lng };
+    }
+
+    // Esperamos que el script de Google Maps haya cargado
+    if ((window as any).google && google.maps) {
+      this.initMap();
+    } else {
+      (window as any).initMap = () => this.initMap();
+    }
   }
 
   initMap(): void {
