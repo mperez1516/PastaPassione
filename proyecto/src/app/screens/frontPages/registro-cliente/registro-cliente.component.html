@@ -13,14 +13,14 @@
   <div class="container">
     <div class="login-box">
       <div class="image-container left">
-        <img src="assets/Imagenes/menu/platoprincipal/Pizza-Prosciutto.jpg" alt="Pizza" />
+        <img src="assets/Imagenes/menu/platoprincipal/pizza-prosciutto.jpg" alt="Pizza" />
       </div>
   
       <div class="form-container">
         <h2 class="title">Pasta e Passione</h2>
         <p class="subtitle">¡Únete a nuestra familia!</p>
   
-        <form (ngSubmit)="registrar()">
+        <form #registroForm="ngForm" (ngSubmit)="registrar(registroForm)">
           <div class="input-group">
             <label>Nombre</label>
             <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre" placeholder="Ingresa tu nombre" required />

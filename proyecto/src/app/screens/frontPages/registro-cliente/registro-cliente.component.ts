@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cliente } from 'src/app/entidades/cliente/cliente';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 
 @Component({
@@ -8,13 +9,13 @@ import { ClienteService } from 'src/app/services/cliente/cliente.service';
   styleUrls: ['./registro-cliente.component.css']
 })
 export class RegistroClienteComponent {
-  cliente = {
+  cliente: Cliente = {
     nombre: '',
     apellido: '',
     correo: '',
     contrasena: '',
-    direccion: '',
-    telefono: ''
+    direccion: 0,
+    telefono: 0
   };
 
   confirmPassword: string = '';
@@ -23,7 +24,7 @@ export class RegistroClienteComponent {
 
   constructor(private clienteService: ClienteService, private router: Router) {}
 
-  registrar() {
+  registrar(form: any) {
     if (this.cliente.contrasena !== this.confirmPassword) {
       this.error = 'Las contraseñas no coinciden';
       return;

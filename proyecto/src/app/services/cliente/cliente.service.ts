@@ -20,15 +20,15 @@ export class ClienteService {
   /**
    * Envía las credenciales de login y retorna la respuesta.
    */
-  login(correo: string, contrasena: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, { correo, contrasena });
+  login(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`${this.baseUrl}/login`, cliente);
   }
 
   /**
    * Registra un nuevo cliente en el backend.
    */
-  registrarCliente(cliente: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/registro/registrar`, cliente);
+  registrarCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`${this.baseUrl}/registro/registrar`, cliente);
   }
 
   /**

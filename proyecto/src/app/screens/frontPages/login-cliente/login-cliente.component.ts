@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cliente } from 'src/app/entidades/cliente/cliente';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 
 @Component({
@@ -8,29 +9,31 @@ import { ClienteService } from 'src/app/services/cliente/cliente.service';
   styleUrls: ['./login-cliente.component.css']
 })
 export class LoginClienteComponent {
-  correo: string = '';
-  contrasena: string = '';
+  
   error: string = '';
 
-  constructor(private router: Router, private clienteService: ClienteService) {}
+  constructor(private router: Router, private clienteService: ClienteService){}
 
-  login() {
-    this.clienteService.login(this.correo, this.contrasena).subscribe({
-      next: (response) => {
-        if (response.success) {
-          console.log('Cliente autenticado:', response.cliente);
-          localStorage.setItem('cliente', JSON.stringify(response.cliente));
-          const redirectUrl = localStorage.getItem('redirectAfterLogin') || '/homeCliente';
-          localStorage.removeItem('redirectAfterLogin');
-          this.router.navigate([redirectUrl]);
-        } else {
-          this.error = response.message || 'Error al iniciar sesión';
-        }
+  //Modelo
+  formCliente: Cliente = {
+    correo: '',
+    contrasena: '',
+    nombre: '',
+    apellido: '',
+    telefono: 0,
+    direccion: 0
+  }
+
+  login(form: any) {
+    this.clienteService.login(this.formCliente).subscribe(
+      (data) => {
+        this.router.navigate(['/homeCliente']);
+        console.log('Login exitoso:', data);
       },
-      error: (err) => {
-        console.error('Error de conexión:', err);
-        this.error = 'Error del servidor o de red';
+      (error) => {
+        console.log(error.error);
+        console.log(error.status);
       }
-    });
+    );
   }
 }
