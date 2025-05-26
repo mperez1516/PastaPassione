@@ -19,6 +19,7 @@ import { PagarComponent } from '../pagar/pagar/pagar.component';
 import { DetalleComponent } from '../detalle/detalle.component';
 import { DetallesPedidoComponent } from '../detalles-pedido/detalles-pedido.component';
 import { ContactoComponent } from '../contacto/contacto.component';
+import { ComoLlegarComponent } from '../como-llegar/como-llegar.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ContactoComponent } from '../contacto/contacto.component';
     HomeAdminPageComponent,
     EditarPerfilComponent,
     HistorialPedidosComponent,
+    ComoLlegarComponent,
     HomeAdminPageComponent,
     PedidosActivosComponent,
     PagarComponent,

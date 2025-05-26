@@ -13,6 +13,7 @@ import { HomeAdminPageComponent } from '../home-admin-page/home-admin-page.compo
 import { DetalleComponent } from '../detalle/detalle.component';
 import { DetallesPedidoComponent } from '../detalles-pedido/detalles-pedido.component';
 import { ContactoComponent } from '../contacto/contacto.component';
+import { ComoLlegarComponent } from '../como-llegar/como-llegar.component';
 
 const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'homeAdmin', component: HomeAdminPageComponent},
   { path: 'login', component: LoginClienteComponent },
   { path: 'registro', component: RegistroClienteComponent },
+  { path: 'comoLlegar', component: ComoLlegarComponent },
   { path: 'menu', component: MenuGeneralComponent },
   { path: 'editarPerfil' , component: EditarPerfilComponent},
   { path: 'historialPedidos', component: HistorialPedidosComponent},
