@@ -12,9 +12,11 @@ import { PagarComponent } from '../pagar/pagar/pagar.component';
 import { HomeAdminPageComponent } from '../home-admin-page/home-admin-page.component';
 import { DetalleComponent } from '../detalle/detalle.component';
 import { DetallesPedidoComponent } from '../detalles-pedido/detalles-pedido.component';
+import { ContactoComponent } from '../contacto/contacto.component';
 
 const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
+  { path: 'contacto', component: ContactoComponent },
   { path: 'homeCliente', component: HomeClientePageComponent },
   {path: 'homeAdmin', component: HomeAdminPageComponent},
   { path: 'login', component: LoginClienteComponent },

@@ -1,0 +1,29 @@
+
+    <app-header> </app-header>  
+
+    <!-- Contact Section -->
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <form [formGroup]="formularioContacto" (ngSubmit)="enviarFormulario()" enctype="multipart/form-data">
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" formControlName="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input id="apellidos" formControlName="apellidos" required>
+
+            <label for="correo">Correo electrónico:</label>
+            <input id="correo" formControlName="correo" type="email" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input id="telefono" formControlName="telefono" type="tel" required>
+
+            <label for="archivo">Adjuntar hoja de vida (PDF):</label>
+            <input id="archivo" type="file" (change)="onFileSelected($event)" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <app-footer> </app-footer>
+
+    

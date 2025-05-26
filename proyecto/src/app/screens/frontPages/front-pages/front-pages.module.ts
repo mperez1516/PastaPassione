@@ -18,6 +18,7 @@ import { PedidosActivosComponent } from '../pedidos-activos/pedidos-activos.comp
 import { PagarComponent } from '../pagar/pagar/pagar.component';
 import { DetalleComponent } from '../detalle/detalle.component';
 import { DetallesPedidoComponent } from '../detalles-pedido/detalles-pedido.component';
+import { ContactoComponent } from '../contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DetallesPedidoComponent } from '../detalles-pedido/detalles-pedido.comp
     PedidosActivosComponent,
     PagarComponent,
     DetalleComponent,
+    ContactoComponent,
     DetallesPedidoComponent
 
   ],

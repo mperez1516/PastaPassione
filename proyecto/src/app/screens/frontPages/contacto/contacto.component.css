@@ -1,0 +1,90 @@
+section#contacto {
+    max-width: 800px;
+    margin: 100px auto 50px auto; /* Increased margin-top to 100px for more space from the header */
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #5B2A2A;
+}
+
+section#contacto h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #5B2A2A;
+}
+
+section#contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section#contacto form label {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+    color: #5B2A2A;
+}
+
+section#contacto form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #5B2A2A;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+section#contacto form input:focus {
+    border-color: #8B4A4A;
+    box-shadow: 0 0 5px rgba(139, 74, 74, 0.3);
+}
+
+section#contacto form button {
+    background-color: #5B2A2A;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+section#contacto form button:hover {
+    background-color: #8B4A4A;
+    transform: scale(1.02);
+}
+
+section#contacto form button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section#contacto {
+        margin: 70px 20px 20px 20px; /* Adjusted margin-top for smaller screens */
+        padding: 20px;
+    }
+
+    section#contacto h2 {
+        font-size: 28px;
+    }
+
+    section#contacto form label {
+        font-size: 16px;
+    }
+
+    section#contacto form input {
+        font-size: 14px;
+    }
+
+    section#contacto form button {
+        font-size: 16px;
+    }
+}

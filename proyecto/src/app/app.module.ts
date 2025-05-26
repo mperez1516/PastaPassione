@@ -13,9 +13,10 @@ import { DetallesPedidoComponent } from './screens/frontPages/detalles-pedido/de
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
     
   ],
   imports: [
