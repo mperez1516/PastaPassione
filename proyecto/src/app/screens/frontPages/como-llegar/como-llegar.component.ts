@@ -1,6 +1,15 @@
+/// <reference types="google.maps" />
 import { Component, AfterViewInit } from '@angular/core';
 
-/// <reference types="google.maps" />
+declare global {
+  interface Window {
+    google: typeof google;
+    initMap: () => void;
+  }
+}
+
+
+
 @Component({
   selector: 'app-como-llegar',
   templateUrl: './como-llegar.component.html',
