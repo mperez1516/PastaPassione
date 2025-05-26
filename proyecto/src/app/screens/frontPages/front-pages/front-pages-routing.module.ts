@@ -22,7 +22,11 @@ const routes: Routes = [
   {path: 'homeAdmin', component: HomeAdminPageComponent},
   { path: 'login', component: LoginClienteComponent },
   { path: 'registro', component: RegistroClienteComponent },
-  { path: 'comoLlegar', component: ComoLlegarComponent },
+  {
+  path: 'comoLlegar/:lat/:lng',
+  component: ComoLlegarComponent
+  }
+,
   { path: 'menu', component: MenuGeneralComponent },
   { path: 'editarPerfil' , component: EditarPerfilComponent},
   { path: 'historialPedidos', component: HistorialPedidosComponent},
