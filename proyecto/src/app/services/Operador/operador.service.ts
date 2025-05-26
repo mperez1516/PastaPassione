@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Operador } from 'src/app/entidades/operador/operador';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,8 @@ export class OperadorService {
 
   constructor(private http: HttpClient) {}
 
-  loginOperador(usuario: string, contrasena: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/loginOperador`, {
-      usuario,
-      contrasena
-    });
+  loginOperador(operador: Operador): Observable<Operador> {
+    return this.http.post<Operador>(`${this.baseUrl}/loginOperador`, operador);
   }
 
   obtenerOperadores(): Observable<any[]> {

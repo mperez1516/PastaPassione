@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Administrador } from 'src/app/entidades/administrador/administrador';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -14,23 +15,27 @@ export class LoginAdminComponent {
 
   constructor(private adminService: AdminService, private router: Router) {}
 
-  login(): void {
-    const datosLogin = {
-      usuario: this.usuario,
-      contrasena: this.contrasena
-    };
-  
-    this.adminService.loginAdmin(datosLogin).subscribe({
-      next: (res) => {
-        console.log('Login exitoso', res);
-        localStorage.setItem('admin', JSON.stringify(res.admin)); // ⬅️ Guardar sesión
-        this.router.navigate(['/homeAdmin']);
-      },
-      error: (err) => {
-        console.error('Error en login:', err);
-        this.error = err.error?.error || 'Error desconocido';
-      }
-    });
+  //Modelo 
+  formAdmin: Administrador = {
+    usuario: '',
+    contrasena: '',
+    id: 0,
+    nombre: '',
+    apellido: ''
   }
-  
+  login(form: any) {
+    this.adminService.loginAdmin(this.formAdmin).subscribe(
+      (data) => {
+        this.router.navigate(['/homeAdmin']);
+        console.log('Login exitoso:', data);
+      },
+
+      (error) => {
+        console.log(error.error);
+        console.log(error.status);
+      }
+
+    );
+  }
+
 }

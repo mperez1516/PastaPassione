@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cliente } from 'src/app/entidades/cliente/cliente';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 
 @Component({
@@ -9,12 +10,12 @@ import { ClienteService } from 'src/app/services/cliente/cliente.service';
 })
 export class AgregarClienteComponent {
   // Inicializa el objeto cliente
-  cliente = {
+  cliente: Cliente = {
     nombre: '',
     apellido: '',
     correo: '',
-    direccion: '',
-    telefono: '',
+    direccion: 0,
+    telefono: 0,
     contrasena: ''
   };
 

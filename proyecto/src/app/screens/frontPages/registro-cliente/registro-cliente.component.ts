@@ -33,7 +33,7 @@ export class RegistroClienteComponent {
     this.clienteService.registrarCliente(this.cliente).subscribe({
       next: () => {
         this.exito = '¡Registro exitoso! Ahora puedes iniciar sesión.';
-        this.router.navigate(['/loginCliente']);
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         this.error = 'Error al registrar cliente';

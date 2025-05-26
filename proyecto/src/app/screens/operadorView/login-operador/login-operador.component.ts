@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Operador } from 'src/app/entidades/operador/operador';
 import { OperadorService } from 'src/app/services/Operador/operador.service';
 
 @Component({
@@ -8,22 +9,32 @@ import { OperadorService } from 'src/app/services/Operador/operador.service';
   styleUrls: ['./login-operador.component.css']
 })
 export class LoginOperadorComponent {
-  usuario: string = '';
-  contrasena: string = '';
+
   error: string = '';
 
   constructor(private operadorService: OperadorService, private router: Router) {}
 
-  login(): void {
-    this.operadorService.loginOperador(this.usuario, this.contrasena).subscribe({
-      next: (res) => {
-        console.log('Login exitoso', res);
+  //Modelo
+  formOperador: Operador = {
+    usuario: '',
+    contrasena: '',
+    nombre: '',
+    idOperador: 0   
+  };
+
+  login(form: any){
+
+       this.operadorService.loginOperador(this.formOperador).subscribe(
+      (data) => {
         this.router.navigate(['/operador/ver-pedidos']);
+        console.log('Login exitoso:', data);
       },
-      error: (err) => {
-        console.error('Error en login:', err);
-        this.error = err.error.error || 'Error desconocido';
+
+      (error) => {
+        console.log(error.error);
+        console.log(error.status);
       }
-    });
+
+    );
   }
 }

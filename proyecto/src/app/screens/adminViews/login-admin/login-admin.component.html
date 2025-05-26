@@ -13,22 +13,22 @@
   <div class="container">
     <div class="login-box">
       <div class="image-container left">
-        <img src="assets/Imagenes/menu/platoprincipal/Pizza-Prosciutto.jpg" alt="Pizza" />
+        <img src="assets/Imagenes/menu/platoprincipal/pizza-prosciutto.jpg" alt="Pizza" />
       </div>
   
       <div class="form-container">
         <h2 class="title">Login Administrador</h2>
         <p class="subtitle">Bienvenido, por favor ingresa tus credenciales.</p>
   
-        <form (ngSubmit)="login()">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <div class="input-group">
             <label>Usuario</label>
-            <input type="text" name="usuario" [(ngModel)]="usuario" required />
+            <input type="text" name="usuario" [(ngModel)]="formAdmin.usuario" required />
           </div>
   
           <div class="input-group">
             <label>Contraseña</label>
-            <input type="password" name="contrasena" [(ngModel)]="contrasena" required />
+            <input type="password" name="contrasena" [(ngModel)]="formAdmin.contrasena" required />
           </div>
   
           <p style="color: red;" *ngIf="error">{{ error }}</p>
@@ -37,7 +37,7 @@
       </div>
   
       <div class="image-container right">
-        <img src="assets/Imagenes/menu/platoprincipal/Pizza-Margherita.jpg" alt="Pizza" />
+        <img src="assets/Imagenes/menu/platoprincipal/pizza-margherita.jpg" alt="Pizza" />
       </div>
     </div>
   </div>

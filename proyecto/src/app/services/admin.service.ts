@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Administrador } from '../entidades/administrador/administrador';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
-  loginAdmin(datos: { usuario: string; contrasena: string }): Observable<any> {
-    return this.http.post(this.url, datos);
+  loginAdmin(admin: Administrador): Observable<Administrador> {
+    return this.http.post<Administrador>(this.url, admin);
   }
 }
