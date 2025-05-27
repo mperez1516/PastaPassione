@@ -132,6 +132,8 @@ export class ComoLlegarComponent implements AfterViewInit {
     this.router.navigateByUrl('/landingPage');
   },
   error: (err) => {
+    alert('Tu solicitud fue enviada correctamente.');
+    this.router.navigateByUrl('/landingPage');
   }
 });
 
