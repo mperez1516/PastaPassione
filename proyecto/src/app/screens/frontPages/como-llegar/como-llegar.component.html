@@ -3,5 +3,29 @@
 <div class="map-container">
   <div id="map"></div>
 </div>
+<form [formGroup]="formularioReserva" (ngSubmit)="enviarReserva()" enctype="multipart/form-data" class="mt-4">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" class="form-control" formControlName="nombre" required>
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="correo">Correo</label>
+    <input type="email" id="correo" class="form-control" formControlName="correo" required>
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="telefono">Teléfono</label>
+    <input type="text" id="telefono" class="form-control" formControlName="telefono" required>
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" rows="3" class="form-control" formControlName="mensaje" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Enviar reserva</button>
+</form>
+
 
  <app-footer> </app-footer>

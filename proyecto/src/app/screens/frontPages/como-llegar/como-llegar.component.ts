@@ -1,6 +1,8 @@
 /// <reference types="google.maps" />
 import { Component, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 declare global {
   interface Window {
@@ -16,12 +18,24 @@ declare global {
 })
 export class ComoLlegarComponent implements AfterViewInit {
 
-  sedeLatLng = { lat: 4.6482837, lng: -74.2478942 }; // Valor por defecto
+  sedeLatLng = { lat: 4.6482837, lng: -74.2478942 };
+  formularioReserva: FormGroup;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {
+    this.formularioReserva = this.fb.group({
+      nombre: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
+      telefono: ['', Validators.required],
+      mensaje: ['', Validators.required]
+    });
+  }
 
   ngAfterViewInit(): void {
-    // Obtener coordenadas desde la URL
     const lat = parseFloat(this.route.snapshot.paramMap.get('lat') || '');
     const lng = parseFloat(this.route.snapshot.paramMap.get('lng') || '');
 
@@ -29,7 +43,6 @@ export class ComoLlegarComponent implements AfterViewInit {
       this.sedeLatLng = { lat, lng };
     }
 
-    // Esperamos que el script de Google Maps haya cargado
     if ((window as any).google && google.maps) {
       this.initMap();
     } else {
@@ -86,5 +99,29 @@ export class ComoLlegarComponent implements AfterViewInit {
     } else {
       alert("Tu navegador no soporta geolocalización.");
     }
+  }
+
+  enviarReserva(): void {
+    if (this.formularioReserva.invalid) {
+      alert('Por favor complete todos los campos.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('nombre', this.formularioReserva.get('nombre')?.value);
+    formData.append('correo', this.formularioReserva.get('correo')?.value);
+    formData.append('telefono', this.formularioReserva.get('telefono')?.value);
+    formData.append('mensaje', this.formularioReserva.get('mensaje')?.value);
+
+    this.http.post('http://localhost:8000/contacto/reserva', formData, { observe: 'response' }).subscribe({
+  next: (response) => {
+    console.log('Respuesta completa:', response);
+    alert('Tu solicitud fue enviada correctamente.');
+    this.router.navigateByUrl('/landingPage');
+  },
+  error: (err) => {
+  }
+});
+
   }
 }
