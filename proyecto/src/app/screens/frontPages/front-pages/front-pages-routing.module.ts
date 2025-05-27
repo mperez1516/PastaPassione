@@ -19,7 +19,9 @@ const routes: Routes = [
   { path: 'landingPage', component: LandingPageComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'homeCliente', component: HomeClientePageComponent },
-  {path: 'homeAdmin', component: HomeAdminPageComponent},
+  { path: 'cliente/home', component: HomeClientePageComponent },
+  { path: 'homeAdmin', component: HomeAdminPageComponent },
+  { path: 'admin/home', component: HomeAdminPageComponent },
   { path: 'login', component: LoginClienteComponent },
   { path: 'registro', component: RegistroClienteComponent },
   {

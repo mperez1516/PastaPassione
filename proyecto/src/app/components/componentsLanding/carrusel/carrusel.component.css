@@ -5,11 +5,12 @@
     border: #1f1408 solid 1.5px;
     margin-top: -23px;
     padding: 20px 5%; /* Espacio interno con % para ajustarse a la página */
-    width: 100%;
+    width: 102%;
 }
 
 /*---CARUSEL DE PLATOS---*/
 .carusel {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     margin-left: -15px;
@@ -107,8 +108,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -100px;
-    margin-bottom: 30px;
+    margin-top: -30px;
+    margin-bottom: 20px;
 }
 
 #vermas {
@@ -128,8 +129,14 @@
     border: rgb(89 32 25) solid 1.5px;
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
 #vermas:hover {
-    background-color: #f3cbb8;
+    animation: pulse 0.6s ease;
     color: var(--md-sys-color-primary);
 }
 

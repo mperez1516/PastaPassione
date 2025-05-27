@@ -23,14 +23,14 @@
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <div class="input-group">
             <label>Usuario</label>
-            <input type="text" name="usuario" [(ngModel)]="formAdmin.usuario" required />
+            <input type="text" name="usuario" [(ngModel)]="formUser.correo" required />
           </div>
   
           <div class="input-group">
             <label>Contraseña</label>
-            <input type="password" name="contrasena" [(ngModel)]="formAdmin.contrasena" required />
+            <input type="password" name="contrasena" [(ngModel)]="formUser.password" required />
           </div>
-  
+
           <p style="color: red;" *ngIf="error">{{ error }}</p>
           <button type="submit" class="btn">Iniciar Sesión</button>
         </form>

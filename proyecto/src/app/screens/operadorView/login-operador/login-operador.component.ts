@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Operador } from 'src/app/entidades/operador/operador';
+import { User } from 'src/app/entidades/user';
 import { OperadorService } from 'src/app/services/Operador/operador.service';
 
 @Component({
@@ -15,18 +16,17 @@ export class LoginOperadorComponent {
   constructor(private operadorService: OperadorService, private router: Router) {}
 
   //Modelo
-  formOperador: Operador = {
-    usuario: '',
-    contrasena: '',
-    nombre: '',
-    idOperador: 0   
+  formUser: User = {
+    correo: '',
+    password: ''
   };
 
   login(form: any){
 
-       this.operadorService.loginOperador(this.formOperador).subscribe(
+       this.operadorService.loginOperador(this.formUser).subscribe(
       (data) => {
-        this.router.navigate(['/operador/ver-pedidos']);
+        localStorage.setItem('token', String(data));
+        this.router.navigate(['/operador/home']);
         console.log('Login exitoso:', data);
       },
 

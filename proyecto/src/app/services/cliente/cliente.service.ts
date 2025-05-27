@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Cliente } from 'src/app/entidades/cliente/cliente';
+import { User } from 'src/app/entidades/user';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,10 @@ export class ClienteService {
   /**
    * Envía las credenciales de login y retorna la respuesta.
    */
-  login(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(`${this.baseUrl}/login`, cliente);
+  login(user : User): Observable<String> {
+    return this.http.post(`${this.baseUrl}/login`, user,
+      { responseType: 'text' }
+    );
   }
 
   /**
@@ -84,5 +87,12 @@ export class ClienteService {
   logout(): void {
     localStorage.removeItem('cliente');
   }
+
+  //Metodo para llevar al homePage 
+  clienteHome(): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.baseUrl}/cliente/details`);
+    
+  } 
+
 
 }

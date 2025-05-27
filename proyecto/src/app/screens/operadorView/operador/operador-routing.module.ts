@@ -5,6 +5,7 @@ import { LoginOperadorComponent } from '../login-operador/login-operador.compone
 
 const routes: Routes = [
   { path: 'ver-pedidos', component: VerPedidosComponent },
+  { path: 'operador/home', component: VerPedidosComponent }, 
   { path: 'loginOperador', component: LoginOperadorComponent },
 ];
 @NgModule({

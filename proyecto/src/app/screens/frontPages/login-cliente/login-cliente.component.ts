@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/entidades/cliente/cliente';
+import { User } from 'src/app/entidades/user';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 
 @Component({
@@ -15,19 +16,16 @@ export class LoginClienteComponent {
   constructor(private router: Router, private clienteService: ClienteService){}
 
   //Modelo
-  formCliente: Cliente = {
+  formUser: User = {
     correo: '',
-    contrasena: '',
-    nombre: '',
-    apellido: '',
-    telefono: 0,
-    direccion: 0
-  }
+    password: '',
+  };
 
   login(form: any) {
-    this.clienteService.login(this.formCliente).subscribe(
+    this.clienteService.login(this.formUser).subscribe(
       (data) => {
-        this.router.navigate(['/homeCliente']);
+        localStorage.setItem('token', String(data));
+        this.router.navigate(['/cliente/home']);
         console.log('Login exitoso:', data);
       },
       (error) => {

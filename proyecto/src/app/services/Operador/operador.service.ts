@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Operador } from 'src/app/entidades/operador/operador';
+import { User } from 'src/app/entidades/user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,9 @@ export class OperadorService {
 
   constructor(private http: HttpClient) {}
 
-  loginOperador(operador: Operador): Observable<Operador> {
-    return this.http.post<Operador>(`${this.baseUrl}/loginOperador`, operador);
+  loginOperador(user: User): Observable<String> {
+    return this.http.post(`${this.baseUrl}/loginOperador`, user, 
+      { responseType: 'text' });
   }
 
   obtenerOperadores(): Observable<any[]> {
@@ -37,6 +39,10 @@ export class OperadorService {
 
   crearOperador(operador: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/crear`, operador);
+  }
+
+  homeOperador(): Observable<Operador> {
+    return this.http.get<Operador>(`${this.baseUrl}/Operador/details`);
   }
   
 

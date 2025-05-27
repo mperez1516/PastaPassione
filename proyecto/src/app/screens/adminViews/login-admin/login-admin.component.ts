@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Administrador } from 'src/app/entidades/administrador/administrador';
+import { User } from 'src/app/entidades/user';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -16,17 +17,16 @@ export class LoginAdminComponent {
   constructor(private adminService: AdminService, private router: Router) {}
 
   //Modelo 
-  formAdmin: Administrador = {
-    usuario: '',
-    contrasena: '',
-    id: 0,
-    nombre: '',
-    apellido: ''
+  formUser: User = {
+    correo: '',
+    password: '',
   }
+
   login(form: any) {
-    this.adminService.loginAdmin(this.formAdmin).subscribe(
+    this.adminService.loginAdmin(this.formUser).subscribe(
       (data) => {
-        this.router.navigate(['/homeAdmin']);
+        localStorage.setItem('token', String(data));
+        this.router.navigate(['/admin/home']);
         console.log('Login exitoso:', data);
       },
 
