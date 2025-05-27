@@ -17,9 +17,13 @@ declare global {
   styleUrls: ['./como-llegar.component.css']
 })
 export class ComoLlegarComponent implements AfterViewInit {
-
   sedeLatLng = { lat: 4.6482837, lng: -74.2478942 };
+  selectedTravelMode: google.maps.TravelMode = google.maps.TravelMode.DRIVING;
+  tiempoEstimado: string | null = null;
+
+ // sedeLatLng = { lat: 4.6482837, lng: -74.2478942 };
   formularioReserva: FormGroup;
+    google = google; 
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +52,11 @@ export class ComoLlegarComponent implements AfterViewInit {
     } else {
       (window as any).initMap = () => this.initMap();
     }
+  }
+
+  setTravelMode(mode: google.maps.TravelMode): void {
+    this.selectedTravelMode = mode;
+    this.initMap(); // recarga la ruta
   }
 
   initMap(): void {
@@ -82,17 +91,20 @@ export class ComoLlegarComponent implements AfterViewInit {
         const request: google.maps.DirectionsRequest = {
           origin: userLocation,
           destination: this.sedeLatLng,
-          travelMode: google.maps.TravelMode.DRIVING
+          travelMode: this.selectedTravelMode
         };
 
         directionsService.route(request, (result, status) => {
           if (status === google.maps.DirectionsStatus.OK && result) {
             directionsRenderer.setDirections(result);
+
+            const leg = result.routes[0].legs[0];
+            this.tiempoEstimado = `Distancia: ${leg.distance?.text} - Tiempo estimado: ${leg.duration?.text}`;
           } else {
+            this.tiempoEstimado = null;
             alert("No se pudo obtener la ruta: " + status);
           }
         });
-
       }, error => {
         alert("No se pudo obtener tu ubicación.");
       });
