@@ -1,47 +1,60 @@
+/* Estilos generales del contenedor compacto */
 .container {
-    padding: 20px;
+    padding: 15px;
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    max-width: 900px; /* Ancho máximo reducido */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+/* Estilos para títulos */
+h1, h2, h3 {
+    color: #c19a6b;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 h1 {
-    color: #c19a6b;
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 2rem; /* Título más pequeño */
 }
 
-/* Estilos para el buscador */
+/* Estilos para el buscador compacto */
 #searchInput {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #c19a6b;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-bottom: 20px;
+    padding: 8px;
+    border: 1px solid #c19a6b;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
 }
 
-/* Estilos para la tabla */
+/* Estilos para tablas compactas */
 .table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 0.9rem; /* Tamaño de fuente reducido */
 }
 
 .table th, .table td {
-    padding: 12px;
+    padding: 8px 10px; /* Espaciado reducido */
     text-align: center;
     border: 1px solid #ddd;
 }
 
-.table thead {
-    background-color: #e07a5f;
+.table th {
+    font-weight: bold;
+    background-color: rgb(89, 32, 25);
     color: white;
+    font-size: 0.85rem; /* Encabezados más pequeños */
+}
+
+.table thead {
+    background-color: rgb(89, 32, 25);
 }
 
 .table tbody tr:nth-child(even) {
@@ -50,38 +63,68 @@ h1 {
 
 .table tbody tr:hover {
     background-color: #f2cc8f;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
-/* Estilos para los botones de acciones */
+/* Botones compactos pero visibles */
 .btn {
-    padding: 5px 10px;
+    padding: 6px 12px; /* Tamaño reducido */
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9rem;
-    margin: 2px;
+    font-size: 0.85rem; /* Fuente más pequeña */
+    margin: 3px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px; /* Ancho ligeramente reducido */
+}
+
+.btn i {
+    margin-right: 4px;
+    font-size: 0.8rem; /* Iconos más pequeños */
 }
 
 .btn-primary {
-    background-color: rgb(189, 69, 54);
+    background-color: rgb(89, 32, 25);
     color: white;
+    text-decoration: none;
 }
 
 .btn-primary:hover {
-    background-color: rgb(89 32 25);
+    background-color: rgb(51, 12, 6);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .btn-danger {
-    background-color: #c19a6b;
+    background-color: #8B0000;
     color: white;
 }
 
 .btn-danger:hover {
-    background-color: #866337;
+    background-color: #6B0000;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Estilos para la paginación */
+.btn-success {
+    background-color: rgb(89, 32, 25);
+    color: white;
+    border-radius: 4px;
+    padding: 8px 20px;
+    margin-top: 30px;
+    font-size: 0.95rem;
+}
+
+.btn-success:hover {
+    background-color: #4A1C28;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la paginación mejorada */
 .pagination-container {
     width: 100%;
     display: flex;
@@ -91,62 +134,127 @@ h1 {
 
 .pagination {
     display: flex;
-    justify-content: center;
+    gap: 10px; /* Espacio entre botones */
     align-items: center;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .page-item {
-    margin: 0 5px;
+    margin: 0;
 }
 
 .page-link {
-    padding: 8px 12px;
-    border: 1px solid #e07a5f;
+    padding: 8px 20px;
+    border: 1px solid rgb(89, 32, 25);
     border-radius: 5px;
-    color: #e07a5f;
+    color: rgb(89, 32, 25);
     background-color: white;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 100px; /* Ancho consistente para ambos botones */
+    text-align: center;
 }
 
 .page-link:hover {
-    background-color: rgb(89 32 25);
+    background-color: rgb(89, 32, 25);
     color: white;
-}
-
-.page-item.active .page-link {
-    background-color: rgb(89 32 25);
-    color: white;
-    border-color: rgb(89 32 25);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .page-item.disabled .page-link {
-    color: #ddd;
+    color: #aaa;
     border-color: #ddd;
+    background-color: #f5f5f5;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
-/* Estilos para el botón personalizado */
-.btn-success {
-    background-color: rgb(189, 69, 54);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-success:hover {
-    background-color: rgb(89 32 25);
-}
-
-/* Ensure the container for the button is centered */
-.text-center {
+/* Estilo especial para los botones de navegación */
+.page-nav {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.page-nav-btn {
+    padding: 8px 25px;
+    border: 2px solid rgb(89, 32, 25);
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(89, 32, 25);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.page-nav-btn:hover {
+    background-color: rgb(89, 32, 25);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.page-nav-btn:disabled {
+    border-color: #ccc;
+    color: #ccc;
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 6px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .table th, .table td {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .btn {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        min-width: 60px;
+    }
+    
+    #searchInput {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Estilo para columnas específicas */
+.table td:nth-child(3) { /* Columna de precio */
+    font-weight: bold;
+    color: rgb(89, 32, 25);
+}
+
+.table td:nth-child(4) { /* Columna de tipo */
+    font-style: italic;
+    color: #555;
+}
+
+/* Hacer la columna de acciones más compacta */
+.table td:last-child {
+    white-space: nowrap;
 }

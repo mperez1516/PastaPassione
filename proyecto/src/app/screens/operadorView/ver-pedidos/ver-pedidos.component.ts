@@ -26,6 +26,7 @@ export class VerPedidosComponent implements OnInit {
   }
 
   cargarPedidos(): void {
+    console.log('Cargando pedidos...');
     this.pedidoService.obtenerPedidos().subscribe({
       next: (data) => {
         this.pedidos = data;
