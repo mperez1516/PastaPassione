@@ -1,261 +1,175 @@
-/* Estilos generales del contenedor compacto */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
-    padding: 15px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
-    max-width: 900px; /* Ancho máximo reducido */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px; /* MÁS SEPARACIÓN ENTRE MAPA Y FORMULARIO */
+  max-width: 1200px;
+  margin: 100px auto 0 auto;
+  flex-grow: 1;
 }
 
-/* Estilos para títulos */
-h1, h2, h3 {
-    color: #c19a6b;
-    text-align: center;
-    margin-bottom: 15px;
+.map-container {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    font-size: 2rem; /* Título más pequeño */
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
 }
 
-/* Estilos para el buscador compacto */
-#searchInput {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #c19a6b;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+.transport-options {
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 999;
 }
 
-/* Estilos para tablas compactas */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 15px;
-    font-size: 0.9rem; /* Tamaño de fuente reducido */
+.transport-options button {
+  margin: 0 4px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.table th, .table td {
-    padding: 8px 10px; /* Espaciado reducido */
-    text-align: center;
-    border: 1px solid #ddd;
+.transport-options button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
 }
 
-.table th {
-    font-weight: bold;
-    background-color: rgb(89, 32, 25);
-    color: white;
-    font-size: 0.85rem; /* Encabezados más pequeños */
+.transport-options button.selected {
+  background-color: #4caf50;
+  color: white;
 }
 
-.table thead {
-    background-color: rgb(89, 32, 25);
+.info-cuadro {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #fff8e1;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  z-index: 999;
+  color: #333;
 }
 
-.table tbody tr:nth-child(even) {
-    background-color: #f8f3e6;
+form {
+  width: 100%;
+  max-width: 400px;
+  padding: 25px 30px;
+  border: 1px solid #591f19;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.table tbody tr:hover {
-    background-color: #f2cc8f;
-    transition: background-color 0.2s ease;
+.form-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(89, 32, 25);
+  text-align: center;
 }
 
-/* Botones compactos pero visibles */
-.btn {
-    padding: 6px 12px; /* Tamaño reducido */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem; /* Fuente más pequeña */
-    margin: 3px;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 70px; /* Ancho ligeramente reducido */
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+  color: #591f19;
 }
 
-.btn i {
-    margin-right: 4px;
-    font-size: 0.8rem; /* Iconos más pequeños */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease;
+  font-size: 14px;
+  background-color: #fdfdfd;
 }
 
-.btn-primary {
-    background-color: rgb(89, 32, 25);
-    color: white;
-    text-decoration: none;
-    font-style: normal;
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #591f19;
+  box-shadow: 0 0 5px rgba(89, 32, 25, 0.3);
+  outline: none;
 }
 
-.btn-primary:hover {
-    background-color: rgb(51, 12, 6);
-    transform: translateY(-1px);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
-.btn-danger {
-    background-color: #8B0000;
-    color: white;
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background-color: rgb(89, 32, 25);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
-.btn-danger:hover {
-    background-color: #6B0000;
-    transform: translateY(-1px);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+button[type="submit"]:hover {
+  background-color: #3c1611;
+  transform: translateY(-2px);
 }
 
-.btn-success {
-    background-color: rgb(89, 32, 25);
-    color: white;
-    border-radius: 4px;
-    padding: 8px 20px;
-    margin-top: 30px;
-    font-size: 0.95rem;
+app-footer {
+  flex-shrink: 0;
 }
 
-.btn-success:hover {
-    background-color: #4A1C28;
-    transform: translateY(-1px);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-/* Estilos para la paginación mejorada */
-.pagination-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.pagination {
-    display: flex;
-    gap: 10px; /* Espacio entre botones */
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.page-item {
-    margin: 0;
-}
-
-.page-link {
-    padding: 8px 20px;
-    border: 1px solid rgb(89, 32, 25);
-    border-radius: 5px;
-    color: rgb(89, 32, 25);
-    background-color: white;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    min-width: 100px; /* Ancho consistente para ambos botones */
-    text-align: center;
-}
-
-.page-link:hover {
-    background-color: rgb(89, 32, 25);
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.page-item.disabled .page-link {
-    color: #aaa;
-    border-color: #ddd;
-    background-color: #f5f5f5;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-/* Estilo especial para los botones de navegación */
-.page-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.page-nav-btn {
-    padding: 8px 25px;
-    border: 2px solid rgb(89, 32, 25);
-    border-radius: 5px;
-    background-color: white;
-    color: rgb(89, 32, 25);
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-}
-
-.page-nav-btn:hover {
-    background-color: rgb(89, 32, 25);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-}
-
-.page-nav-btn:disabled {
-    border-color: #ccc;
-    color: #ccc;
-    background-color: #f9f9f9;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-/* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-    .container {
-        padding: 10px;
-        margin-top: 20px;
-        border-radius: 6px;
-    }
-    
-    h1 {
-        font-size: 1.6rem;
-    }
-    
-    .table th, .table td {
-        padding: 6px 8px;
-        font-size: 0.8rem;
-    }
-    
-    .btn {
-        padding: 5px 8px;
-        font-size: 0.75rem;
-        min-width: 60px;
-    }
-    
-    #searchInput {
-        padding: 6px;
-        font-size: 0.8rem;
-    }
-}
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Estilo para columnas específicas */
-.table td:nth-child(3) { /* Columna de precio */
-    font-weight: bold;
-    color: rgb(89, 32, 25);
-}
+  .map-container,
+  form {
+    max-width: 100%;
+    width: 100%;
+  }
 
-.table td:nth-child(4) { /* Columna de tipo */
-    font-style: italic;
-    color: #555;
-}
+  .transport-options {
+    bottom: 50px;
+  }
 
-/* Hacer la columna de acciones más compacta */
-.table td:last-child {
-    white-space: nowrap;
+  .info-cuadro {
+    bottom: 0;
+  }
 }
