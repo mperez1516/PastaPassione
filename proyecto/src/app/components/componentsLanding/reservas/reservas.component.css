@@ -114,4 +114,27 @@
     opacity: 1;
     animation: bounce 3s infinite ease-in-out;
 }
+/* Existing .reserva styles (unchanged) */
+.reserva {
+    background-color: #d4ad66;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+/* Ensure <a> tag doesn't interfere with button styling */
+.reservaDescripcion a {
+    text-decoration: none; /* Remove underline from link */
+    display: inline-block; /* Ensure proper spacing */
+    margin-top: 10px; /* Match spacing with Reservar button */
+}
+
+.reserva:hover {
+    background-color: #b78c4d; /* Slightly darker on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
