@@ -15,13 +15,14 @@ body {
   flex-wrap: wrap;
   gap: 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 200px auto 0 auto; /* AQUI SE AÑADE EL ESPACIO ARRIBA */
   flex-grow: 1;
 }
 
+
 .map-container {
   position: relative;
-  height: 400px;
+  height: 500px;
   width: 100%;
   max-width: 600px;
   border: 2px solid #ddd;
@@ -84,7 +85,7 @@ body {
 form {
   width: 100%;
   max-width: 400px;
-  padding: 25px;
+  padding: 25px 30px;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   background-color: #ffffff;
