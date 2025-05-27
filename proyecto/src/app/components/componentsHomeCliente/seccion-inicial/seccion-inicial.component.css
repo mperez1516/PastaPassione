@@ -75,9 +75,17 @@
 
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
 #ordenar:hover{
     background-color: #600000;
     border: #c19a6b solid 1.5px;
+    animation: pulse 0.6s ease;
 }
 
 
